@@ -1,7 +1,9 @@
 package mx.com.sharkit.security;
 
-import java.util.Optional;
 import mx.com.sharkit.config.Constants;
+
+import java.util.Optional;
+
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 

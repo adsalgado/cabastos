@@ -6,6 +6,7 @@ import java.time.Instant;
  * DTO for storing a user's activity.
  */
 public class ActivityDTO {
+
     private String sessionId;
 
     private String userLogin;
@@ -56,7 +57,6 @@ public class ActivityDTO {
         this.time = time;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "ActivityDTO{" +

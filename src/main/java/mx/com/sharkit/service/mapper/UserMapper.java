@@ -1,11 +1,13 @@
 package mx.com.sharkit.service.mapper;
 
-import java.util.*;
-import java.util.stream.Collectors;
 import mx.com.sharkit.domain.Authority;
 import mx.com.sharkit.domain.User;
 import mx.com.sharkit.service.dto.UserDTO;
+
 import org.springframework.stereotype.Service;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
@@ -17,7 +19,10 @@ import org.springframework.stereotype.Service;
 public class UserMapper {
 
     public List<UserDTO> usersToUserDTOs(List<User> users) {
-        return users.stream().filter(Objects::nonNull).map(this::userToUserDTO).collect(Collectors.toList());
+        return users.stream()
+            .filter(Objects::nonNull)
+            .map(this::userToUserDTO)
+            .collect(Collectors.toList());
     }
 
     public UserDTO userToUserDTO(User user) {
@@ -25,7 +30,10 @@ public class UserMapper {
     }
 
     public List<User> userDTOsToUsers(List<UserDTO> userDTOs) {
-        return userDTOs.stream().filter(Objects::nonNull).map(this::userDTOToUser).collect(Collectors.toList());
+        return userDTOs.stream()
+            .filter(Objects::nonNull)
+            .map(this::userDTOToUser)
+            .collect(Collectors.toList());
     }
 
     public User userDTOToUser(UserDTO userDTO) {
@@ -37,31 +45,31 @@ public class UserMapper {
             user.setLogin(userDTO.getLogin());
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
+            user.setMotherLastName(userDTO.getMotherLastName());
+            user.setTelefono(userDTO.getTelefono());
+            user.setFechaNacimiento(userDTO.getFechaNacimiento());
             user.setEmail(userDTO.getEmail());
             user.setImageUrl(userDTO.getImageUrl());
             user.setActivated(userDTO.isActivated());
             user.setLangKey(userDTO.getLangKey());
-            Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
-            user.setAuthorities(authorities);
+            if (userDTO.getAuthorities()!= null && !userDTO.getAuthorities().isEmpty()) {
+                Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
+                user.setAuthorities(authorities);            	
+            }
             return user;
         }
     }
 
+
     private Set<Authority> authoritiesFromStrings(Set<String> authoritiesAsString) {
         Set<Authority> authorities = new HashSet<>();
 
-        if (authoritiesAsString != null) {
-            authorities =
-                authoritiesAsString
-                    .stream()
-                    .map(
-                        string -> {
-                            Authority auth = new Authority();
-                            auth.setName(string);
-                            return auth;
-                        }
-                    )
-                    .collect(Collectors.toSet());
+        if(authoritiesAsString != null){
+            authorities = authoritiesAsString.stream().map(string -> {
+                Authority auth = new Authority();
+                auth.setName(string);
+                return auth;
+            }).collect(Collectors.toSet());
         }
 
         return authorities;
