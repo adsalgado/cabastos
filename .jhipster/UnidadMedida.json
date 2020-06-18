@@ -1,0 +1,36 @@
+{
+  "name": "UnidadMedida",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "56"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "producto",
+      "otherEntityRelationshipName": "unidadMedida",
+      "relationshipName": "producto"
+    }
+  ],
+  "changelogDate": "20200618000615",
+  "entityTableName": "unidad_medida",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

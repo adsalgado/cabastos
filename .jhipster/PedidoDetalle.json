@@ -1,0 +1,51 @@
+{
+  "name": "PedidoDetalle",
+  "fields": [
+    {
+      "fieldName": "cantidad",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "totalSinIva",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pedido",
+      "otherEntityRelationshipName": "pedidoDetalle",
+      "relationshipName": "pedido",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "producto",
+      "otherEntityRelationshipName": "pedidoDetalle",
+      "relationshipName": "producto",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "estatus",
+      "otherEntityRelationshipName": "pedidoDetalle",
+      "relationshipName": "estatus",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200618002215",
+  "entityTableName": "pedido_detalle",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

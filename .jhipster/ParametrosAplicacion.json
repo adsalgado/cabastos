@@ -1,0 +1,37 @@
+{
+  "name": "ParametrosAplicacion",
+  "fields": [
+    {
+      "fieldName": "clave",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "128"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "adjunto",
+      "otherEntityRelationshipName": "parametrosAplicacion",
+      "relationshipName": "adjunto",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200618003615",
+  "entityTableName": "parametros_aplicacion",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

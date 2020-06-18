@@ -1,0 +1,37 @@
+{
+  "name": "UsuarioImagen",
+  "fields": [
+    {
+      "fieldName": "fechaAlta",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "usuarioImagen",
+      "relationshipName": "usuario",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "adjunto",
+      "otherEntityRelationshipName": "usuarioImagen",
+      "relationshipName": "adjunto",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200618003515",
+  "entityTableName": "usuario_imagen",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

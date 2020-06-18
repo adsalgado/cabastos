@@ -1,0 +1,42 @@
+{
+  "name": "CarritoHistorico",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "128"
+    },
+    {
+      "fieldName": "fechaAlta",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "carritoHistoricoDetalle",
+      "otherEntityRelationshipName": "carritoHistorico",
+      "relationshipName": "carritoHistoricoDetalle"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "carritoHistorico",
+      "relationshipName": "cliente",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200618001915",
+  "entityTableName": "carrito_historico",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
