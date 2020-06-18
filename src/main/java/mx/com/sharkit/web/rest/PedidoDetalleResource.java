@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -80,6 +81,7 @@ public class PedidoDetalleResource {
     /**
      * {@code GET  /pedido-detalles} : get all the pedidoDetalles.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of pedidoDetalles in body.
      */
     @GetMapping("/pedido-detalles")

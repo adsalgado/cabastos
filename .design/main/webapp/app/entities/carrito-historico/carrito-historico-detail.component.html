@@ -1,0 +1,36 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('849700170',$event)" [ngStyle]="__elementSelectionService.getStyles('849700170')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('300264682',$event)" [ngStyle]="__elementSelectionService.getStyles('300264682')">
+        <div *ngIf="carritoHistorico" (contextmenu)="__elementSelectionService.select('141755561',$event)" [ngStyle]="__elementSelectionService.getStyles('141755561')">
+            <h2 (contextmenu)="__elementSelectionService.select('1385691498',$event)" [ngStyle]="__elementSelectionService.getStyles('1385691498')"><span jhiTranslate="abastosApp.carritoHistorico.detail.title" (contextmenu)="__elementSelectionService.select('397050157',$event)" [ngStyle]="__elementSelectionService.getStyles('397050157')">Carrito Historico</span> {{ carritoHistorico.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('731180494',$event)" [ngStyle]="__elementSelectionService.getStyles('731180494')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('1003680345',$event)" [ngStyle]="__elementSelectionService.getStyles('1003680345')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('1449328864',$event)" [ngStyle]="__elementSelectionService.getStyles('1449328864')">
+                <dt (contextmenu)="__elementSelectionService.select('352538856',$event)" [ngStyle]="__elementSelectionService.getStyles('352538856')"><span jhiTranslate="abastosApp.carritoHistorico.nombre" (contextmenu)="__elementSelectionService.select('427111707',$event)" [ngStyle]="__elementSelectionService.getStyles('427111707')">Nombre</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('899243094',$event)" [ngStyle]="__elementSelectionService.getStyles('899243094')">
+                    <span (contextmenu)="__elementSelectionService.select('2066955781',$event)" [ngStyle]="__elementSelectionService.getStyles('2066955781')">{{ carritoHistorico.nombre }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1958262171',$event)" [ngStyle]="__elementSelectionService.getStyles('1958262171')"><span jhiTranslate="abastosApp.carritoHistorico.fechaAlta" (contextmenu)="__elementSelectionService.select('1146461178',$event)" [ngStyle]="__elementSelectionService.getStyles('1146461178')">Fecha Alta</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1003558090',$event)" [ngStyle]="__elementSelectionService.getStyles('1003558090')">
+                    <span (contextmenu)="__elementSelectionService.select('1500563107',$event)" [ngStyle]="__elementSelectionService.getStyles('1500563107')">{{ carritoHistorico.fechaAlta }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1750447227',$event)" [ngStyle]="__elementSelectionService.getStyles('1750447227')"><span jhiTranslate="abastosApp.carritoHistorico.cliente" (contextmenu)="__elementSelectionService.select('12024000',$event)" [ngStyle]="__elementSelectionService.getStyles('12024000')">Cliente</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('863193944',$event)" [ngStyle]="__elementSelectionService.getStyles('863193944')">
+                    <div *ngIf="carritoHistorico.clienteId" (contextmenu)="__elementSelectionService.select('1827259979',$event)" [ngStyle]="__elementSelectionService.getStyles('1827259979')">
+                        <a [routerLink]="['/cliente', carritoHistorico.clienteId, 'view']" (contextmenu)="__elementSelectionService.select('702173633',$event)" [ngStyle]="__elementSelectionService.getStyles('702173633')">{{ carritoHistorico.clienteId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('303058242',$event)" [ngStyle]="__elementSelectionService.getStyles('303058242')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('990965203',$event)" [ngStyle]="__elementSelectionService.getStyles('990965203')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('434745188',$event)" [ngStyle]="__elementSelectionService.getStyles('434745188')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/carrito-historico', carritoHistorico.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1657184705',$event)" [ngStyle]="__elementSelectionService.getStyles('1657184705')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1915521670',$event)" [ngStyle]="__elementSelectionService.getStyles('1915521670')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1324261221',$event)" [ngStyle]="__elementSelectionService.getStyles('1324261221')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

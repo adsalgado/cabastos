@@ -1,23 +1,29 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Recolector.
  */
 @Entity
 @Table(name = "recolector")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Recolector implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,18 +52,13 @@ public class Recolector implements Serializable {
     private User usuarioModificacion;
 
     @OneToMany(mappedBy = "recolector")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Pedido> pedidos = new HashSet<>();
-
-    @OneToMany(mappedBy = "recolector")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<RecolectorTarifa> recolectorTarifas = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "recolectors", allowSetters = true)
+    @JsonIgnoreProperties("recolectors")
     private Empresa empresa;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -131,31 +132,6 @@ public class Recolector implements Serializable {
         this.usuarioModificacion = user;
     }
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public Recolector pedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-        return this;
-    }
-
-    public Recolector addPedido(Pedido pedido) {
-        this.pedidos.add(pedido);
-        pedido.setRecolector(this);
-        return this;
-    }
-
-    public Recolector removePedido(Pedido pedido) {
-        this.pedidos.remove(pedido);
-        pedido.setRecolector(null);
-        return this;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
     public Set<RecolectorTarifa> getRecolectorTarifas() {
         return recolectorTarifas;
     }
@@ -193,7 +169,7 @@ public class Recolector implements Serializable {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -211,7 +187,6 @@ public class Recolector implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Recolector{" +

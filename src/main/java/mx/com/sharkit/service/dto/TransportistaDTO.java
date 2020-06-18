@@ -1,115 +1,154 @@
 package mx.com.sharkit.service.dto;
-
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Transportista} entity.
  */
 public class TransportistaDTO implements Serializable {
-    
+
     private Long id;
 
-    @NotNull
-    @Size(max = 128)
+    private UserDTO usuario;
+    
+	private Long usuarioId;
+
     private String nombre;
 
-    private Instant fechaAlta;
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fechaAlta;
 
-    private Instant fechaModificacion;
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fechaModificacion;
 
+	private Long usuarioAltaId;
 
-    private Long usuarioAltaId;
+	private Long usuarioModificacionId;
 
-    private Long usuarioModificacionId;
+	private Long empresaId;
 
-    private Long empresaId;
-    
+    private DireccionDTO direccion;
+
+    private Long direccionId;
+
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 
-    public Instant getFechaAlta() {
-        return fechaAlta;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setFechaAlta(Instant fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
+	public UserDTO getUsuario() {
+		return usuario;
+	}
 
-    public Instant getFechaModificacion() {
-        return fechaModificacion;
-    }
+	public void setUsuario(UserDTO usuario) {
+		this.usuario = usuario;
+	}
 
-    public void setFechaModificacion(Instant fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public Long getUsuarioAltaId() {
-        return usuarioAltaId;
-    }
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public void setUsuarioAltaId(Long userId) {
-        this.usuarioAltaId = userId;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    public Long getUsuarioModificacionId() {
-        return usuarioModificacionId;
-    }
+	public LocalDateTime getFechaModificacion() {
+		return fechaModificacion;
+	}
 
-    public void setUsuarioModificacionId(Long userId) {
-        this.usuarioModificacionId = userId;
-    }
+	public void setFechaModificacion(LocalDateTime fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
 
-    public Long getEmpresaId() {
-        return empresaId;
-    }
+	public Long getUsuarioAltaId() {
+		return usuarioAltaId;
+	}
 
-    public void setEmpresaId(Long empresaId) {
-        this.empresaId = empresaId;
-    }
+	public void setUsuarioAltaId(Long usuarioAltaId) {
+		this.usuarioAltaId = usuarioAltaId;
+	}
 
-    @Override
+	public Long getUsuarioModificacionId() {
+		return usuarioModificacionId;
+	}
+
+	public void setUsuarioModificacionId(Long usuarioModificacionId) {
+		this.usuarioModificacionId = usuarioModificacionId;
+	}
+
+	public Long getEmpresaId() {
+		return empresaId;
+	}
+
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
+	}
+
+	public DireccionDTO getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(DireccionDTO direccion) {
+		this.direccion = direccion;
+	}
+
+	public Long getDireccionId() {
+		return direccionId;
+	}
+
+	public void setDireccionId(Long direccionId) {
+		this.direccionId = direccionId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof TransportistaDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((TransportistaDTO) o).id);
+        TransportistaDTO transportistaDTO = (TransportistaDTO) o;
+        if (transportistaDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), transportistaDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "TransportistaDTO{" +
-            "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            ", fechaModificacion='" + getFechaModificacion() + "'" +
-            ", usuarioAltaId=" + getUsuarioAltaId() +
-            ", usuarioModificacionId=" + getUsuarioModificacionId() +
-            ", empresaId=" + getEmpresaId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "TransportistaDTO [id=" + id + ", usuarioId=" + usuarioId + ", nombre=" + nombre + ", fechaAlta="
+				+ fechaAlta + ", fechaModificacion=" + fechaModificacion + ", usuarioAltaId=" + usuarioAltaId
+				+ ", usuarioModificacionId=" + usuarioModificacionId + ", empresaId=" + empresaId + ", direccion="
+				+ direccion + ", direccionId=" + direccionId + "]";
+	}
+
 }

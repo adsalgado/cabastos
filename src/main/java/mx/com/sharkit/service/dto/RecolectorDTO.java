@@ -1,14 +1,14 @@
 package mx.com.sharkit.service.dto;
-
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Recolector} entity.
  */
 public class RecolectorDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -25,7 +25,7 @@ public class RecolectorDTO implements Serializable {
     private Long usuarioModificacionId;
 
     private Long empresaId;
-    
+
     public Long getId() {
         return id;
     }
@@ -87,19 +87,22 @@ public class RecolectorDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof RecolectorDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((RecolectorDTO) o).id);
+        RecolectorDTO recolectorDTO = (RecolectorDTO) o;
+        if (recolectorDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), recolectorDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "RecolectorDTO{" +
@@ -107,9 +110,9 @@ public class RecolectorDTO implements Serializable {
             ", nombre='" + getNombre() + "'" +
             ", fechaAlta='" + getFechaAlta() + "'" +
             ", fechaModificacion='" + getFechaModificacion() + "'" +
-            ", usuarioAltaId=" + getUsuarioAltaId() +
-            ", usuarioModificacionId=" + getUsuarioModificacionId() +
-            ", empresaId=" + getEmpresaId() +
+            ", usuarioAlta=" + getUsuarioAltaId() +
+            ", usuarioModificacion=" + getUsuarioModificacionId() +
+            ", empresa=" + getEmpresaId() +
             "}";
     }
 }

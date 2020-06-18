@@ -1,9 +1,12 @@
 package mx.com.sharkit.repository;
 
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import mx.com.sharkit.domain.Inventario;
 
-import org.springframework.data.jpa.repository.*;
-import org.springframework.stereotype.Repository;
 
 /**
  * Spring Data  repository for the Inventario entity.
@@ -11,4 +14,7 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface InventarioRepository extends JpaRepository<Inventario, Long> {
+
+	Optional<Inventario> findOneByProductoProveedorId(Long productoProveedorId);
+	
 }

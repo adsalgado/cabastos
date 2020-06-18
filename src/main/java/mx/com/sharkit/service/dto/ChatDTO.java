@@ -1,105 +1,125 @@
 package mx.com.sharkit.service.dto;
-
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Chat} entity.
  */
 public class ChatDTO implements Serializable {
-    
+
     private Long id;
+        
+    private Long pedidoProveedorId;
 
-    @NotNull
-    @Size(max = 512)
-    private String mensaje;
-
-    @NotNull
-    private Instant fecha;
-
-
-    private Long usuarioFuenteId;
-
-    private Long usuarioDestinoId;
-
-    private Long adjuntoId;
+    private TipoChatDTO tipoChat;
     
-    public Long getId() {
-        return id;
-    }
+    private Long tipoChatId;
+    
+    private String usuarioEmisorLogin;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String usuarioReceptorLogin;
+    
+    private List<ChatDetalleDTO> chatDetalles = new ArrayList<>();
 
-    public String getMensaje() {
-        return mensaje;
-    }
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    private LocalDateTime fecha;
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
+ 
+	public Long getId() {
+		return id;
+	}
 
-    public Instant getFecha() {
-        return fecha;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setFecha(Instant fecha) {
-        this.fecha = fecha;
-    }
+	public String getUsuarioEmisorLogin() {
+		return usuarioEmisorLogin;
+	}
 
-    public Long getUsuarioFuenteId() {
-        return usuarioFuenteId;
-    }
+	public void setUsuarioEmisorLogin(String usuarioEmisorLogin) {
+		this.usuarioEmisorLogin = usuarioEmisorLogin;
+	}
 
-    public void setUsuarioFuenteId(Long userId) {
-        this.usuarioFuenteId = userId;
-    }
+	public String getUsuarioReceptorLogin() {
+		return usuarioReceptorLogin;
+	}
 
-    public Long getUsuarioDestinoId() {
-        return usuarioDestinoId;
-    }
+	public void setUsuarioReceptorLogin(String usuarioReceptorLogin) {
+		this.usuarioReceptorLogin = usuarioReceptorLogin;
+	}
 
-    public void setUsuarioDestinoId(Long userId) {
-        this.usuarioDestinoId = userId;
-    }
+	public LocalDateTime getFecha() {
+		return fecha;
+	}
 
-    public Long getAdjuntoId() {
-        return adjuntoId;
-    }
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
+	}
 
-    public void setAdjuntoId(Long adjuntoId) {
-        this.adjuntoId = adjuntoId;
-    }
+	public Long getPedidoProveedorId() {
+		return pedidoProveedorId;
+	}
 
-    @Override
+	public void setPedidoProveedorId(Long pedidoProveedorId) {
+		this.pedidoProveedorId = pedidoProveedorId;
+	}
+
+	public TipoChatDTO getTipoChat() {
+		return tipoChat;
+	}
+
+	public void setTipoChat(TipoChatDTO tipoChat) {
+		this.tipoChat = tipoChat;
+	}
+
+	public Long getTipoChatId() {
+		return tipoChatId;
+	}
+
+	public void setTipoChatId(Long tipoChatId) {
+		this.tipoChatId = tipoChatId;
+	}
+
+	public List<ChatDetalleDTO> getChatDetalles() {
+		return chatDetalles;
+	}
+
+	public void setChatDetalles(List<ChatDetalleDTO> chatDetalles) {
+		this.chatDetalles = chatDetalles;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ChatDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((ChatDTO) o).id);
+        ChatDTO chatDTO = (ChatDTO) o;
+        if (chatDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), chatDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "ChatDTO{" +
-            "id=" + getId() +
-            ", mensaje='" + getMensaje() + "'" +
-            ", fecha='" + getFecha() + "'" +
-            ", usuarioFuenteId=" + getUsuarioFuenteId() +
-            ", usuarioDestinoId=" + getUsuarioDestinoId() +
-            ", adjuntoId=" + getAdjuntoId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "ChatDTO [id=" + id + ", pedidoProveedorId=" + pedidoProveedorId + ", tipoChatId=" + tipoChatId
+				+ ", usuarioEmisorLogin=" + usuarioEmisorLogin + ", usuarioReceptorLogin=" + usuarioReceptorLogin
+				+ ", fecha=" + fecha + "]";
+	}
+
 }

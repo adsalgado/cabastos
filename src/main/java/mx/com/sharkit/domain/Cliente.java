@@ -1,23 +1,26 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Cliente.
  */
 @Entity
 @Table(name = "cliente")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,35 +63,15 @@ public class Cliente implements Serializable {
     @JoinColumn(unique = true)
     private User usuarioModificacion;
 
-    @OneToMany(mappedBy = "cliente")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Tarjeta> tarjetas = new HashSet<>();
-
-    @OneToMany(mappedBy = "cliente")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Direccion> direccions = new HashSet<>();
-
-    @OneToMany(mappedBy = "cliente")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<CarritoCompra> carritoCompras = new HashSet<>();
-
-    @OneToMany(mappedBy = "cliente")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<CarritoHistorico> carritoHistoricos = new HashSet<>();
-
-    @OneToMany(mappedBy = "cliente")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Pedido> pedidos = new HashSet<>();
-
     @ManyToOne
-    @JsonIgnoreProperties(value = "clientes", allowSetters = true)
+    @JsonIgnoreProperties("clientes")
     private Estatus estatus;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "clientes", allowSetters = true)
+    @JsonIgnoreProperties("clientes")
     private Empresa empresa;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -201,131 +184,6 @@ public class Cliente implements Serializable {
         this.usuarioModificacion = user;
     }
 
-    public Set<Tarjeta> getTarjetas() {
-        return tarjetas;
-    }
-
-    public Cliente tarjetas(Set<Tarjeta> tarjetas) {
-        this.tarjetas = tarjetas;
-        return this;
-    }
-
-    public Cliente addTarjeta(Tarjeta tarjeta) {
-        this.tarjetas.add(tarjeta);
-        tarjeta.setCliente(this);
-        return this;
-    }
-
-    public Cliente removeTarjeta(Tarjeta tarjeta) {
-        this.tarjetas.remove(tarjeta);
-        tarjeta.setCliente(null);
-        return this;
-    }
-
-    public void setTarjetas(Set<Tarjeta> tarjetas) {
-        this.tarjetas = tarjetas;
-    }
-
-    public Set<Direccion> getDireccions() {
-        return direccions;
-    }
-
-    public Cliente direccions(Set<Direccion> direccions) {
-        this.direccions = direccions;
-        return this;
-    }
-
-    public Cliente addDireccion(Direccion direccion) {
-        this.direccions.add(direccion);
-        direccion.setCliente(this);
-        return this;
-    }
-
-    public Cliente removeDireccion(Direccion direccion) {
-        this.direccions.remove(direccion);
-        direccion.setCliente(null);
-        return this;
-    }
-
-    public void setDireccions(Set<Direccion> direccions) {
-        this.direccions = direccions;
-    }
-
-    public Set<CarritoCompra> getCarritoCompras() {
-        return carritoCompras;
-    }
-
-    public Cliente carritoCompras(Set<CarritoCompra> carritoCompras) {
-        this.carritoCompras = carritoCompras;
-        return this;
-    }
-
-    public Cliente addCarritoCompra(CarritoCompra carritoCompra) {
-        this.carritoCompras.add(carritoCompra);
-        carritoCompra.setCliente(this);
-        return this;
-    }
-
-    public Cliente removeCarritoCompra(CarritoCompra carritoCompra) {
-        this.carritoCompras.remove(carritoCompra);
-        carritoCompra.setCliente(null);
-        return this;
-    }
-
-    public void setCarritoCompras(Set<CarritoCompra> carritoCompras) {
-        this.carritoCompras = carritoCompras;
-    }
-
-    public Set<CarritoHistorico> getCarritoHistoricos() {
-        return carritoHistoricos;
-    }
-
-    public Cliente carritoHistoricos(Set<CarritoHistorico> carritoHistoricos) {
-        this.carritoHistoricos = carritoHistoricos;
-        return this;
-    }
-
-    public Cliente addCarritoHistorico(CarritoHistorico carritoHistorico) {
-        this.carritoHistoricos.add(carritoHistorico);
-        carritoHistorico.setCliente(this);
-        return this;
-    }
-
-    public Cliente removeCarritoHistorico(CarritoHistorico carritoHistorico) {
-        this.carritoHistoricos.remove(carritoHistorico);
-        carritoHistorico.setCliente(null);
-        return this;
-    }
-
-    public void setCarritoHistoricos(Set<CarritoHistorico> carritoHistoricos) {
-        this.carritoHistoricos = carritoHistoricos;
-    }
-
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public Cliente pedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-        return this;
-    }
-
-    public Cliente addPedido(Pedido pedido) {
-        this.pedidos.add(pedido);
-        pedido.setCliente(this);
-        return this;
-    }
-
-    public Cliente removePedido(Pedido pedido) {
-        this.pedidos.remove(pedido);
-        pedido.setCliente(null);
-        return this;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
     public Estatus getEstatus() {
         return estatus;
     }
@@ -351,7 +209,7 @@ public class Cliente implements Serializable {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -369,7 +227,6 @@ public class Cliente implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Cliente{" +

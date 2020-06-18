@@ -1,10 +1,10 @@
 package mx.com.sharkit.service.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import mx.com.sharkit.domain.*;
+import mx.com.sharkit.domain.Empresa;
 import mx.com.sharkit.service.dto.EmpresaDTO;
-
-import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link Empresa} and its DTO {@link EmpresaDTO}.
@@ -21,10 +21,6 @@ public interface EmpresaMapper extends EntityMapper<EmpresaDTO, Empresa> {
     @Mapping(target = "removeRecolector", ignore = true)
     @Mapping(target = "transportistas", ignore = true)
     @Mapping(target = "removeTransportista", ignore = true)
-    @Mapping(target = "productos", ignore = true)
-    @Mapping(target = "removeProducto", ignore = true)
-    @Mapping(target = "categorias", ignore = true)
-    @Mapping(target = "removeCategoria", ignore = true)
     @Mapping(target = "seccions", ignore = true)
     @Mapping(target = "removeSeccion", ignore = true)
     Empresa toEntity(EmpresaDTO empresaDTO);

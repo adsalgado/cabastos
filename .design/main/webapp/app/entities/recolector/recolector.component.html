@@ -1,0 +1,74 @@
+<div (contextmenu)="__elementSelectionService.select('1812756771',$event)" [ngStyle]="__elementSelectionService.getStyles('1812756771')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1395793317',$event)" [ngStyle]="__elementSelectionService.getStyles('1395793317')">
+        <span jhiTranslate="abastosApp.recolector.home.title" (contextmenu)="__elementSelectionService.select('1559798657',$event)" [ngStyle]="__elementSelectionService.getStyles('1559798657')">Recolectors</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recolector" [routerLink]="['/recolector/new']" (contextmenu)="__elementSelectionService.select('252564649',$event)" [ngStyle]="__elementSelectionService.getStyles('252564649')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1172295119',$event)" [ngStyle]="__elementSelectionService.getStyles('1172295119')"></fa-icon>
+            <span jhiTranslate="abastosApp.recolector.home.createLabel" (contextmenu)="__elementSelectionService.select('105066468',$event)" [ngStyle]="__elementSelectionService.getStyles('105066468')">
+            Create a new Recolector
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('532570118',$event)" [ngStyle]="__elementSelectionService.getStyles('532570118')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('2121750468',$event)" [ngStyle]="__elementSelectionService.getStyles('2121750468')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="recolectors?.length === 0" (contextmenu)="__elementSelectionService.select('1165843568',$event)" [ngStyle]="__elementSelectionService.getStyles('1165843568')">
+        <span jhiTranslate="abastosApp.recolector.home.notFound" (contextmenu)="__elementSelectionService.select('1516140340',$event)" [ngStyle]="__elementSelectionService.getStyles('1516140340')">No recolectors found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="recolectors &#38;&#38; recolectors.length &#62; 0" (contextmenu)="__elementSelectionService.select('906789417',$event)" [ngStyle]="__elementSelectionService.getStyles('906789417')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1912683099',$event)" [ngStyle]="__elementSelectionService.getStyles('1912683099')">
+            <thead (contextmenu)="__elementSelectionService.select('1571841719',$event)" [ngStyle]="__elementSelectionService.getStyles('1571841719')">
+                <tr (contextmenu)="__elementSelectionService.select('1954434530',$event)" [ngStyle]="__elementSelectionService.getStyles('1954434530')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('640779406',$event)" [ngStyle]="__elementSelectionService.getStyles('640779406')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1561960945',$event)" [ngStyle]="__elementSelectionService.getStyles('1561960945')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('63107387',$event)" [ngStyle]="__elementSelectionService.getStyles('63107387')"><span jhiTranslate="abastosApp.recolector.nombre" (contextmenu)="__elementSelectionService.select('97893884',$event)" [ngStyle]="__elementSelectionService.getStyles('97893884')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('803888188',$event)" [ngStyle]="__elementSelectionService.getStyles('803888188')"><span jhiTranslate="abastosApp.recolector.fechaAlta" (contextmenu)="__elementSelectionService.select('1064068633',$event)" [ngStyle]="__elementSelectionService.getStyles('1064068633')">Fecha Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('724767718',$event)" [ngStyle]="__elementSelectionService.getStyles('724767718')"><span jhiTranslate="abastosApp.recolector.fechaModificacion" (contextmenu)="__elementSelectionService.select('60907809',$event)" [ngStyle]="__elementSelectionService.getStyles('60907809')">Fecha Modificacion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('2128074453',$event)" [ngStyle]="__elementSelectionService.getStyles('2128074453')"><span jhiTranslate="abastosApp.recolector.usuarioAlta" (contextmenu)="__elementSelectionService.select('576138168',$event)" [ngStyle]="__elementSelectionService.getStyles('576138168')">Usuario Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('298364983',$event)" [ngStyle]="__elementSelectionService.getStyles('298364983')"><span jhiTranslate="abastosApp.recolector.usuarioModificacion" (contextmenu)="__elementSelectionService.select('426271558',$event)" [ngStyle]="__elementSelectionService.getStyles('426271558')">Usuario Modificacion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1506373568',$event)" [ngStyle]="__elementSelectionService.getStyles('1506373568')"><span jhiTranslate="abastosApp.recolector.empresa" (contextmenu)="__elementSelectionService.select('1121486250',$event)" [ngStyle]="__elementSelectionService.getStyles('1121486250')">Empresa</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('373673166',$event)" [ngStyle]="__elementSelectionService.getStyles('373673166')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1290665747',$event)" [ngStyle]="__elementSelectionService.getStyles('1290665747')">
+                <tr *ngFor="let recolector of recolectors ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1581788705',$event)" [ngStyle]="__elementSelectionService.getStyles('1581788705')">
+                    <td (contextmenu)="__elementSelectionService.select('1480263063',$event)" [ngStyle]="__elementSelectionService.getStyles('1480263063')"><a [routerLink]="['/recolector', recolector.id, 'view']" (contextmenu)="__elementSelectionService.select('1621131746',$event)" [ngStyle]="__elementSelectionService.getStyles('1621131746')">{{ recolector.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1133969282',$event)" [ngStyle]="__elementSelectionService.getStyles('1133969282')">{{ recolector.nombre }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1555097847',$event)" [ngStyle]="__elementSelectionService.getStyles('1555097847')">{{ recolector.fechaAlta | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1554467147',$event)" [ngStyle]="__elementSelectionService.getStyles('1554467147')">{{ recolector.fechaModificacion | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('946633900',$event)" [ngStyle]="__elementSelectionService.getStyles('946633900')">
+                        {{ recolector.usuarioAltaId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('1290993356',$event)" [ngStyle]="__elementSelectionService.getStyles('1290993356')">
+                        {{ recolector.usuarioModificacionId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('400441589',$event)" [ngStyle]="__elementSelectionService.getStyles('400441589')">
+                        <div *ngIf="recolector.empresaId" (contextmenu)="__elementSelectionService.select('1901444692',$event)" [ngStyle]="__elementSelectionService.getStyles('1901444692')">
+                            <a [routerLink]="['/empresa', recolector.empresaId , 'view']" (contextmenu)="__elementSelectionService.select('713500110',$event)" [ngStyle]="__elementSelectionService.getStyles('713500110')">{{ recolector.empresaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1910029004',$event)" [ngStyle]="__elementSelectionService.getStyles('1910029004')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('350520810',$event)" [ngStyle]="__elementSelectionService.getStyles('350520810')">
+                            <button type="submit" [routerLink]="['/recolector', recolector.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1218391612',$event)" [ngStyle]="__elementSelectionService.getStyles('1218391612')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1529207732',$event)" [ngStyle]="__elementSelectionService.getStyles('1529207732')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1872692422',$event)" [ngStyle]="__elementSelectionService.getStyles('1872692422')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/recolector', recolector.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1608779530',$event)" [ngStyle]="__elementSelectionService.getStyles('1608779530')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1857760260',$event)" [ngStyle]="__elementSelectionService.getStyles('1857760260')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('456569372',$event)" [ngStyle]="__elementSelectionService.getStyles('456569372')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(recolector)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('211299464',$event)" [ngStyle]="__elementSelectionService.getStyles('211299464')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1933293126',$event)" [ngStyle]="__elementSelectionService.getStyles('1933293126')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1154973481',$event)" [ngStyle]="__elementSelectionService.getStyles('1154973481')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

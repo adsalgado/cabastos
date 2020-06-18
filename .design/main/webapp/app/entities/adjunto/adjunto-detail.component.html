@@ -1,0 +1,43 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1139818979',$event)" [ngStyle]="__elementSelectionService.getStyles('1139818979')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('1932652816',$event)" [ngStyle]="__elementSelectionService.getStyles('1932652816')">
+        <div *ngIf="adjunto" (contextmenu)="__elementSelectionService.select('839866828',$event)" [ngStyle]="__elementSelectionService.getStyles('839866828')">
+            <h2 (contextmenu)="__elementSelectionService.select('1518541296',$event)" [ngStyle]="__elementSelectionService.getStyles('1518541296')"><span jhiTranslate="abastosApp.adjunto.detail.title" (contextmenu)="__elementSelectionService.select('989117983',$event)" [ngStyle]="__elementSelectionService.getStyles('989117983')">Adjunto</span> {{ adjunto.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('1186033952',$event)" [ngStyle]="__elementSelectionService.getStyles('1186033952')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('246976771',$event)" [ngStyle]="__elementSelectionService.getStyles('246976771')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('1278625213',$event)" [ngStyle]="__elementSelectionService.getStyles('1278625213')">
+                <dt (contextmenu)="__elementSelectionService.select('1403854434',$event)" [ngStyle]="__elementSelectionService.getStyles('1403854434')"><span jhiTranslate="abastosApp.adjunto.contentType" (contextmenu)="__elementSelectionService.select('517496134',$event)" [ngStyle]="__elementSelectionService.getStyles('517496134')">Content Type</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1411573527',$event)" [ngStyle]="__elementSelectionService.getStyles('1411573527')">
+                    <span (contextmenu)="__elementSelectionService.select('709315459',$event)" [ngStyle]="__elementSelectionService.getStyles('709315459')">{{ adjunto.contentType }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('287444647',$event)" [ngStyle]="__elementSelectionService.getStyles('287444647')"><span jhiTranslate="abastosApp.adjunto.size" (contextmenu)="__elementSelectionService.select('1305232296',$event)" [ngStyle]="__elementSelectionService.getStyles('1305232296')">Size</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('236261209',$event)" [ngStyle]="__elementSelectionService.getStyles('236261209')">
+                    <span (contextmenu)="__elementSelectionService.select('513693259',$event)" [ngStyle]="__elementSelectionService.getStyles('513693259')">{{ adjunto.size }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('524825609',$event)" [ngStyle]="__elementSelectionService.getStyles('524825609')"><span jhiTranslate="abastosApp.adjunto.fileName" (contextmenu)="__elementSelectionService.select('817296715',$event)" [ngStyle]="__elementSelectionService.getStyles('817296715')">File Name</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('385829827',$event)" [ngStyle]="__elementSelectionService.getStyles('385829827')">
+                    <span (contextmenu)="__elementSelectionService.select('2050980697',$event)" [ngStyle]="__elementSelectionService.getStyles('2050980697')">{{ adjunto.fileName }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('604627051',$event)" [ngStyle]="__elementSelectionService.getStyles('604627051')"><span jhiTranslate="abastosApp.adjunto.file" (contextmenu)="__elementSelectionService.select('588399884',$event)" [ngStyle]="__elementSelectionService.getStyles('588399884')">File</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1340056574',$event)" [ngStyle]="__elementSelectionService.getStyles('1340056574')">
+                    <div *ngIf="adjunto.file" (contextmenu)="__elementSelectionService.select('1320938735',$event)" [ngStyle]="__elementSelectionService.getStyles('1320938735')">
+                        <a (click)="openFile(adjunto.fileContentType, adjunto.file)" (contextmenu)="__elementSelectionService.select('626677739',$event)" [ngStyle]="__elementSelectionService.getStyles('626677739')">
+                            <img [src]="'data:' + adjunto.fileContentType + ';base64,' + adjunto.file" style="max-width: 100%;" alt="adjunto image" (contextmenu)="__elementSelectionService.select('340876393',$event)" [ngStyle]="__elementSelectionService.getStyles('340876393')">
+                        </a>
+                        {{ adjunto.fileContentType }}, {{ byteSize(adjunto.file) }}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('648273230',$event)" [ngStyle]="__elementSelectionService.getStyles('648273230')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('938377697',$event)" [ngStyle]="__elementSelectionService.getStyles('938377697')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('1081896440',$event)" [ngStyle]="__elementSelectionService.getStyles('1081896440')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/adjunto', adjunto.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1590739850',$event)" [ngStyle]="__elementSelectionService.getStyles('1590739850')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1713450163',$event)" [ngStyle]="__elementSelectionService.getStyles('1713450163')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('629364767',$event)" [ngStyle]="__elementSelectionService.getStyles('629364767')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

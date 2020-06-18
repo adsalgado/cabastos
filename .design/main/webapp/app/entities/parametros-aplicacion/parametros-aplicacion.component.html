@@ -1,0 +1,64 @@
+<div (contextmenu)="__elementSelectionService.select('1450800508',$event)" [ngStyle]="__elementSelectionService.getStyles('1450800508')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('2024011596',$event)" [ngStyle]="__elementSelectionService.getStyles('2024011596')">
+        <span jhiTranslate="abastosApp.parametrosAplicacion.home.title" (contextmenu)="__elementSelectionService.select('1710010289',$event)" [ngStyle]="__elementSelectionService.getStyles('1710010289')">Parametros Aplicacions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-parametros-aplicacion" [routerLink]="['/parametros-aplicacion/new']" (contextmenu)="__elementSelectionService.select('1248030004',$event)" [ngStyle]="__elementSelectionService.getStyles('1248030004')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1948954468',$event)" [ngStyle]="__elementSelectionService.getStyles('1948954468')"></fa-icon>
+            <span jhiTranslate="abastosApp.parametrosAplicacion.home.createLabel" (contextmenu)="__elementSelectionService.select('332676922',$event)" [ngStyle]="__elementSelectionService.getStyles('332676922')">
+            Create a new Parametros Aplicacion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('323324886',$event)" [ngStyle]="__elementSelectionService.getStyles('323324886')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1109282375',$event)" [ngStyle]="__elementSelectionService.getStyles('1109282375')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="parametrosAplicacions?.length === 0" (contextmenu)="__elementSelectionService.select('1676581103',$event)" [ngStyle]="__elementSelectionService.getStyles('1676581103')">
+        <span jhiTranslate="abastosApp.parametrosAplicacion.home.notFound" (contextmenu)="__elementSelectionService.select('1366378055',$event)" [ngStyle]="__elementSelectionService.getStyles('1366378055')">No parametrosAplicacions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="parametrosAplicacions &#38;&#38; parametrosAplicacions.length &#62; 0" (contextmenu)="__elementSelectionService.select('1851092100',$event)" [ngStyle]="__elementSelectionService.getStyles('1851092100')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1586068351',$event)" [ngStyle]="__elementSelectionService.getStyles('1586068351')">
+            <thead (contextmenu)="__elementSelectionService.select('1228384673',$event)" [ngStyle]="__elementSelectionService.getStyles('1228384673')">
+                <tr (contextmenu)="__elementSelectionService.select('313499070',$event)" [ngStyle]="__elementSelectionService.getStyles('313499070')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1465643555',$event)" [ngStyle]="__elementSelectionService.getStyles('1465643555')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1117530420',$event)" [ngStyle]="__elementSelectionService.getStyles('1117530420')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('907209319',$event)" [ngStyle]="__elementSelectionService.getStyles('907209319')"><span jhiTranslate="abastosApp.parametrosAplicacion.clave" (contextmenu)="__elementSelectionService.select('1488896886',$event)" [ngStyle]="__elementSelectionService.getStyles('1488896886')">Clave</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1358756008',$event)" [ngStyle]="__elementSelectionService.getStyles('1358756008')"><span jhiTranslate="abastosApp.parametrosAplicacion.descripcion" (contextmenu)="__elementSelectionService.select('1930079754',$event)" [ngStyle]="__elementSelectionService.getStyles('1930079754')">Descripcion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1391080414',$event)" [ngStyle]="__elementSelectionService.getStyles('1391080414')"><span jhiTranslate="abastosApp.parametrosAplicacion.adjunto" (contextmenu)="__elementSelectionService.select('2086797190',$event)" [ngStyle]="__elementSelectionService.getStyles('2086797190')">Adjunto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1273979162',$event)" [ngStyle]="__elementSelectionService.getStyles('1273979162')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1840508051',$event)" [ngStyle]="__elementSelectionService.getStyles('1840508051')">
+                <tr *ngFor="let parametrosAplicacion of parametrosAplicacions ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1849972280',$event)" [ngStyle]="__elementSelectionService.getStyles('1849972280')">
+                    <td (contextmenu)="__elementSelectionService.select('489298361',$event)" [ngStyle]="__elementSelectionService.getStyles('489298361')"><a [routerLink]="['/parametros-aplicacion', parametrosAplicacion.id, 'view']" (contextmenu)="__elementSelectionService.select('771574967',$event)" [ngStyle]="__elementSelectionService.getStyles('771574967')">{{ parametrosAplicacion.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1608051439',$event)" [ngStyle]="__elementSelectionService.getStyles('1608051439')">{{ parametrosAplicacion.clave }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('333550266',$event)" [ngStyle]="__elementSelectionService.getStyles('333550266')">{{ parametrosAplicacion.descripcion }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1582016174',$event)" [ngStyle]="__elementSelectionService.getStyles('1582016174')">
+                        <div *ngIf="parametrosAplicacion.adjuntoId" (contextmenu)="__elementSelectionService.select('420790564',$event)" [ngStyle]="__elementSelectionService.getStyles('420790564')">
+                            <a [routerLink]="['/adjunto', parametrosAplicacion.adjuntoId , 'view']" (contextmenu)="__elementSelectionService.select('25415547',$event)" [ngStyle]="__elementSelectionService.getStyles('25415547')">{{ parametrosAplicacion.adjuntoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('518580659',$event)" [ngStyle]="__elementSelectionService.getStyles('518580659')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('496325142',$event)" [ngStyle]="__elementSelectionService.getStyles('496325142')">
+                            <button type="submit" [routerLink]="['/parametros-aplicacion', parametrosAplicacion.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('582466913',$event)" [ngStyle]="__elementSelectionService.getStyles('582466913')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1037059675',$event)" [ngStyle]="__elementSelectionService.getStyles('1037059675')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1689031971',$event)" [ngStyle]="__elementSelectionService.getStyles('1689031971')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/parametros-aplicacion', parametrosAplicacion.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1402891842',$event)" [ngStyle]="__elementSelectionService.getStyles('1402891842')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1289592293',$event)" [ngStyle]="__elementSelectionService.getStyles('1289592293')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1937832123',$event)" [ngStyle]="__elementSelectionService.getStyles('1937832123')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(parametrosAplicacion)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1929739877',$event)" [ngStyle]="__elementSelectionService.getStyles('1929739877')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1405743673',$event)" [ngStyle]="__elementSelectionService.getStyles('1405743673')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1943760656',$event)" [ngStyle]="__elementSelectionService.getStyles('1943760656')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

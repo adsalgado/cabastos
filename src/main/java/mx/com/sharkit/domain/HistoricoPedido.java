@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -14,7 +11,6 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name = "historico_pedido")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class HistoricoPedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,10 +23,10 @@ public class HistoricoPedido implements Serializable {
     private LocalDate fechaEstatus;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "historicoPedidos", allowSetters = true)
+    @JsonIgnoreProperties("historicoPedidos")
     private Pedido pedido;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -64,7 +60,7 @@ public class HistoricoPedido implements Serializable {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -82,7 +78,6 @@ public class HistoricoPedido implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "HistoricoPedido{" +

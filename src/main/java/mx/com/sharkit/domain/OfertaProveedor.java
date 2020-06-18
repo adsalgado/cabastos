@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -14,7 +11,6 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name = "oferta_proveedor")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class OfertaProveedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,22 +26,29 @@ public class OfertaProveedor implements Serializable {
     private LocalDate fechaFin;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ofertaProveedors", allowSetters = true)
-    private Proveedor proveedor;
+    @JoinColumn(name = "producto_proveedor_id", insertable = false, updatable = false)
+    private ProductoProveedor productoProveedor;
+
+    @Column(name = "producto_proveedor_id")
+    private Long productoProveedorId;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ofertaProveedors", allowSetters = true)
-    private Producto producto;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "ofertaProveedors", allowSetters = true)
+    @JoinColumn(name = "estatus_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("ofertaProveedors")
     private Estatus estatus;
 
+    @Column(name = "estatus_id")
+    private Long estatusId;
+
     @ManyToOne
-    @JsonIgnoreProperties(value = "ofertaProveedors", allowSetters = true)
+    @JoinColumn(name = "tipo_oferta_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("ofertaProveedors")
     private TipoOferta tipoOferta;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "tipo_oferta_id")
+    private Long tipoOfertaId;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -80,32 +83,6 @@ public class OfertaProveedor implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public OfertaProveedor proveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-        return this;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public OfertaProveedor producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     public Estatus getEstatus() {
         return estatus;
     }
@@ -131,9 +108,42 @@ public class OfertaProveedor implements Serializable {
     public void setTipoOferta(TipoOferta tipoOferta) {
         this.tipoOferta = tipoOferta;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
-    @Override
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    public ProductoProveedor getProductoProveedor() {
+		return productoProveedor;
+	}
+
+	public void setProductoProveedor(ProductoProveedor productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	public Long getEstatusId() {
+		return estatusId;
+	}
+
+	public void setEstatusId(Long estatusId) {
+		this.estatusId = estatusId;
+	}
+
+	public Long getTipoOfertaId() {
+		return tipoOfertaId;
+	}
+
+	public void setTipoOfertaId(Long tipoOfertaId) {
+		this.tipoOfertaId = tipoOfertaId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -149,13 +159,11 @@ public class OfertaProveedor implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "OfertaProveedor{" +
-            "id=" + getId() +
-            ", fechaInicio='" + getFechaInicio() + "'" +
-            ", fechaFin='" + getFechaFin() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "OfertaProveedor [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin
+				+ ", productoProveedorId=" + productoProveedorId + ", estatusId=" + estatusId + ", tipoOfertaId="
+				+ tipoOfertaId + "]";
+	}
+
 }

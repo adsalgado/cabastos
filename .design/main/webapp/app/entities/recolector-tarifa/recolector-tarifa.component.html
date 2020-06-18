@@ -1,0 +1,66 @@
+<div (contextmenu)="__elementSelectionService.select('1347400253',$event)" [ngStyle]="__elementSelectionService.getStyles('1347400253')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1608641116',$event)" [ngStyle]="__elementSelectionService.getStyles('1608641116')">
+        <span jhiTranslate="abastosApp.recolectorTarifa.home.title" (contextmenu)="__elementSelectionService.select('1922201031',$event)" [ngStyle]="__elementSelectionService.getStyles('1922201031')">Recolector Tarifas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recolector-tarifa" [routerLink]="['/recolector-tarifa/new']" (contextmenu)="__elementSelectionService.select('1719770486',$event)" [ngStyle]="__elementSelectionService.getStyles('1719770486')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('2087954397',$event)" [ngStyle]="__elementSelectionService.getStyles('2087954397')"></fa-icon>
+            <span jhiTranslate="abastosApp.recolectorTarifa.home.createLabel" (contextmenu)="__elementSelectionService.select('739246341',$event)" [ngStyle]="__elementSelectionService.getStyles('739246341')">
+            Create a new Recolector Tarifa
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1305310477',$event)" [ngStyle]="__elementSelectionService.getStyles('1305310477')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('667757551',$event)" [ngStyle]="__elementSelectionService.getStyles('667757551')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="recolectorTarifas?.length === 0" (contextmenu)="__elementSelectionService.select('1189166468',$event)" [ngStyle]="__elementSelectionService.getStyles('1189166468')">
+        <span jhiTranslate="abastosApp.recolectorTarifa.home.notFound" (contextmenu)="__elementSelectionService.select('1783960692',$event)" [ngStyle]="__elementSelectionService.getStyles('1783960692')">No recolectorTarifas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="recolectorTarifas &#38;&#38; recolectorTarifas.length &#62; 0" (contextmenu)="__elementSelectionService.select('1284923694',$event)" [ngStyle]="__elementSelectionService.getStyles('1284923694')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('46840064',$event)" [ngStyle]="__elementSelectionService.getStyles('46840064')">
+            <thead (contextmenu)="__elementSelectionService.select('1292413376',$event)" [ngStyle]="__elementSelectionService.getStyles('1292413376')">
+                <tr (contextmenu)="__elementSelectionService.select('255652513',$event)" [ngStyle]="__elementSelectionService.getStyles('255652513')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1893498233',$event)" [ngStyle]="__elementSelectionService.getStyles('1893498233')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('663341275',$event)" [ngStyle]="__elementSelectionService.getStyles('663341275')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('793191235',$event)" [ngStyle]="__elementSelectionService.getStyles('793191235')"><span jhiTranslate="abastosApp.recolectorTarifa.rangoMinimo" (contextmenu)="__elementSelectionService.select('1191601648',$event)" [ngStyle]="__elementSelectionService.getStyles('1191601648')">Rango Minimo</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1419964380',$event)" [ngStyle]="__elementSelectionService.getStyles('1419964380')"><span jhiTranslate="abastosApp.recolectorTarifa.rangoMaximo" (contextmenu)="__elementSelectionService.select('1023683203',$event)" [ngStyle]="__elementSelectionService.getStyles('1023683203')">Rango Maximo</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('735009627',$event)" [ngStyle]="__elementSelectionService.getStyles('735009627')"><span jhiTranslate="abastosApp.recolectorTarifa.precio" (contextmenu)="__elementSelectionService.select('1603441207',$event)" [ngStyle]="__elementSelectionService.getStyles('1603441207')">Precio</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('479021590',$event)" [ngStyle]="__elementSelectionService.getStyles('479021590')"><span jhiTranslate="abastosApp.recolectorTarifa.recolector" (contextmenu)="__elementSelectionService.select('4274998',$event)" [ngStyle]="__elementSelectionService.getStyles('4274998')">Recolector</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1359326694',$event)" [ngStyle]="__elementSelectionService.getStyles('1359326694')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('449679067',$event)" [ngStyle]="__elementSelectionService.getStyles('449679067')">
+                <tr *ngFor="let recolectorTarifa of recolectorTarifas ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1827060334',$event)" [ngStyle]="__elementSelectionService.getStyles('1827060334')">
+                    <td (contextmenu)="__elementSelectionService.select('1702339663',$event)" [ngStyle]="__elementSelectionService.getStyles('1702339663')"><a [routerLink]="['/recolector-tarifa', recolectorTarifa.id, 'view']" (contextmenu)="__elementSelectionService.select('425811866',$event)" [ngStyle]="__elementSelectionService.getStyles('425811866')">{{ recolectorTarifa.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1865199931',$event)" [ngStyle]="__elementSelectionService.getStyles('1865199931')">{{ recolectorTarifa.rangoMinimo }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('910185338',$event)" [ngStyle]="__elementSelectionService.getStyles('910185338')">{{ recolectorTarifa.rangoMaximo }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1858980897',$event)" [ngStyle]="__elementSelectionService.getStyles('1858980897')">{{ recolectorTarifa.precio }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('2101597165',$event)" [ngStyle]="__elementSelectionService.getStyles('2101597165')">
+                        <div *ngIf="recolectorTarifa.recolectorId" (contextmenu)="__elementSelectionService.select('2003570711',$event)" [ngStyle]="__elementSelectionService.getStyles('2003570711')">
+                            <a [routerLink]="['/recolector', recolectorTarifa.recolectorId , 'view']" (contextmenu)="__elementSelectionService.select('1124292099',$event)" [ngStyle]="__elementSelectionService.getStyles('1124292099')">{{ recolectorTarifa.recolectorId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1135556230',$event)" [ngStyle]="__elementSelectionService.getStyles('1135556230')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('537942437',$event)" [ngStyle]="__elementSelectionService.getStyles('537942437')">
+                            <button type="submit" [routerLink]="['/recolector-tarifa', recolectorTarifa.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('929765656',$event)" [ngStyle]="__elementSelectionService.getStyles('929765656')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1854010040',$event)" [ngStyle]="__elementSelectionService.getStyles('1854010040')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1419834088',$event)" [ngStyle]="__elementSelectionService.getStyles('1419834088')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/recolector-tarifa', recolectorTarifa.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1994343592',$event)" [ngStyle]="__elementSelectionService.getStyles('1994343592')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('429076658',$event)" [ngStyle]="__elementSelectionService.getStyles('429076658')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('2019951882',$event)" [ngStyle]="__elementSelectionService.getStyles('2019951882')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(recolectorTarifa)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('729976668',$event)" [ngStyle]="__elementSelectionService.getStyles('729976668')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('670327936',$event)" [ngStyle]="__elementSelectionService.getStyles('670327936')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('669177452',$event)" [ngStyle]="__elementSelectionService.getStyles('669177452')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

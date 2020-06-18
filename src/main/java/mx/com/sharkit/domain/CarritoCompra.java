@@ -1,21 +1,25 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A CarritoCompra.
  */
 @Entity
 @Table(name = "carrito_compra")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class CarritoCompra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,22 +28,33 @@ public class CarritoCompra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     @Column(name = "cantidad", precision = 21, scale = 2, nullable = false)
     private BigDecimal cantidad;
 
     @Column(name = "precio", precision = 21, scale = 2)
     private BigDecimal precio;
+    
+    @Column(name = "fecha_alta")
+    @JsonFormat(pattern="dd/MM/yyyy hh:mm:ss", locale="es_MX")
+    private LocalDateTime fechaAlta;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "carritoCompras", allowSetters = true)
-    private Cliente cliente;
+    @JoinColumn(name = "cliente_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("carritoCompras")
+    private User cliente;
+    
+    @Column(name = "cliente_id")
+    private Long clienteId;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "carritoCompras", allowSetters = true)
-    private Producto producto;
+    @JoinColumn(name = "producto_proveedor_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("carritoCompras")
+    private ProductoProveedor productoProveedor;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "producto_proveedor_id")
+    private Long productoProveedorId;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -74,34 +89,54 @@ public class CarritoCompra implements Serializable {
         this.precio = precio;
     }
 
-    public Cliente getCliente() {
+    public User getCliente() {
         return cliente;
     }
 
-    public CarritoCompra cliente(Cliente cliente) {
+    public CarritoCompra cliente(User cliente) {
         this.cliente = cliente;
         return this;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(User cliente) {
         this.cliente = cliente;
     }
+    
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Producto getProducto() {
-        return producto;
-    }
+    public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public CarritoCompra producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+	public Long getClienteId() {
+		return clienteId;
+	}
 
-    @Override
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
+	}
+
+	public ProductoProveedor getProductoProveedor() {
+		return productoProveedor;
+	}
+
+	public void setProductoProveedor(ProductoProveedor productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -117,13 +152,11 @@ public class CarritoCompra implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "CarritoCompra{" +
-            "id=" + getId() +
-            ", cantidad=" + getCantidad() +
-            ", precio=" + getPrecio() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CarritoCompra [id=" + id + ", cantidad=" + cantidad + ", precio=" + precio + ", fechaAlta=" + fechaAlta
+				+ ", cliente=" + cliente + ", clienteId=" + clienteId + ", productoProveedor=" + productoProveedor
+				+ ", productoProveedorId=" + productoProveedorId + "]";
+	}
+
 }

@@ -1,0 +1,72 @@
+<div (contextmenu)="__elementSelectionService.select('1508804713',$event)" [ngStyle]="__elementSelectionService.getStyles('1508804713')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('340351928',$event)" [ngStyle]="__elementSelectionService.getStyles('340351928')">
+        <span jhiTranslate="abastosApp.chat.home.title" (contextmenu)="__elementSelectionService.select('961094808',$event)" [ngStyle]="__elementSelectionService.getStyles('961094808')">Chats</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chat" [routerLink]="['/chat/new']" (contextmenu)="__elementSelectionService.select('1133537470',$event)" [ngStyle]="__elementSelectionService.getStyles('1133537470')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('430974720',$event)" [ngStyle]="__elementSelectionService.getStyles('430974720')"></fa-icon>
+            <span jhiTranslate="abastosApp.chat.home.createLabel" (contextmenu)="__elementSelectionService.select('1207581461',$event)" [ngStyle]="__elementSelectionService.getStyles('1207581461')">
+            Create a new Chat
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('937933462',$event)" [ngStyle]="__elementSelectionService.getStyles('937933462')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('2004021580',$event)" [ngStyle]="__elementSelectionService.getStyles('2004021580')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="chats?.length === 0" (contextmenu)="__elementSelectionService.select('1877102725',$event)" [ngStyle]="__elementSelectionService.getStyles('1877102725')">
+        <span jhiTranslate="abastosApp.chat.home.notFound" (contextmenu)="__elementSelectionService.select('2035739903',$event)" [ngStyle]="__elementSelectionService.getStyles('2035739903')">No chats found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="chats &#38;&#38; chats.length &#62; 0" (contextmenu)="__elementSelectionService.select('1936706121',$event)" [ngStyle]="__elementSelectionService.getStyles('1936706121')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('326614521',$event)" [ngStyle]="__elementSelectionService.getStyles('326614521')">
+            <thead (contextmenu)="__elementSelectionService.select('1852612970',$event)" [ngStyle]="__elementSelectionService.getStyles('1852612970')">
+                <tr (contextmenu)="__elementSelectionService.select('538151244',$event)" [ngStyle]="__elementSelectionService.getStyles('538151244')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('765670021',$event)" [ngStyle]="__elementSelectionService.getStyles('765670021')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('60148413',$event)" [ngStyle]="__elementSelectionService.getStyles('60148413')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('150559828',$event)" [ngStyle]="__elementSelectionService.getStyles('150559828')"><span jhiTranslate="abastosApp.chat.mensaje" (contextmenu)="__elementSelectionService.select('874311150',$event)" [ngStyle]="__elementSelectionService.getStyles('874311150')">Mensaje</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('10475250',$event)" [ngStyle]="__elementSelectionService.getStyles('10475250')"><span jhiTranslate="abastosApp.chat.fecha" (contextmenu)="__elementSelectionService.select('770847870',$event)" [ngStyle]="__elementSelectionService.getStyles('770847870')">Fecha</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1865139816',$event)" [ngStyle]="__elementSelectionService.getStyles('1865139816')"><span jhiTranslate="abastosApp.chat.usuarioFuente" (contextmenu)="__elementSelectionService.select('1007363582',$event)" [ngStyle]="__elementSelectionService.getStyles('1007363582')">Usuario Fuente</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1121799371',$event)" [ngStyle]="__elementSelectionService.getStyles('1121799371')"><span jhiTranslate="abastosApp.chat.usuarioDestino" (contextmenu)="__elementSelectionService.select('2125513002',$event)" [ngStyle]="__elementSelectionService.getStyles('2125513002')">Usuario Destino</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1335443474',$event)" [ngStyle]="__elementSelectionService.getStyles('1335443474')"><span jhiTranslate="abastosApp.chat.adjunto" (contextmenu)="__elementSelectionService.select('718842058',$event)" [ngStyle]="__elementSelectionService.getStyles('718842058')">Adjunto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('38474318',$event)" [ngStyle]="__elementSelectionService.getStyles('38474318')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('2055875260',$event)" [ngStyle]="__elementSelectionService.getStyles('2055875260')">
+                <tr *ngFor="let chat of chats ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('2132180015',$event)" [ngStyle]="__elementSelectionService.getStyles('2132180015')">
+                    <td (contextmenu)="__elementSelectionService.select('283575807',$event)" [ngStyle]="__elementSelectionService.getStyles('283575807')"><a [routerLink]="['/chat', chat.id, 'view']" (contextmenu)="__elementSelectionService.select('1256500431',$event)" [ngStyle]="__elementSelectionService.getStyles('1256500431')">{{ chat.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1636872421',$event)" [ngStyle]="__elementSelectionService.getStyles('1636872421')">{{ chat.mensaje }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('757817340',$event)" [ngStyle]="__elementSelectionService.getStyles('757817340')">{{ chat.fecha | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('88833883',$event)" [ngStyle]="__elementSelectionService.getStyles('88833883')">
+                        {{ chat.usuarioFuenteId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('1789274601',$event)" [ngStyle]="__elementSelectionService.getStyles('1789274601')">
+                        {{ chat.usuarioDestinoId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('248884160',$event)" [ngStyle]="__elementSelectionService.getStyles('248884160')">
+                        <div *ngIf="chat.adjuntoId" (contextmenu)="__elementSelectionService.select('2046214489',$event)" [ngStyle]="__elementSelectionService.getStyles('2046214489')">
+                            <a [routerLink]="['/adjunto', chat.adjuntoId , 'view']" (contextmenu)="__elementSelectionService.select('656001179',$event)" [ngStyle]="__elementSelectionService.getStyles('656001179')">{{ chat.adjuntoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('2091603184',$event)" [ngStyle]="__elementSelectionService.getStyles('2091603184')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1602448142',$event)" [ngStyle]="__elementSelectionService.getStyles('1602448142')">
+                            <button type="submit" [routerLink]="['/chat', chat.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('271619502',$event)" [ngStyle]="__elementSelectionService.getStyles('271619502')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('2030361123',$event)" [ngStyle]="__elementSelectionService.getStyles('2030361123')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1605242151',$event)" [ngStyle]="__elementSelectionService.getStyles('1605242151')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/chat', chat.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('456251079',$event)" [ngStyle]="__elementSelectionService.getStyles('456251079')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('255376874',$event)" [ngStyle]="__elementSelectionService.getStyles('255376874')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1353886700',$event)" [ngStyle]="__elementSelectionService.getStyles('1353886700')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(chat)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('2145014760',$event)" [ngStyle]="__elementSelectionService.getStyles('2145014760')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1783113018',$event)" [ngStyle]="__elementSelectionService.getStyles('1783113018')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('542442100',$event)" [ngStyle]="__elementSelectionService.getStyles('542442100')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

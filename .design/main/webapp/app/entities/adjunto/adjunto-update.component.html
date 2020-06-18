@@ -1,0 +1,67 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1255237205',$event)" [ngStyle]="__elementSelectionService.getStyles('1255237205')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('1937807067',$event)" [ngStyle]="__elementSelectionService.getStyles('1937807067')">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" (contextmenu)="__elementSelectionService.select('841135408',$event)" [ngStyle]="__elementSelectionService.getStyles('841135408')">
+            <h2 id="jhi-adjunto-heading" jhiTranslate="abastosApp.adjunto.home.createOrEditLabel" (contextmenu)="__elementSelectionService.select('922695003',$event)" [ngStyle]="__elementSelectionService.getStyles('922695003')">Create or edit a Adjunto</h2>
+
+            <div (contextmenu)="__elementSelectionService.select('1759326893',$event)" [ngStyle]="__elementSelectionService.getStyles('1759326893')">
+                <jhi-alert-error (contextmenu)="__elementSelectionService.select('530335523',$event)" [ngStyle]="__elementSelectionService.getStyles('530335523')"></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value" (contextmenu)="__elementSelectionService.select('942734037',$event)" [ngStyle]="__elementSelectionService.getStyles('942734037')">
+                    <label for="id" jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1999258981',$event)" [ngStyle]="__elementSelectionService.getStyles('1999258981')">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly (contextmenu)="__elementSelectionService.select('1994611063',$event)" [ngStyle]="__elementSelectionService.getStyles('1994611063')">
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('196853207',$event)" [ngStyle]="__elementSelectionService.getStyles('196853207')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.adjunto.contentType" for="field_contentType" (contextmenu)="__elementSelectionService.select('887228455',$event)" [ngStyle]="__elementSelectionService.getStyles('887228455')">Content Type</label>
+                    <input type="text" class="form-control" name="contentType" id="field_contentType" formControlName="contentType" (contextmenu)="__elementSelectionService.select('298218163',$event)" [ngStyle]="__elementSelectionService.getStyles('298218163')">
+                    <div *ngIf="editForm.get('contentType')!.invalid &#38;&#38; (editForm.get('contentType')!.dirty || editForm.get('contentType')!.touched)" (contextmenu)="__elementSelectionService.select('2097326365',$event)" [ngStyle]="__elementSelectionService.getStyles('2097326365')">
+                        <small class="form-text text-danger" *ngIf="editForm.get('contentType')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 128 }" (contextmenu)="__elementSelectionService.select('729937519',$event)" [ngStyle]="__elementSelectionService.getStyles('729937519')">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('260468744',$event)" [ngStyle]="__elementSelectionService.getStyles('260468744')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.adjunto.size" for="field_size" (contextmenu)="__elementSelectionService.select('762824865',$event)" [ngStyle]="__elementSelectionService.getStyles('762824865')">Size</label>
+                    <input type="number" class="form-control" name="size" id="field_size" formControlName="size" (contextmenu)="__elementSelectionService.select('1163253331',$event)" [ngStyle]="__elementSelectionService.getStyles('1163253331')">
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('1640198680',$event)" [ngStyle]="__elementSelectionService.getStyles('1640198680')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.adjunto.fileName" for="field_fileName" (contextmenu)="__elementSelectionService.select('1576618008',$event)" [ngStyle]="__elementSelectionService.getStyles('1576618008')">File Name</label>
+                    <input type="text" class="form-control" name="fileName" id="field_fileName" formControlName="fileName" (contextmenu)="__elementSelectionService.select('1322824134',$event)" [ngStyle]="__elementSelectionService.getStyles('1322824134')">
+                    <div *ngIf="editForm.get('fileName')!.invalid &#38;&#38; (editForm.get('fileName')!.dirty || editForm.get('fileName')!.touched)" (contextmenu)="__elementSelectionService.select('626266368',$event)" [ngStyle]="__elementSelectionService.getStyles('626266368')">
+                        <small class="form-text text-danger" *ngIf="editForm.get('fileName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 128 }" (contextmenu)="__elementSelectionService.select('1602089984',$event)" [ngStyle]="__elementSelectionService.getStyles('1602089984')">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('1213451903',$event)" [ngStyle]="__elementSelectionService.getStyles('1213451903')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.adjunto.file" for="field_file" (contextmenu)="__elementSelectionService.select('1133379634',$event)" [ngStyle]="__elementSelectionService.getStyles('1133379634')">File</label>
+                    <div (contextmenu)="__elementSelectionService.select('1188545874',$event)" [ngStyle]="__elementSelectionService.getStyles('1188545874')">
+                        <img [src]="'data:' + editForm.get('fileContentType')!.value + ';base64,' + editForm.get('file')!.value" style="max-height: 100px;" *ngIf="editForm.get('file')!.value" alt="adjunto image" (contextmenu)="__elementSelectionService.select('1991963772',$event)" [ngStyle]="__elementSelectionService.getStyles('1991963772')">
+                        <div *ngIf="editForm.get('file')!.value" class="form-text text-danger clearfix" (contextmenu)="__elementSelectionService.select('550300898',$event)" [ngStyle]="__elementSelectionService.getStyles('550300898')">
+                            <span class="pull-left" (contextmenu)="__elementSelectionService.select('326170457',$event)" [ngStyle]="__elementSelectionService.getStyles('326170457')">{{ editForm.get('fileContentType')!.value }}, {{ byteSize(editForm.get('file')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('file', 'fileContentType', 'file_file')" class="btn btn-secondary btn-xs pull-right" (contextmenu)="__elementSelectionService.select('1811242288',$event)" [ngStyle]="__elementSelectionService.getStyles('1811242288')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1246584102',$event)" [ngStyle]="__elementSelectionService.getStyles('1246584102')"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_file" (change)="setFileData($event, 'file', true)" accept="image/*" jhiTranslate="entity.action.addimage" (contextmenu)="__elementSelectionService.select('228660081',$event)" [ngStyle]="__elementSelectionService.getStyles('228660081')">
+                    </div>
+                    <input type="hidden" class="form-control" name="file" id="field_file" formControlName="file" (contextmenu)="__elementSelectionService.select('436205475',$event)" [ngStyle]="__elementSelectionService.getStyles('436205475')">
+                    <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType" formControlName="fileContentType" (contextmenu)="__elementSelectionService.select('1478636913',$event)" [ngStyle]="__elementSelectionService.getStyles('1478636913')">
+                </div>
+            </div>
+
+            <div (contextmenu)="__elementSelectionService.select('2015815486',$event)" [ngStyle]="__elementSelectionService.getStyles('2015815486')">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()" (contextmenu)="__elementSelectionService.select('2107197904',$event)" [ngStyle]="__elementSelectionService.getStyles('2107197904')">
+                    <fa-icon icon="ban" (contextmenu)="__elementSelectionService.select('457046831',$event)" [ngStyle]="__elementSelectionService.getStyles('457046831')"></fa-icon>&#160;<span jhiTranslate="entity.action.cancel" (contextmenu)="__elementSelectionService.select('1383976068',$event)" [ngStyle]="__elementSelectionService.getStyles('1383976068')">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('489545442',$event)" [ngStyle]="__elementSelectionService.getStyles('489545442')">
+                    <fa-icon icon="save" (contextmenu)="__elementSelectionService.select('718132062',$event)" [ngStyle]="__elementSelectionService.getStyles('718132062')"></fa-icon>&#160;<span jhiTranslate="entity.action.save" (contextmenu)="__elementSelectionService.select('1591583147',$event)" [ngStyle]="__elementSelectionService.getStyles('1591583147')">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

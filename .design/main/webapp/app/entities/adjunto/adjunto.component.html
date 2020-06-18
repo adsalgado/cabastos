@@ -1,0 +1,67 @@
+<div (contextmenu)="__elementSelectionService.select('1320771119',$event)" [ngStyle]="__elementSelectionService.getStyles('1320771119')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1119351666',$event)" [ngStyle]="__elementSelectionService.getStyles('1119351666')">
+        <span jhiTranslate="abastosApp.adjunto.home.title" (contextmenu)="__elementSelectionService.select('1182504237',$event)" [ngStyle]="__elementSelectionService.getStyles('1182504237')">Adjuntos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-adjunto" [routerLink]="['/adjunto/new']" (contextmenu)="__elementSelectionService.select('703868309',$event)" [ngStyle]="__elementSelectionService.getStyles('703868309')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1463279922',$event)" [ngStyle]="__elementSelectionService.getStyles('1463279922')"></fa-icon>
+            <span jhiTranslate="abastosApp.adjunto.home.createLabel" (contextmenu)="__elementSelectionService.select('719762629',$event)" [ngStyle]="__elementSelectionService.getStyles('719762629')">
+            Create a new Adjunto
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('808361545',$event)" [ngStyle]="__elementSelectionService.getStyles('808361545')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('943621468',$event)" [ngStyle]="__elementSelectionService.getStyles('943621468')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="adjuntos?.length === 0" (contextmenu)="__elementSelectionService.select('1349049624',$event)" [ngStyle]="__elementSelectionService.getStyles('1349049624')">
+        <span jhiTranslate="abastosApp.adjunto.home.notFound" (contextmenu)="__elementSelectionService.select('1329011532',$event)" [ngStyle]="__elementSelectionService.getStyles('1329011532')">No adjuntos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="adjuntos &#38;&#38; adjuntos.length &#62; 0" (contextmenu)="__elementSelectionService.select('196020277',$event)" [ngStyle]="__elementSelectionService.getStyles('196020277')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1207396473',$event)" [ngStyle]="__elementSelectionService.getStyles('1207396473')">
+            <thead (contextmenu)="__elementSelectionService.select('1373760898',$event)" [ngStyle]="__elementSelectionService.getStyles('1373760898')">
+                <tr (contextmenu)="__elementSelectionService.select('645624201',$event)" [ngStyle]="__elementSelectionService.getStyles('645624201')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1432763347',$event)" [ngStyle]="__elementSelectionService.getStyles('1432763347')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('699282854',$event)" [ngStyle]="__elementSelectionService.getStyles('699282854')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('2004701420',$event)" [ngStyle]="__elementSelectionService.getStyles('2004701420')"><span jhiTranslate="abastosApp.adjunto.contentType" (contextmenu)="__elementSelectionService.select('175603891',$event)" [ngStyle]="__elementSelectionService.getStyles('175603891')">Content Type</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1848351373',$event)" [ngStyle]="__elementSelectionService.getStyles('1848351373')"><span jhiTranslate="abastosApp.adjunto.size" (contextmenu)="__elementSelectionService.select('921731563',$event)" [ngStyle]="__elementSelectionService.getStyles('921731563')">Size</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('722947561',$event)" [ngStyle]="__elementSelectionService.getStyles('722947561')"><span jhiTranslate="abastosApp.adjunto.fileName" (contextmenu)="__elementSelectionService.select('500376096',$event)" [ngStyle]="__elementSelectionService.getStyles('500376096')">File Name</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('798899429',$event)" [ngStyle]="__elementSelectionService.getStyles('798899429')"><span jhiTranslate="abastosApp.adjunto.file" (contextmenu)="__elementSelectionService.select('500375332',$event)" [ngStyle]="__elementSelectionService.getStyles('500375332')">File</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('205156722',$event)" [ngStyle]="__elementSelectionService.getStyles('205156722')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('150769911',$event)" [ngStyle]="__elementSelectionService.getStyles('150769911')">
+                <tr *ngFor="let adjunto of adjuntos ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1448868889',$event)" [ngStyle]="__elementSelectionService.getStyles('1448868889')">
+                    <td (contextmenu)="__elementSelectionService.select('1400173513',$event)" [ngStyle]="__elementSelectionService.getStyles('1400173513')"><a [routerLink]="['/adjunto', adjunto.id, 'view']" (contextmenu)="__elementSelectionService.select('203077940',$event)" [ngStyle]="__elementSelectionService.getStyles('203077940')">{{ adjunto.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1619913576',$event)" [ngStyle]="__elementSelectionService.getStyles('1619913576')">{{ adjunto.contentType }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1765767252',$event)" [ngStyle]="__elementSelectionService.getStyles('1765767252')">{{ adjunto.size }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('497103873',$event)" [ngStyle]="__elementSelectionService.getStyles('497103873')">{{ adjunto.fileName }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1152118168',$event)" [ngStyle]="__elementSelectionService.getStyles('1152118168')">
+                        <a *ngIf="adjunto.file" (click)="openFile(adjunto.fileContentType, adjunto.file)" (contextmenu)="__elementSelectionService.select('1274190030',$event)" [ngStyle]="__elementSelectionService.getStyles('1274190030')">
+                            <img [src]="'data:' + adjunto.fileContentType + ';base64,' + adjunto.file" style="max-height: 30px;" alt="adjunto image" (contextmenu)="__elementSelectionService.select('1495114812',$event)" [ngStyle]="__elementSelectionService.getStyles('1495114812')">
+                        </a>
+                        <span *ngIf="adjunto.file" (contextmenu)="__elementSelectionService.select('1300791842',$event)" [ngStyle]="__elementSelectionService.getStyles('1300791842')">{{ adjunto.fileContentType }}, {{ byteSize(adjunto.file) }}</span>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1448370470',$event)" [ngStyle]="__elementSelectionService.getStyles('1448370470')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('155170762',$event)" [ngStyle]="__elementSelectionService.getStyles('155170762')">
+                            <button type="submit" [routerLink]="['/adjunto', adjunto.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1027067541',$event)" [ngStyle]="__elementSelectionService.getStyles('1027067541')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('883409539',$event)" [ngStyle]="__elementSelectionService.getStyles('883409539')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1091553376',$event)" [ngStyle]="__elementSelectionService.getStyles('1091553376')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/adjunto', adjunto.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('897234540',$event)" [ngStyle]="__elementSelectionService.getStyles('897234540')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('918197552',$event)" [ngStyle]="__elementSelectionService.getStyles('918197552')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1006889662',$event)" [ngStyle]="__elementSelectionService.getStyles('1006889662')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(adjunto)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('66091414',$event)" [ngStyle]="__elementSelectionService.getStyles('66091414')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1675191890',$event)" [ngStyle]="__elementSelectionService.getStyles('1675191890')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('27819020',$event)" [ngStyle]="__elementSelectionService.getStyles('27819020')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

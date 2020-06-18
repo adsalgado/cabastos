@@ -1,0 +1,42 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('793028892',$event)" [ngStyle]="__elementSelectionService.getStyles('793028892')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('573905503',$event)" [ngStyle]="__elementSelectionService.getStyles('573905503')">
+        <div *ngIf="carritoCompra" (contextmenu)="__elementSelectionService.select('674454348',$event)" [ngStyle]="__elementSelectionService.getStyles('674454348')">
+            <h2 (contextmenu)="__elementSelectionService.select('934891068',$event)" [ngStyle]="__elementSelectionService.getStyles('934891068')"><span jhiTranslate="abastosApp.carritoCompra.detail.title" (contextmenu)="__elementSelectionService.select('790022777',$event)" [ngStyle]="__elementSelectionService.getStyles('790022777')">Carrito Compra</span> {{ carritoCompra.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('628873766',$event)" [ngStyle]="__elementSelectionService.getStyles('628873766')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('387976446',$event)" [ngStyle]="__elementSelectionService.getStyles('387976446')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('1779792008',$event)" [ngStyle]="__elementSelectionService.getStyles('1779792008')">
+                <dt (contextmenu)="__elementSelectionService.select('1934176945',$event)" [ngStyle]="__elementSelectionService.getStyles('1934176945')"><span jhiTranslate="abastosApp.carritoCompra.cantidad" (contextmenu)="__elementSelectionService.select('135822356',$event)" [ngStyle]="__elementSelectionService.getStyles('135822356')">Cantidad</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('533255701',$event)" [ngStyle]="__elementSelectionService.getStyles('533255701')">
+                    <span (contextmenu)="__elementSelectionService.select('1591229532',$event)" [ngStyle]="__elementSelectionService.getStyles('1591229532')">{{ carritoCompra.cantidad }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1681801612',$event)" [ngStyle]="__elementSelectionService.getStyles('1681801612')"><span jhiTranslate="abastosApp.carritoCompra.precio" (contextmenu)="__elementSelectionService.select('797800899',$event)" [ngStyle]="__elementSelectionService.getStyles('797800899')">Precio</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1991010905',$event)" [ngStyle]="__elementSelectionService.getStyles('1991010905')">
+                    <span (contextmenu)="__elementSelectionService.select('1770623500',$event)" [ngStyle]="__elementSelectionService.getStyles('1770623500')">{{ carritoCompra.precio }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('2142084240',$event)" [ngStyle]="__elementSelectionService.getStyles('2142084240')"><span jhiTranslate="abastosApp.carritoCompra.cliente" (contextmenu)="__elementSelectionService.select('992649671',$event)" [ngStyle]="__elementSelectionService.getStyles('992649671')">Cliente</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('776075865',$event)" [ngStyle]="__elementSelectionService.getStyles('776075865')">
+                    <div *ngIf="carritoCompra.clienteId" (contextmenu)="__elementSelectionService.select('201131119',$event)" [ngStyle]="__elementSelectionService.getStyles('201131119')">
+                        <a [routerLink]="['/cliente', carritoCompra.clienteId, 'view']" (contextmenu)="__elementSelectionService.select('405229724',$event)" [ngStyle]="__elementSelectionService.getStyles('405229724')">{{ carritoCompra.clienteId }}</a>
+                    </div>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1986920134',$event)" [ngStyle]="__elementSelectionService.getStyles('1986920134')"><span jhiTranslate="abastosApp.carritoCompra.producto" (contextmenu)="__elementSelectionService.select('1465860448',$event)" [ngStyle]="__elementSelectionService.getStyles('1465860448')">Producto</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('878897560',$event)" [ngStyle]="__elementSelectionService.getStyles('878897560')">
+                    <div *ngIf="carritoCompra.productoId" (contextmenu)="__elementSelectionService.select('375647288',$event)" [ngStyle]="__elementSelectionService.getStyles('375647288')">
+                        <a [routerLink]="['/producto', carritoCompra.productoId, 'view']" (contextmenu)="__elementSelectionService.select('258063356',$event)" [ngStyle]="__elementSelectionService.getStyles('258063356')">{{ carritoCompra.productoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('580435761',$event)" [ngStyle]="__elementSelectionService.getStyles('580435761')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('18201811',$event)" [ngStyle]="__elementSelectionService.getStyles('18201811')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('136217317',$event)" [ngStyle]="__elementSelectionService.getStyles('136217317')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/carrito-compra', carritoCompra.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('170030657',$event)" [ngStyle]="__elementSelectionService.getStyles('170030657')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1839472899',$event)" [ngStyle]="__elementSelectionService.getStyles('1839472899')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1098640192',$event)" [ngStyle]="__elementSelectionService.getStyles('1098640192')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

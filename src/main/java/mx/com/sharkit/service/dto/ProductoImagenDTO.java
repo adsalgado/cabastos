@@ -1,13 +1,13 @@
 package mx.com.sharkit.service.dto;
-
-import java.time.Instant;
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.ProductoImagen} entity.
  */
 public class ProductoImagenDTO implements Serializable {
-    
+
     private Long id;
 
     private Instant fechaAlta;
@@ -15,10 +15,14 @@ public class ProductoImagenDTO implements Serializable {
 
     private Long usuarioAltaId;
 
-    private Long productoId;
+    private ProductoProveedorDTO productoProveedor;
+
+    private Long productoProveedorId;
 
     private Long adjuntoId;
     
+    private AdjuntoDTO adjunto;
+
     public Long getId() {
         return id;
     }
@@ -43,14 +47,6 @@ public class ProductoImagenDTO implements Serializable {
         this.usuarioAltaId = userId;
     }
 
-    public Long getProductoId() {
-        return productoId;
-    }
-
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
-
     public Long getAdjuntoId() {
         return adjuntoId;
     }
@@ -59,32 +55,56 @@ public class ProductoImagenDTO implements Serializable {
         this.adjuntoId = adjuntoId;
     }
 
-    @Override
+    public AdjuntoDTO getAdjunto() {
+		return adjunto;
+	}
+
+	public void setAdjunto(AdjuntoDTO adjunto) {
+		this.adjunto = adjunto;
+	}
+
+	public ProductoProveedorDTO getProductoProveedor() {
+		return productoProveedor;
+	}
+
+	public void setProductoProveedor(ProductoProveedorDTO productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ProductoImagenDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((ProductoImagenDTO) o).id);
+        ProductoImagenDTO productoImagenDTO = (ProductoImagenDTO) o;
+        if (productoImagenDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), productoImagenDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "ProductoImagenDTO{" +
-            "id=" + getId() +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            ", usuarioAltaId=" + getUsuarioAltaId() +
-            ", productoId=" + getProductoId() +
-            ", adjuntoId=" + getAdjuntoId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "ProductoImagenDTO [id=" + id + ", fechaAlta=" + fechaAlta + ", usuarioAltaId=" + usuarioAltaId
+				+ ", productoProveedorId=" + productoProveedorId + ", adjuntoId=" + adjuntoId + ", adjunto=" + adjunto
+				+ "]";
+	}
+
 }

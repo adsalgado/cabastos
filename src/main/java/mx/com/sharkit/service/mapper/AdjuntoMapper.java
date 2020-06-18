@@ -1,6 +1,5 @@
 package mx.com.sharkit.service.mapper;
 
-
 import mx.com.sharkit.domain.*;
 import mx.com.sharkit.service.dto.AdjuntoDTO;
 
@@ -12,9 +11,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface AdjuntoMapper extends EntityMapper<AdjuntoDTO, Adjunto> {
 
-
-    @Mapping(target = "chats", ignore = true)
-    @Mapping(target = "removeChat", ignore = true)
     @Mapping(target = "productoImagens", ignore = true)
     @Mapping(target = "removeProductoImagen", ignore = true)
     @Mapping(target = "usuarioImagens", ignore = true)

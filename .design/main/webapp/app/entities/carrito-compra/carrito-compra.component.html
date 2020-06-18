@@ -1,0 +1,70 @@
+<div (contextmenu)="__elementSelectionService.select('1275737259',$event)" [ngStyle]="__elementSelectionService.getStyles('1275737259')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('933050192',$event)" [ngStyle]="__elementSelectionService.getStyles('933050192')">
+        <span jhiTranslate="abastosApp.carritoCompra.home.title" (contextmenu)="__elementSelectionService.select('716169828',$event)" [ngStyle]="__elementSelectionService.getStyles('716169828')">Carrito Compras</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-carrito-compra" [routerLink]="['/carrito-compra/new']" (contextmenu)="__elementSelectionService.select('640467616',$event)" [ngStyle]="__elementSelectionService.getStyles('640467616')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('140579467',$event)" [ngStyle]="__elementSelectionService.getStyles('140579467')"></fa-icon>
+            <span jhiTranslate="abastosApp.carritoCompra.home.createLabel" (contextmenu)="__elementSelectionService.select('1444451168',$event)" [ngStyle]="__elementSelectionService.getStyles('1444451168')">
+            Create a new Carrito Compra
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('66189061',$event)" [ngStyle]="__elementSelectionService.getStyles('66189061')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1132993561',$event)" [ngStyle]="__elementSelectionService.getStyles('1132993561')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="carritoCompras?.length === 0" (contextmenu)="__elementSelectionService.select('1140702121',$event)" [ngStyle]="__elementSelectionService.getStyles('1140702121')">
+        <span jhiTranslate="abastosApp.carritoCompra.home.notFound" (contextmenu)="__elementSelectionService.select('1366074149',$event)" [ngStyle]="__elementSelectionService.getStyles('1366074149')">No carritoCompras found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="carritoCompras &#38;&#38; carritoCompras.length &#62; 0" (contextmenu)="__elementSelectionService.select('1562984402',$event)" [ngStyle]="__elementSelectionService.getStyles('1562984402')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1589807290',$event)" [ngStyle]="__elementSelectionService.getStyles('1589807290')">
+            <thead (contextmenu)="__elementSelectionService.select('1884045368',$event)" [ngStyle]="__elementSelectionService.getStyles('1884045368')">
+                <tr (contextmenu)="__elementSelectionService.select('1141747871',$event)" [ngStyle]="__elementSelectionService.getStyles('1141747871')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1355726947',$event)" [ngStyle]="__elementSelectionService.getStyles('1355726947')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('444798360',$event)" [ngStyle]="__elementSelectionService.getStyles('444798360')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('148687728',$event)" [ngStyle]="__elementSelectionService.getStyles('148687728')"><span jhiTranslate="abastosApp.carritoCompra.cantidad" (contextmenu)="__elementSelectionService.select('561781692',$event)" [ngStyle]="__elementSelectionService.getStyles('561781692')">Cantidad</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('127343144',$event)" [ngStyle]="__elementSelectionService.getStyles('127343144')"><span jhiTranslate="abastosApp.carritoCompra.precio" (contextmenu)="__elementSelectionService.select('87748759',$event)" [ngStyle]="__elementSelectionService.getStyles('87748759')">Precio</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1809005579',$event)" [ngStyle]="__elementSelectionService.getStyles('1809005579')"><span jhiTranslate="abastosApp.carritoCompra.cliente" (contextmenu)="__elementSelectionService.select('708012854',$event)" [ngStyle]="__elementSelectionService.getStyles('708012854')">Cliente</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('357200386',$event)" [ngStyle]="__elementSelectionService.getStyles('357200386')"><span jhiTranslate="abastosApp.carritoCompra.producto" (contextmenu)="__elementSelectionService.select('1193707124',$event)" [ngStyle]="__elementSelectionService.getStyles('1193707124')">Producto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('904382975',$event)" [ngStyle]="__elementSelectionService.getStyles('904382975')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('71073454',$event)" [ngStyle]="__elementSelectionService.getStyles('71073454')">
+                <tr *ngFor="let carritoCompra of carritoCompras ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1117836873',$event)" [ngStyle]="__elementSelectionService.getStyles('1117836873')">
+                    <td (contextmenu)="__elementSelectionService.select('826735951',$event)" [ngStyle]="__elementSelectionService.getStyles('826735951')"><a [routerLink]="['/carrito-compra', carritoCompra.id, 'view']" (contextmenu)="__elementSelectionService.select('988111529',$event)" [ngStyle]="__elementSelectionService.getStyles('988111529')">{{ carritoCompra.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1565237845',$event)" [ngStyle]="__elementSelectionService.getStyles('1565237845')">{{ carritoCompra.cantidad }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('429729067',$event)" [ngStyle]="__elementSelectionService.getStyles('429729067')">{{ carritoCompra.precio }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('523706322',$event)" [ngStyle]="__elementSelectionService.getStyles('523706322')">
+                        <div *ngIf="carritoCompra.clienteId" (contextmenu)="__elementSelectionService.select('248960695',$event)" [ngStyle]="__elementSelectionService.getStyles('248960695')">
+                            <a [routerLink]="['/cliente', carritoCompra.clienteId , 'view']" (contextmenu)="__elementSelectionService.select('244290610',$event)" [ngStyle]="__elementSelectionService.getStyles('244290610')">{{ carritoCompra.clienteId }}</a>
+                        </div>
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('2118864053',$event)" [ngStyle]="__elementSelectionService.getStyles('2118864053')">
+                        <div *ngIf="carritoCompra.productoId" (contextmenu)="__elementSelectionService.select('1503991073',$event)" [ngStyle]="__elementSelectionService.getStyles('1503991073')">
+                            <a [routerLink]="['/producto', carritoCompra.productoId , 'view']" (contextmenu)="__elementSelectionService.select('1644037068',$event)" [ngStyle]="__elementSelectionService.getStyles('1644037068')">{{ carritoCompra.productoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('321009093',$event)" [ngStyle]="__elementSelectionService.getStyles('321009093')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('933821936',$event)" [ngStyle]="__elementSelectionService.getStyles('933821936')">
+                            <button type="submit" [routerLink]="['/carrito-compra', carritoCompra.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1180039737',$event)" [ngStyle]="__elementSelectionService.getStyles('1180039737')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1470394716',$event)" [ngStyle]="__elementSelectionService.getStyles('1470394716')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1428875888',$event)" [ngStyle]="__elementSelectionService.getStyles('1428875888')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/carrito-compra', carritoCompra.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('631102040',$event)" [ngStyle]="__elementSelectionService.getStyles('631102040')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1290828000',$event)" [ngStyle]="__elementSelectionService.getStyles('1290828000')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('950718131',$event)" [ngStyle]="__elementSelectionService.getStyles('950718131')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(carritoCompra)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('986831548',$event)" [ngStyle]="__elementSelectionService.getStyles('986831548')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1909819556',$event)" [ngStyle]="__elementSelectionService.getStyles('1909819556')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1043187974',$event)" [ngStyle]="__elementSelectionService.getStyles('1043187974')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

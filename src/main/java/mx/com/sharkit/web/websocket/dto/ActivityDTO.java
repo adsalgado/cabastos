@@ -57,7 +57,6 @@ public class ActivityDTO {
         this.time = time;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "ActivityDTO{" +

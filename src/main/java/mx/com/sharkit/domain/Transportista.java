@@ -1,30 +1,45 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Transportista.
  */
 @Entity
 @Table(name = "transportista")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Transportista implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static final Long GENERICO = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+	private User usuario;
+
+	@Column(name = "usuario_id")
+	private Long usuarioId;
 
     @NotNull
     @Size(max = 128)
@@ -32,170 +47,129 @@ public class Transportista implements Serializable {
     private String nombre;
 
     @Column(name = "fecha_alta")
-    private Instant fechaAlta;
+    private LocalDateTime fechaAlta;
 
     @Column(name = "fecha_modificacion")
-    private Instant fechaModificacion;
+    private LocalDateTime fechaModificacion;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private User usuarioAlta;
+	@Column(name = "usuario_alta_id")
+	private Long usuarioAltaId;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private User usuarioModificacion;
+	@Column(name = "usuario_modificacion_id")
+	private Long usuarioModificacionId;
 
-    @OneToMany(mappedBy = "transportista")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Pedido> pedidos = new HashSet<>();
+	@ManyToOne
+	@JoinColumn(name = "empresa_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("transportistas")
+	private Empresa empresa;
 
-    @OneToMany(mappedBy = "transportista")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TransportistaTarifa> transportistaTarifas = new HashSet<>();
+	@Column(name = "empresa_id")
+	private Long empresaId;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "transportistas", allowSetters = true)
-    private Empresa empresa;
+	@ManyToOne
+	@JoinColumn(name = "direccion_id", insertable = false, updatable = false)
+	private Direccion direccion;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+	@Column(name = "direccion_id")
+	private Long direccionId;
+
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
 
-    public Transportista nombre(String nombre) {
-        this.nombre = nombre;
-        return this;
-    }
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public Instant getFechaAlta() {
-        return fechaAlta;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public Transportista fechaAlta(Instant fechaAlta) {
-        this.fechaAlta = fechaAlta;
-        return this;
-    }
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public void setFechaAlta(Instant fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    public Instant getFechaModificacion() {
-        return fechaModificacion;
-    }
+	public LocalDateTime getFechaModificacion() {
+		return fechaModificacion;
+	}
 
-    public Transportista fechaModificacion(Instant fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-        return this;
-    }
+	public void setFechaModificacion(LocalDateTime fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
 
-    public void setFechaModificacion(Instant fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
+	public Long getUsuarioAltaId() {
+		return usuarioAltaId;
+	}
 
-    public User getUsuarioAlta() {
-        return usuarioAlta;
-    }
+	public void setUsuarioAltaId(Long usuarioAltaId) {
+		this.usuarioAltaId = usuarioAltaId;
+	}
 
-    public Transportista usuarioAlta(User user) {
-        this.usuarioAlta = user;
-        return this;
-    }
+	public Long getUsuarioModificacionId() {
+		return usuarioModificacionId;
+	}
 
-    public void setUsuarioAlta(User user) {
-        this.usuarioAlta = user;
-    }
+	public void setUsuarioModificacionId(Long usuarioModificacionId) {
+		this.usuarioModificacionId = usuarioModificacionId;
+	}
 
-    public User getUsuarioModificacion() {
-        return usuarioModificacion;
-    }
+	public Empresa getEmpresa() {
+		return empresa;
+	}
 
-    public Transportista usuarioModificacion(User user) {
-        this.usuarioModificacion = user;
-        return this;
-    }
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
 
-    public void setUsuarioModificacion(User user) {
-        this.usuarioModificacion = user;
-    }
+	public Long getEmpresaId() {
+		return empresaId;
+	}
 
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
+	}
 
-    public Transportista pedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-        return this;
-    }
+	public Direccion getDireccion() {
+		return direccion;
+	}
 
-    public Transportista addPedido(Pedido pedido) {
-        this.pedidos.add(pedido);
-        pedido.setTransportista(this);
-        return this;
-    }
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 
-    public Transportista removePedido(Pedido pedido) {
-        this.pedidos.remove(pedido);
-        pedido.setTransportista(null);
-        return this;
-    }
+	public Long getDireccionId() {
+		return direccionId;
+	}
 
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+	public void setDireccionId(Long direccionId) {
+		this.direccionId = direccionId;
+	}
 
-    public Set<TransportistaTarifa> getTransportistaTarifas() {
-        return transportistaTarifas;
-    }
+	public User getUsuario() {
+		return usuario;
+	}
 
-    public Transportista transportistaTarifas(Set<TransportistaTarifa> transportistaTarifas) {
-        this.transportistaTarifas = transportistaTarifas;
-        return this;
-    }
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
 
-    public Transportista addTransportistaTarifa(TransportistaTarifa transportistaTarifa) {
-        this.transportistaTarifas.add(transportistaTarifa);
-        transportistaTarifa.setTransportista(this);
-        return this;
-    }
-
-    public Transportista removeTransportistaTarifa(TransportistaTarifa transportistaTarifa) {
-        this.transportistaTarifas.remove(transportistaTarifa);
-        transportistaTarifa.setTransportista(null);
-        return this;
-    }
-
-    public void setTransportistaTarifas(Set<TransportistaTarifa> transportistaTarifas) {
-        this.transportistaTarifas = transportistaTarifas;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public Transportista empresa(Empresa empresa) {
-        this.empresa = empresa;
-        return this;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -211,14 +185,12 @@ public class Transportista implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Transportista{" +
-            "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            ", fechaModificacion='" + getFechaModificacion() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "Transportista [id=" + id + ", usuarioId=" + usuarioId + ", nombre=" + nombre + ", fechaAlta="
+				+ fechaAlta + ", fechaModificacion=" + fechaModificacion + ", usuarioAltaId=" + usuarioAltaId
+				+ ", usuarioModificacionId=" + usuarioModificacionId + ", empresa=" + empresa + ", empresaId="
+				+ empresaId + ", direccion=" + direccion + ", direccionId=" + direccionId + "]";
+	}
+
 }

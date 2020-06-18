@@ -1,14 +1,14 @@
 package mx.com.sharkit.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.RecolectorTarifa} entity.
  */
 public class RecolectorTarifaDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -22,7 +22,7 @@ public class RecolectorTarifaDTO implements Serializable {
 
 
     private Long recolectorId;
-    
+
     public Long getId() {
         return id;
     }
@@ -68,19 +68,22 @@ public class RecolectorTarifaDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof RecolectorTarifaDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((RecolectorTarifaDTO) o).id);
+        RecolectorTarifaDTO recolectorTarifaDTO = (RecolectorTarifaDTO) o;
+        if (recolectorTarifaDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), recolectorTarifaDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "RecolectorTarifaDTO{" +
@@ -88,7 +91,7 @@ public class RecolectorTarifaDTO implements Serializable {
             ", rangoMinimo=" + getRangoMinimo() +
             ", rangoMaximo=" + getRangoMaximo() +
             ", precio=" + getPrecio() +
-            ", recolectorId=" + getRecolectorId() +
+            ", recolector=" + getRecolectorId() +
             "}";
     }
 }

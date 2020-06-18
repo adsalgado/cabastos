@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -81,6 +82,7 @@ public class RecolectorResource {
     /**
      * {@code GET  /recolectors} : get all the recolectors.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of recolectors in body.
      */
     @GetMapping("/recolectors")

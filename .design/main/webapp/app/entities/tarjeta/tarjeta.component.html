@@ -1,0 +1,68 @@
+<div (contextmenu)="__elementSelectionService.select('796916177',$event)" [ngStyle]="__elementSelectionService.getStyles('796916177')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('115297012',$event)" [ngStyle]="__elementSelectionService.getStyles('115297012')">
+        <span jhiTranslate="abastosApp.tarjeta.home.title" (contextmenu)="__elementSelectionService.select('1455327887',$event)" [ngStyle]="__elementSelectionService.getStyles('1455327887')">Tarjetas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tarjeta" [routerLink]="['/tarjeta/new']" (contextmenu)="__elementSelectionService.select('193838931',$event)" [ngStyle]="__elementSelectionService.getStyles('193838931')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('142287706',$event)" [ngStyle]="__elementSelectionService.getStyles('142287706')"></fa-icon>
+            <span jhiTranslate="abastosApp.tarjeta.home.createLabel" (contextmenu)="__elementSelectionService.select('1947156555',$event)" [ngStyle]="__elementSelectionService.getStyles('1947156555')">
+            Create a new Tarjeta
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1455900343',$event)" [ngStyle]="__elementSelectionService.getStyles('1455900343')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('819334171',$event)" [ngStyle]="__elementSelectionService.getStyles('819334171')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tarjetas?.length === 0" (contextmenu)="__elementSelectionService.select('1634109608',$event)" [ngStyle]="__elementSelectionService.getStyles('1634109608')">
+        <span jhiTranslate="abastosApp.tarjeta.home.notFound" (contextmenu)="__elementSelectionService.select('1877316055',$event)" [ngStyle]="__elementSelectionService.getStyles('1877316055')">No tarjetas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tarjetas &#38;&#38; tarjetas.length &#62; 0" (contextmenu)="__elementSelectionService.select('66814050',$event)" [ngStyle]="__elementSelectionService.getStyles('66814050')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('55435986',$event)" [ngStyle]="__elementSelectionService.getStyles('55435986')">
+            <thead (contextmenu)="__elementSelectionService.select('1446709723',$event)" [ngStyle]="__elementSelectionService.getStyles('1446709723')">
+                <tr (contextmenu)="__elementSelectionService.select('361972194',$event)" [ngStyle]="__elementSelectionService.getStyles('361972194')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1253325730',$event)" [ngStyle]="__elementSelectionService.getStyles('1253325730')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('646126420',$event)" [ngStyle]="__elementSelectionService.getStyles('646126420')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('679000974',$event)" [ngStyle]="__elementSelectionService.getStyles('679000974')"><span jhiTranslate="abastosApp.tarjeta.numeroTarjeta" (contextmenu)="__elementSelectionService.select('669737778',$event)" [ngStyle]="__elementSelectionService.getStyles('669737778')">Numero Tarjeta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1281963334',$event)" [ngStyle]="__elementSelectionService.getStyles('1281963334')"><span jhiTranslate="abastosApp.tarjeta.fechaCaducidad" (contextmenu)="__elementSelectionService.select('1913576996',$event)" [ngStyle]="__elementSelectionService.getStyles('1913576996')">Fecha Caducidad</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('533184288',$event)" [ngStyle]="__elementSelectionService.getStyles('533184288')"><span jhiTranslate="abastosApp.tarjeta.numeroSeguridad" (contextmenu)="__elementSelectionService.select('1674165529',$event)" [ngStyle]="__elementSelectionService.getStyles('1674165529')">Numero Seguridad</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1712285475',$event)" [ngStyle]="__elementSelectionService.getStyles('1712285475')"><span jhiTranslate="abastosApp.tarjeta.fechaAlta" (contextmenu)="__elementSelectionService.select('1660189240',$event)" [ngStyle]="__elementSelectionService.getStyles('1660189240')">Fecha Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1089005561',$event)" [ngStyle]="__elementSelectionService.getStyles('1089005561')"><span jhiTranslate="abastosApp.tarjeta.cliente" (contextmenu)="__elementSelectionService.select('1852287880',$event)" [ngStyle]="__elementSelectionService.getStyles('1852287880')">Cliente</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1942810392',$event)" [ngStyle]="__elementSelectionService.getStyles('1942810392')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('849899235',$event)" [ngStyle]="__elementSelectionService.getStyles('849899235')">
+                <tr *ngFor="let tarjeta of tarjetas ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('905478240',$event)" [ngStyle]="__elementSelectionService.getStyles('905478240')">
+                    <td (contextmenu)="__elementSelectionService.select('1720735420',$event)" [ngStyle]="__elementSelectionService.getStyles('1720735420')"><a [routerLink]="['/tarjeta', tarjeta.id, 'view']" (contextmenu)="__elementSelectionService.select('1924186457',$event)" [ngStyle]="__elementSelectionService.getStyles('1924186457')">{{ tarjeta.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('60716698',$event)" [ngStyle]="__elementSelectionService.getStyles('60716698')">{{ tarjeta.numeroTarjeta }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1922305289',$event)" [ngStyle]="__elementSelectionService.getStyles('1922305289')">{{ tarjeta.fechaCaducidad }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('374702161',$event)" [ngStyle]="__elementSelectionService.getStyles('374702161')">{{ tarjeta.numeroSeguridad }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1654337995',$event)" [ngStyle]="__elementSelectionService.getStyles('1654337995')">{{ tarjeta.fechaAlta | date:'mediumDate' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('306295204',$event)" [ngStyle]="__elementSelectionService.getStyles('306295204')">
+                        <div *ngIf="tarjeta.clienteId" (contextmenu)="__elementSelectionService.select('1089411744',$event)" [ngStyle]="__elementSelectionService.getStyles('1089411744')">
+                            <a [routerLink]="['/cliente', tarjeta.clienteId , 'view']" (contextmenu)="__elementSelectionService.select('2046975460',$event)" [ngStyle]="__elementSelectionService.getStyles('2046975460')">{{ tarjeta.clienteId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1101803014',$event)" [ngStyle]="__elementSelectionService.getStyles('1101803014')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1593797382',$event)" [ngStyle]="__elementSelectionService.getStyles('1593797382')">
+                            <button type="submit" [routerLink]="['/tarjeta', tarjeta.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1719484515',$event)" [ngStyle]="__elementSelectionService.getStyles('1719484515')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('251186229',$event)" [ngStyle]="__elementSelectionService.getStyles('251186229')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('780410866',$event)" [ngStyle]="__elementSelectionService.getStyles('780410866')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/tarjeta', tarjeta.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('193390207',$event)" [ngStyle]="__elementSelectionService.getStyles('193390207')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('133484852',$event)" [ngStyle]="__elementSelectionService.getStyles('133484852')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1327840411',$event)" [ngStyle]="__elementSelectionService.getStyles('1327840411')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tarjeta)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1095815426',$event)" [ngStyle]="__elementSelectionService.getStyles('1095815426')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('2103009865',$event)" [ngStyle]="__elementSelectionService.getStyles('2103009865')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1543856551',$event)" [ngStyle]="__elementSelectionService.getStyles('1543856551')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

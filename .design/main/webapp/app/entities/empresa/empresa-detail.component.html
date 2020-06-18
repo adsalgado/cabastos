@@ -1,0 +1,26 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('197882513',$event)" [ngStyle]="__elementSelectionService.getStyles('197882513')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('87153404',$event)" [ngStyle]="__elementSelectionService.getStyles('87153404')">
+        <div *ngIf="empresa" (contextmenu)="__elementSelectionService.select('1430159153',$event)" [ngStyle]="__elementSelectionService.getStyles('1430159153')">
+            <h2 (contextmenu)="__elementSelectionService.select('769608097',$event)" [ngStyle]="__elementSelectionService.getStyles('769608097')"><span jhiTranslate="abastosApp.empresa.detail.title" (contextmenu)="__elementSelectionService.select('523778911',$event)" [ngStyle]="__elementSelectionService.getStyles('523778911')">Empresa</span> {{ empresa.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('341173374',$event)" [ngStyle]="__elementSelectionService.getStyles('341173374')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('842319410',$event)" [ngStyle]="__elementSelectionService.getStyles('842319410')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('1701909396',$event)" [ngStyle]="__elementSelectionService.getStyles('1701909396')">
+                <dt (contextmenu)="__elementSelectionService.select('994913958',$event)" [ngStyle]="__elementSelectionService.getStyles('994913958')"><span jhiTranslate="abastosApp.empresa.nombre" (contextmenu)="__elementSelectionService.select('19365',$event)" [ngStyle]="__elementSelectionService.getStyles('19365')">Nombre</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('345053377',$event)" [ngStyle]="__elementSelectionService.getStyles('345053377')">
+                    <span (contextmenu)="__elementSelectionService.select('2031178868',$event)" [ngStyle]="__elementSelectionService.getStyles('2031178868')">{{ empresa.nombre }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('729509358',$event)" [ngStyle]="__elementSelectionService.getStyles('729509358')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('690243143',$event)" [ngStyle]="__elementSelectionService.getStyles('690243143')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('896472242',$event)" [ngStyle]="__elementSelectionService.getStyles('896472242')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/empresa', empresa.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1185825951',$event)" [ngStyle]="__elementSelectionService.getStyles('1185825951')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('919229881',$event)" [ngStyle]="__elementSelectionService.getStyles('919229881')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1029122905',$event)" [ngStyle]="__elementSelectionService.getStyles('1029122905')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

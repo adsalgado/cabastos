@@ -85,6 +85,24 @@ public class NotificacionServiceImpl implements NotificacionService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Notificacion : {}", id);
-        notificacionRepository.deleteById(id);
+        Notificacion notify = notificacionRepository.findById(id).orElse(null);
+        if (notify != null) {
+        	notify.setEstatus(1);
+        }
+//        notificacionRepository.deleteById(id);
     }
+
+    /**
+     * Get all the notificacions by usuarioId.
+     *
+     * @return the list of entities.
+     */
+	@Override
+	public List<NotificacionDTO> findByUsuarioId(Long usuarioId) {
+        log.debug("Request to get all Notificacions by usuarioId: {}", usuarioId);
+        return notificacionRepository.findByUsuarioId(usuarioId).stream()
+            .map(notificacionMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+	}
+	
 }

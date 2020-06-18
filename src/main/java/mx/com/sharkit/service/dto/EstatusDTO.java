@@ -1,14 +1,14 @@
 package mx.com.sharkit.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Objects;
 import mx.com.sharkit.domain.enumeration.TipoEstatus;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Estatus} entity.
  */
 public class EstatusDTO implements Serializable {
-    
+
     private Long id;
 
     private TipoEstatus tipoEstatus;
@@ -17,7 +17,7 @@ public class EstatusDTO implements Serializable {
     @Size(max = 128)
     private String nombre;
 
-    
+
     public Long getId() {
         return id;
     }
@@ -47,19 +47,22 @@ public class EstatusDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof EstatusDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((EstatusDTO) o).id);
+        EstatusDTO estatusDTO = (EstatusDTO) o;
+        if (estatusDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), estatusDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "EstatusDTO{" +

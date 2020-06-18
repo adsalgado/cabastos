@@ -1,20 +1,26 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Direccion.
  */
 @Entity
 @Table(name = "direccion")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Direccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,15 +42,27 @@ public class Direccion implements Serializable {
     @Column(name = "codigo_postal", length = 5)
     private String codigoPostal;
 
-    @Size(max = 128)
-    @Column(name = "geolocalizacion", length = 128)
-    private String geolocalizacion;
+    @Size(max = 45)
+    @Column(name = "latitud", length = 128)
+    private String latitud;
+
+    @Size(max = 45)
+    @Column(name = "longitud", length = 128)
+    private String longitud;
+
+    @Column(name = "fecha_alta")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "es_MX")
+    private LocalDateTime fechaAlta;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "direccions", allowSetters = true)
-    private Cliente cliente;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @JoinColumn(name = "usuario_alta_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("direccions")
+    private User usuarioAlta;
+    
+    @Column(name = "usuario_alta_id")
+    private Long usuarioAltaId;
+    
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -92,34 +110,49 @@ public class Direccion implements Serializable {
         this.codigoPostal = codigoPostal;
     }
 
-    public String getGeolocalizacion() {
-        return geolocalizacion;
-    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Direccion geolocalizacion(String geolocalizacion) {
-        this.geolocalizacion = geolocalizacion;
-        return this;
-    }
+    public String getLatitud() {
+		return latitud;
+	}
 
-    public void setGeolocalizacion(String geolocalizacion) {
-        this.geolocalizacion = geolocalizacion;
-    }
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
+	}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public String getLongitud() {
+		return longitud;
+	}
 
-    public Direccion cliente(Cliente cliente) {
-        this.cliente = cliente;
-        return this;
-    }
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    @Override
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public User getUsuarioAlta() {
+		return usuarioAlta;
+	}
+
+	public void setUsuarioAlta(User usuarioAlta) {
+		this.usuarioAlta = usuarioAlta;
+	}
+
+	public Long getUsuarioAltaId() {
+		return usuarioAltaId;
+	}
+
+	public void setUsuarioAltaId(Long usuarioAltaId) {
+		this.usuarioAltaId = usuarioAltaId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -135,7 +168,6 @@ public class Direccion implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Direccion{" +
@@ -143,7 +175,10 @@ public class Direccion implements Serializable {
             ", direccion='" + getDireccion() + "'" +
             ", colonia='" + getColonia() + "'" +
             ", codigoPostal='" + getCodigoPostal() + "'" +
-            ", geolocalizacion='" + getGeolocalizacion() + "'" +
+            ", latitud='" + getLatitud() + "'" +
+            ", longitud='" + getLongitud() + "'" +
+            ", fechaAlta='" + getFechaAlta() + "'" +
+            ", usuarioAlta='" + getUsuarioAltaId() + "'" +
             "}";
     }
 }

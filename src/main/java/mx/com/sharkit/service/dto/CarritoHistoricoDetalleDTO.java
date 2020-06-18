@@ -1,14 +1,15 @@
 package mx.com.sharkit.service.dto;
-
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.CarritoHistoricoDetalle} entity.
  */
 public class CarritoHistoricoDetalleDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -16,11 +17,12 @@ public class CarritoHistoricoDetalleDTO implements Serializable {
 
     private BigDecimal precio;
 
-
-    private Long productoId;
+    private ProductoProveedorDTO productoProveedor;
+    
+    private Long productoProveedorId;
 
     private Long carritoHistoricoId;
-    
+
     public Long getId() {
         return id;
     }
@@ -45,15 +47,23 @@ public class CarritoHistoricoDetalleDTO implements Serializable {
         this.precio = precio;
     }
 
-    public Long getProductoId() {
-        return productoId;
-    }
+	public ProductoProveedorDTO getProductoProveedor() {
+		return productoProveedor;
+	}
 
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
+	public void setProductoProveedor(ProductoProveedorDTO productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
 
-    public Long getCarritoHistoricoId() {
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	public Long getCarritoHistoricoId() {
         return carritoHistoricoId;
     }
 
@@ -66,27 +76,26 @@ public class CarritoHistoricoDetalleDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof CarritoHistoricoDetalleDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((CarritoHistoricoDetalleDTO) o).id);
+        CarritoHistoricoDetalleDTO carritoHistoricoDetalleDTO = (CarritoHistoricoDetalleDTO) o;
+        if (carritoHistoricoDetalleDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), carritoHistoricoDetalleDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "CarritoHistoricoDetalleDTO{" +
-            "id=" + getId() +
-            ", cantidad=" + getCantidad() +
-            ", precio=" + getPrecio() +
-            ", productoId=" + getProductoId() +
-            ", carritoHistoricoId=" + getCarritoHistoricoId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CarritoHistoricoDetalleDTO [id=" + id + ", cantidad=" + cantidad + ", precio=" + precio
+				+ ", productoProveedorId=" + productoProveedorId + ", carritoHistoricoId=" + carritoHistoricoId + "]";
+	}
+
 }

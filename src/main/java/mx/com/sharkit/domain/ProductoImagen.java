@@ -1,20 +1,24 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.Instant;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A ProductoImagen.
  */
 @Entity
 @Table(name = "producto_imagen")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class ProductoImagen implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,14 +35,22 @@ public class ProductoImagen implements Serializable {
     private User usuarioAlta;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "productoImagens", allowSetters = true)
-    private Producto producto;
+    @JoinColumn(name = "producto_proveedor_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("productoImagens")
+    private ProductoProveedor productoProveedor;
+
+    @Column(name = "producto_proveedor_id")
+    private Long productoProveedorId;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "productoImagens", allowSetters = true)
+    @JoinColumn(name = "adjunto_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("productoImagens")
     private Adjunto adjunto;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "adjunto_id")
+    private Long adjuntoId;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -73,19 +85,6 @@ public class ProductoImagen implements Serializable {
         this.usuarioAlta = user;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public ProductoImagen producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     public Adjunto getAdjunto() {
         return adjunto;
     }
@@ -98,9 +97,32 @@ public class ProductoImagen implements Serializable {
     public void setAdjunto(Adjunto adjunto) {
         this.adjunto = adjunto;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    
+	public ProductoProveedor getProductoProveedor() {
+		return productoProveedor;
+	}
 
-    @Override
+	public void setProductoProveedor(ProductoProveedor productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	public Long getAdjuntoId() {
+		return adjuntoId;
+	}
+
+	public void setAdjuntoId(Long adjuntoId) {
+		this.adjuntoId = adjuntoId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -116,12 +138,10 @@ public class ProductoImagen implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "ProductoImagen{" +
-            "id=" + getId() +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "ProductoImagen [id=" + id + ", fechaAlta=" + fechaAlta + ", usuarioAlta=" + usuarioAlta
+				+ ", productoProveedorId=" + productoProveedorId + ", adjuntoId=" + adjuntoId + "]";
+	}
+
 }

@@ -1,0 +1,23 @@
+<form *ngIf="pedidoDetalle" name="deleteForm" (ngSubmit)="confirmDelete(pedidoDetalle?.id!)" (contextmenu)="__elementSelectionService.select('477092757',$event)" [ngStyle]="__elementSelectionService.getStyles('477092757')"(click)='__elementSelectionService.clear()'>
+    <div class="modal-header" (contextmenu)="__elementSelectionService.select('735030708',$event)" [ngStyle]="__elementSelectionService.getStyles('735030708')">
+        <h4 class="modal-title" jhiTranslate="entity.delete.title" (contextmenu)="__elementSelectionService.select('1226729515',$event)" [ngStyle]="__elementSelectionService.getStyles('1226729515')">Confirm delete operation</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="cancel()" (contextmenu)="__elementSelectionService.select('2061380174',$event)" [ngStyle]="__elementSelectionService.getStyles('2061380174')">&#215;</button>
+    </div>
+
+    <div class="modal-body" (contextmenu)="__elementSelectionService.select('1230656368',$event)" [ngStyle]="__elementSelectionService.getStyles('1230656368')">
+        <jhi-alert-error (contextmenu)="__elementSelectionService.select('531559906',$event)" [ngStyle]="__elementSelectionService.getStyles('531559906')"></jhi-alert-error>
+
+        <p id="jhi-delete-pedidoDetalle-heading" jhiTranslate="abastosApp.pedidoDetalle.delete.question" [translateValues]="{ id: pedidoDetalle.id }" (contextmenu)="__elementSelectionService.select('625711372',$event)" [ngStyle]="__elementSelectionService.getStyles('625711372')">Are you sure you want to delete this Pedido Detalle?</p>
+    </div>
+
+    <div class="modal-footer" (contextmenu)="__elementSelectionService.select('785144753',$event)" [ngStyle]="__elementSelectionService.getStyles('785144753')">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()" (contextmenu)="__elementSelectionService.select('899046603',$event)" [ngStyle]="__elementSelectionService.getStyles('899046603')">
+            <fa-icon icon="ban" (contextmenu)="__elementSelectionService.select('1577041534',$event)" [ngStyle]="__elementSelectionService.getStyles('1577041534')"></fa-icon>&#160;<span jhiTranslate="entity.action.cancel" (contextmenu)="__elementSelectionService.select('612749108',$event)" [ngStyle]="__elementSelectionService.getStyles('612749108')">Cancel</span>
+        </button>
+
+        <button id="jhi-confirm-delete-pedidoDetalle" type="submit" class="btn btn-danger" (contextmenu)="__elementSelectionService.select('1750604230',$event)" [ngStyle]="__elementSelectionService.getStyles('1750604230')">
+            <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1873764354',$event)" [ngStyle]="__elementSelectionService.getStyles('1873764354')"></fa-icon>&#160;<span jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1325612999',$event)" [ngStyle]="__elementSelectionService.getStyles('1325612999')">Delete</span>
+        </button>
+    </div>
+</form>

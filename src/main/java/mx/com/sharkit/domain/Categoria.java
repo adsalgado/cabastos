@@ -1,22 +1,25 @@
 package mx.com.sharkit.domain;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Categoria.
  */
 @Entity
 @Table(name = "categoria")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,15 +33,38 @@ public class Categoria implements Serializable {
     @Column(name = "nombre", length = 128, nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy = "categoria")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Producto> productos = new HashSet<>();
+    @Size(max = 256)
+    @Column(name = "descripcion", length = 256)
+    private String descripcion;
+
+    @Size(max = 45)
+    @Column(name = "icono", length = 45)
+    private String icono;
+
+    @Column(name = "usuario_alta_id")
+    private Long usuarioAltaId;
+
+    @Column(name = "usuario_modificacion_id")
+    private Long usuarioModificacionId;
+
+    @Column(name = "fecha_alta")
+    private LocalDateTime fechaAlta;
+
+    @Column(name = "fecha_modificacion")
+    private LocalDateTime fechaModificacion;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "categorias", allowSetters = true)
-    private Empresa empresa;
+    @JoinColumn(name = "seccion_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("categorias")
+    private Seccion seccion;
+    
+    @Column(name = "seccion_id")
+    private Long seccionId;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "adjunto_id")
+    private Long adjuntoId;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -60,46 +86,81 @@ public class Categoria implements Serializable {
         this.nombre = nombre;
     }
 
-    public Set<Producto> getProductos() {
-        return productos;
-    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Categoria productos(Set<Producto> productos) {
-        this.productos = productos;
-        return this;
-    }
+    public String getDescripcion() {
+		return descripcion;
+	}
 
-    public Categoria addProducto(Producto producto) {
-        this.productos.add(producto);
-        producto.setCategoria(this);
-        return this;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-    public Categoria removeProducto(Producto producto) {
-        this.productos.remove(producto);
-        producto.setCategoria(null);
-        return this;
-    }
+	public String getIcono() {
+		return icono;
+	}
 
-    public void setProductos(Set<Producto> productos) {
-        this.productos = productos;
-    }
+	public void setIcono(String icono) {
+		this.icono = icono;
+	}
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
+	public Long getUsuarioAltaId() {
+		return usuarioAltaId;
+	}
 
-    public Categoria empresa(Empresa empresa) {
-        this.empresa = empresa;
-        return this;
-    }
+	public void setUsuarioAltaId(Long usuarioAltaId) {
+		this.usuarioAltaId = usuarioAltaId;
+	}
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+	public Long getUsuarioModificacionId() {
+		return usuarioModificacionId;
+	}
 
-    @Override
+	public void setUsuarioModificacionId(Long usuarioModificacionId) {
+		this.usuarioModificacionId = usuarioModificacionId;
+	}
+
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public LocalDateTime getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(LocalDateTime fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public Seccion getSeccion() {
+		return seccion;
+	}
+
+	public void setSeccion(Seccion seccion) {
+		this.seccion = seccion;
+	}
+
+	public Long getSeccionId() {
+		return seccionId;
+	}
+
+    public Long getAdjuntoId() {
+		return adjuntoId;
+	}
+
+	public void setAdjuntoId(Long adjuntoId) {
+		this.adjuntoId = adjuntoId;
+	}
+
+	public void setSeccionId(Long seccionId) {
+		this.seccionId = seccionId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -115,12 +176,17 @@ public class Categoria implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Categoria{" +
             "id=" + getId() +
             ", nombre='" + getNombre() + "'" +
+            ", icono='" + getIcono() + "'" +
+            ", usuarioAlta='" + getUsuarioAltaId() + "'" +
+            ", usuarioModificacion='" + getUsuarioModificacionId() + "'" +
+            ", fechaAlta='" + getFechaModificacion() + "'" +
+            ", fechaModificacion='" + getFechaModificacion() + "'" +
+            ", seccion=" + getSeccionId() +
             "}";
     }
 }

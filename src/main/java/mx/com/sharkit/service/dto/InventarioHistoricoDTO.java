@@ -1,16 +1,16 @@
 package mx.com.sharkit.service.dto;
-
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 import mx.com.sharkit.domain.enumeration.TipoMovimiento;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.InventarioHistorico} entity.
  */
 public class InventarioHistoricoDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -32,7 +32,7 @@ public class InventarioHistoricoDTO implements Serializable {
     private Long usuarioMovimientoId;
 
     private Long inventarioId;
-    
+
     public Long getId() {
         return id;
     }
@@ -102,19 +102,22 @@ public class InventarioHistoricoDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof InventarioHistoricoDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((InventarioHistoricoDTO) o).id);
+        InventarioHistoricoDTO inventarioHistoricoDTO = (InventarioHistoricoDTO) o;
+        if (inventarioHistoricoDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), inventarioHistoricoDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "InventarioHistoricoDTO{" +
@@ -124,8 +127,8 @@ public class InventarioHistoricoDTO implements Serializable {
             ", totalAnterior=" + getTotalAnterior() +
             ", totalFinal=" + getTotalFinal() +
             ", fechaMovimiento='" + getFechaMovimiento() + "'" +
-            ", usuarioMovimientoId=" + getUsuarioMovimientoId() +
-            ", inventarioId=" + getInventarioId() +
+            ", usuarioMovimiento=" + getUsuarioMovimientoId() +
+            ", inventario=" + getInventarioId() +
             "}";
     }
 }

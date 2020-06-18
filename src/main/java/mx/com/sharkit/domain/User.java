@@ -2,11 +2,10 @@ package mx.com.sharkit.domain;
 
 import mx.com.sharkit.config.Constants;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -15,6 +14,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -24,7 +24,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "jhi_user")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,6 +51,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(max = 50)
     @Column(name = "last_name", length = 50)
     private String lastName;
+        
+    @Size(max = 50)
+    @Column(name = "mother_last_name", length = 50)
+    private String motherLastName;
+
+    @Size(max = 15)
+    @Column(name = "telefono", length = 15)
+    private String telefono;
+
+    @Size(max = 1)
+    @Column(name = "genero", length = 1)
+    private String genero;
+
+    @JsonFormat(pattern = "dd/MM/yyyy", locale="es_MX")
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
 
     @Email
     @Size(min = 5, max = 254)
@@ -82,6 +97,21 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
+    
+    @Column(name = "tipo_usuario_id")
+    private Long tipoUsuarioId;
+    
+    @Column(name = "token")
+    private String token;
+
+    @Column(name = "token_web")
+    private String tokenWeb;
+
+    @Column(name = "adjunto_id")
+    private Long adjuntoId;
+
+    @Column(name = "tipo_persona_id")
+    private Long tipoPersonaId;
 
     @JsonIgnore
     @ManyToMany
@@ -89,10 +119,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
         name = "jhi_user_authority",
         joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
-
 
     public Long getId() {
         return id;
@@ -143,7 +172,39 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public String getImageUrl() {
+    public String getMotherLastName() {
+		return motherLastName;
+	}
+
+	public void setMotherLastName(String motherLastName) {
+		this.motherLastName = motherLastName;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getImageUrl() {
         return imageUrl;
     }
 
@@ -198,8 +259,49 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
+    
+   
+    public Long getTipoUsuarioId() {
+		return tipoUsuarioId;
+	}
 
-    @Override
+	public void setTipoUsuarioId(Long tipoUsuarioId) {
+		this.tipoUsuarioId = tipoUsuarioId;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Long getAdjuntoId() {
+		return adjuntoId;
+	}
+
+	public void setAdjuntoId(Long adjuntoId) {
+		this.adjuntoId = adjuntoId;
+	}
+
+	public Long getTipoPersonaId() {
+		return tipoPersonaId;
+	}
+
+	public void setTipoPersonaId(Long tipoPersonaId) {
+		this.tipoPersonaId = tipoPersonaId;
+	}
+
+	public String getTokenWeb() {
+		return tokenWeb;
+	}
+
+	public void setTokenWeb(String tokenWeb) {
+		this.tokenWeb = tokenWeb;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -215,18 +317,23 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "User{" +
             "login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
+            ", motherLastName='" + motherLastName + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", genero='" + genero + '\'' +
+            ", fechaNacimiento='" + fechaNacimiento + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
+            ", adjuntoId='" + adjuntoId + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", tipoUsuarioId='" + tipoUsuarioId + '\'' +
             "}";
     }
 }

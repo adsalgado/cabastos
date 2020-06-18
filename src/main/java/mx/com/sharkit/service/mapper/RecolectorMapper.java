@@ -1,6 +1,5 @@
 package mx.com.sharkit.service.mapper;
 
-
 import mx.com.sharkit.domain.*;
 import mx.com.sharkit.service.dto.RecolectorDTO;
 
@@ -19,8 +18,6 @@ public interface RecolectorMapper extends EntityMapper<RecolectorDTO, Recolector
 
     @Mapping(source = "usuarioAltaId", target = "usuarioAlta")
     @Mapping(source = "usuarioModificacionId", target = "usuarioModificacion")
-    @Mapping(target = "pedidos", ignore = true)
-    @Mapping(target = "removePedido", ignore = true)
     @Mapping(target = "recolectorTarifas", ignore = true)
     @Mapping(target = "removeRecolectorTarifa", ignore = true)
     @Mapping(source = "empresaId", target = "empresa")

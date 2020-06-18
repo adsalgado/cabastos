@@ -1,0 +1,62 @@
+<div (contextmenu)="__elementSelectionService.select('1630016721',$event)" [ngStyle]="__elementSelectionService.getStyles('1630016721')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1942832460',$event)" [ngStyle]="__elementSelectionService.getStyles('1942832460')">
+        <span jhiTranslate="abastosApp.seccion.home.title" (contextmenu)="__elementSelectionService.select('1390561656',$event)" [ngStyle]="__elementSelectionService.getStyles('1390561656')">Seccions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-seccion" [routerLink]="['/seccion/new']" (contextmenu)="__elementSelectionService.select('29675575',$event)" [ngStyle]="__elementSelectionService.getStyles('29675575')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('637741229',$event)" [ngStyle]="__elementSelectionService.getStyles('637741229')"></fa-icon>
+            <span jhiTranslate="abastosApp.seccion.home.createLabel" (contextmenu)="__elementSelectionService.select('1065221636',$event)" [ngStyle]="__elementSelectionService.getStyles('1065221636')">
+            Create a new Seccion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('2140461338',$event)" [ngStyle]="__elementSelectionService.getStyles('2140461338')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1484192695',$event)" [ngStyle]="__elementSelectionService.getStyles('1484192695')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="seccions?.length === 0" (contextmenu)="__elementSelectionService.select('1737483860',$event)" [ngStyle]="__elementSelectionService.getStyles('1737483860')">
+        <span jhiTranslate="abastosApp.seccion.home.notFound" (contextmenu)="__elementSelectionService.select('936556927',$event)" [ngStyle]="__elementSelectionService.getStyles('936556927')">No seccions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="seccions &#38;&#38; seccions.length &#62; 0" (contextmenu)="__elementSelectionService.select('1851259542',$event)" [ngStyle]="__elementSelectionService.getStyles('1851259542')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('26419112',$event)" [ngStyle]="__elementSelectionService.getStyles('26419112')">
+            <thead (contextmenu)="__elementSelectionService.select('423027848',$event)" [ngStyle]="__elementSelectionService.getStyles('423027848')">
+                <tr (contextmenu)="__elementSelectionService.select('990756752',$event)" [ngStyle]="__elementSelectionService.getStyles('990756752')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1784639789',$event)" [ngStyle]="__elementSelectionService.getStyles('1784639789')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1940413841',$event)" [ngStyle]="__elementSelectionService.getStyles('1940413841')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1561650632',$event)" [ngStyle]="__elementSelectionService.getStyles('1561650632')"><span jhiTranslate="abastosApp.seccion.nombre" (contextmenu)="__elementSelectionService.select('196292805',$event)" [ngStyle]="__elementSelectionService.getStyles('196292805')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('443870855',$event)" [ngStyle]="__elementSelectionService.getStyles('443870855')"><span jhiTranslate="abastosApp.seccion.empresa" (contextmenu)="__elementSelectionService.select('721513613',$event)" [ngStyle]="__elementSelectionService.getStyles('721513613')">Empresa</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1363273344',$event)" [ngStyle]="__elementSelectionService.getStyles('1363273344')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1130811765',$event)" [ngStyle]="__elementSelectionService.getStyles('1130811765')">
+                <tr *ngFor="let seccion of seccions ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('2119901000',$event)" [ngStyle]="__elementSelectionService.getStyles('2119901000')">
+                    <td (contextmenu)="__elementSelectionService.select('1587437834',$event)" [ngStyle]="__elementSelectionService.getStyles('1587437834')"><a [routerLink]="['/seccion', seccion.id, 'view']" (contextmenu)="__elementSelectionService.select('3537343',$event)" [ngStyle]="__elementSelectionService.getStyles('3537343')">{{ seccion.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1965915573',$event)" [ngStyle]="__elementSelectionService.getStyles('1965915573')">{{ seccion.nombre }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1403686151',$event)" [ngStyle]="__elementSelectionService.getStyles('1403686151')">
+                        <div *ngIf="seccion.empresaId" (contextmenu)="__elementSelectionService.select('2123440201',$event)" [ngStyle]="__elementSelectionService.getStyles('2123440201')">
+                            <a [routerLink]="['/empresa', seccion.empresaId , 'view']" (contextmenu)="__elementSelectionService.select('1363592741',$event)" [ngStyle]="__elementSelectionService.getStyles('1363592741')">{{ seccion.empresaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1335413101',$event)" [ngStyle]="__elementSelectionService.getStyles('1335413101')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1214097196',$event)" [ngStyle]="__elementSelectionService.getStyles('1214097196')">
+                            <button type="submit" [routerLink]="['/seccion', seccion.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1069106438',$event)" [ngStyle]="__elementSelectionService.getStyles('1069106438')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1479134010',$event)" [ngStyle]="__elementSelectionService.getStyles('1479134010')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1374925555',$event)" [ngStyle]="__elementSelectionService.getStyles('1374925555')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/seccion', seccion.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1957829414',$event)" [ngStyle]="__elementSelectionService.getStyles('1957829414')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('22475203',$event)" [ngStyle]="__elementSelectionService.getStyles('22475203')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('389061320',$event)" [ngStyle]="__elementSelectionService.getStyles('389061320')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(seccion)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1536743159',$event)" [ngStyle]="__elementSelectionService.getStyles('1536743159')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1058508169',$event)" [ngStyle]="__elementSelectionService.getStyles('1058508169')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('158972737',$event)" [ngStyle]="__elementSelectionService.getStyles('158972737')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

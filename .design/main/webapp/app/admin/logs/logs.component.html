@@ -1,0 +1,28 @@
+<div class="table-responsive" *ngIf="loggers" (contextmenu)="__elementSelectionService.select('1614459956',$event)" [ngStyle]="__elementSelectionService.getStyles('1614459956')"(click)='__elementSelectionService.clear()'>
+    <h2 id="logs-page-heading" jhiTranslate="logs.title" (contextmenu)="__elementSelectionService.select('838047021',$event)" [ngStyle]="__elementSelectionService.getStyles('838047021')">Logs</h2>
+
+    <p jhiTranslate="logs.nbloggers" [translateValues]="{ total: loggers.length }" (contextmenu)="__elementSelectionService.select('81595443',$event)" [ngStyle]="__elementSelectionService.getStyles('81595443')">There are {{ loggers.length }} loggers.</p>
+
+    <span jhiTranslate="logs.filter" (contextmenu)="__elementSelectionService.select('492087959',$event)" [ngStyle]="__elementSelectionService.getStyles('492087959')">Filter</span> <input type="text" [(ngModel)]="filter" class="form-control" (contextmenu)="__elementSelectionService.select('1750530316',$event)" [ngStyle]="__elementSelectionService.getStyles('1750530316')">
+
+    <table class="table table-sm table-striped table-bordered" aria-describedby="logs-page-heading" (contextmenu)="__elementSelectionService.select('1159812054',$event)" [ngStyle]="__elementSelectionService.getStyles('1159812054')">
+        <thead (contextmenu)="__elementSelectionService.select('695301077',$event)" [ngStyle]="__elementSelectionService.getStyles('695301077')">
+            <tr title="click to order" (contextmenu)="__elementSelectionService.select('298415230',$event)" [ngStyle]="__elementSelectionService.getStyles('298415230')">
+                <th scope="col" (click)="orderProp = 'name'; reverse=!reverse" (contextmenu)="__elementSelectionService.select('1317564882',$event)" [ngStyle]="__elementSelectionService.getStyles('1317564882')"><span jhiTranslate="logs.table.name" (contextmenu)="__elementSelectionService.select('24654902',$event)" [ngStyle]="__elementSelectionService.getStyles('24654902')">Name</span></th>
+                <th scope="col" (click)="orderProp = 'level'; reverse=!reverse" (contextmenu)="__elementSelectionService.select('599068695',$event)" [ngStyle]="__elementSelectionService.getStyles('599068695')"><span jhiTranslate="logs.table.level" (contextmenu)="__elementSelectionService.select('2038819483',$event)" [ngStyle]="__elementSelectionService.getStyles('2038819483')">Level</span></th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let logger of (loggers | pureFilter:filter:'name' | orderBy:orderProp:reverse)" (contextmenu)="__elementSelectionService.select('1947079320',$event)" [ngStyle]="__elementSelectionService.getStyles('1947079320')">
+            <td (contextmenu)="__elementSelectionService.select('882327979',$event)" [ngStyle]="__elementSelectionService.getStyles('882327979')"><small (contextmenu)="__elementSelectionService.select('1068096134',$event)" [ngStyle]="__elementSelectionService.getStyles('1068096134')">{{ logger.name | slice:0:140 }}</small></td>
+            <td (contextmenu)="__elementSelectionService.select('1773027034',$event)" [ngStyle]="__elementSelectionService.getStyles('1773027034')">
+                <button (click)="changeLevel(logger.name, 'TRACE')" [ngClass]="(logger.level=='TRACE') ? 'btn-primary' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('1831889829',$event)" [ngStyle]="__elementSelectionService.getStyles('1831889829')">TRACE</button>
+                <button (click)="changeLevel(logger.name, 'DEBUG')" [ngClass]="(logger.level=='DEBUG') ? 'btn-success' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('1663366577',$event)" [ngStyle]="__elementSelectionService.getStyles('1663366577')">DEBUG</button>
+                <button (click)="changeLevel(logger.name, 'INFO')" [ngClass]="(logger.level=='INFO') ? 'btn-info' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('304639673',$event)" [ngStyle]="__elementSelectionService.getStyles('304639673')">INFO</button>
+                <button (click)="changeLevel(logger.name, 'WARN')" [ngClass]="(logger.level=='WARN') ? 'btn-warning' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('183032520',$event)" [ngStyle]="__elementSelectionService.getStyles('183032520')">WARN</button>
+                <button (click)="changeLevel(logger.name, 'ERROR')" [ngClass]="(logger.level=='ERROR') ? 'btn-danger' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('1693181299',$event)" [ngStyle]="__elementSelectionService.getStyles('1693181299')">ERROR</button>
+                <button (click)="changeLevel(logger.name, 'OFF')" [ngClass]="(logger.level=='OFF') ? 'btn-secondary' : 'btn-light'" class="btn btn-sm" (contextmenu)="__elementSelectionService.select('539364642',$event)" [ngStyle]="__elementSelectionService.getStyles('539364642')">OFF</button>
+            </td>
+        </tr>
+    </table>
+</div>

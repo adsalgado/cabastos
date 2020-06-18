@@ -3,6 +3,7 @@ package mx.com.sharkit.config;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +33,14 @@ public class JacksonConfiguration {
     @Bean
     public Hibernate5Module hibernate5Module() {
         return new Hibernate5Module();
+    }
+
+    /*
+     * Jackson Afterburner module to speed up serialization/deserialization.
+     */
+    @Bean
+    public AfterburnerModule afterburnerModule() {
+        return new AfterburnerModule();
     }
 
     /*

@@ -1,0 +1,44 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('694119545',$event)" [ngStyle]="__elementSelectionService.getStyles('694119545')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('918106039',$event)" [ngStyle]="__elementSelectionService.getStyles('918106039')">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" (contextmenu)="__elementSelectionService.select('1683468733',$event)" [ngStyle]="__elementSelectionService.getStyles('1683468733')">
+            <h2 id="jhi-historico-pedido-heading" jhiTranslate="abastosApp.historicoPedido.home.createOrEditLabel" (contextmenu)="__elementSelectionService.select('1382400031',$event)" [ngStyle]="__elementSelectionService.getStyles('1382400031')">Create or edit a Historico Pedido</h2>
+
+            <div (contextmenu)="__elementSelectionService.select('830856234',$event)" [ngStyle]="__elementSelectionService.getStyles('830856234')">
+                <jhi-alert-error (contextmenu)="__elementSelectionService.select('1321113914',$event)" [ngStyle]="__elementSelectionService.getStyles('1321113914')"></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value" (contextmenu)="__elementSelectionService.select('389878537',$event)" [ngStyle]="__elementSelectionService.getStyles('389878537')">
+                    <label for="id" jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1805929673',$event)" [ngStyle]="__elementSelectionService.getStyles('1805929673')">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly (contextmenu)="__elementSelectionService.select('1952430363',$event)" [ngStyle]="__elementSelectionService.getStyles('1952430363')">
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('1318226403',$event)" [ngStyle]="__elementSelectionService.getStyles('1318226403')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.historicoPedido.fechaEstatus" for="field_fechaEstatus" (contextmenu)="__elementSelectionService.select('835219043',$event)" [ngStyle]="__elementSelectionService.getStyles('835219043')">Fecha Estatus</label>
+                    <div class="input-group" (contextmenu)="__elementSelectionService.select('2026090135',$event)" [ngStyle]="__elementSelectionService.getStyles('2026090135')">
+                        <input id="field_fechaEstatus" type="text" class="form-control" name="fechaEstatus" ngbDatepicker #fechaEstatusDp="ngbDatepicker" formControlName="fechaEstatus" (contextmenu)="__elementSelectionService.select('1910327285',$event)" [ngStyle]="__elementSelectionService.getStyles('1910327285')">
+                        <span class="input-group-append" (contextmenu)="__elementSelectionService.select('727319996',$event)" [ngStyle]="__elementSelectionService.getStyles('727319996')">
+                            <button type="button" class="btn btn-secondary" (click)="fechaEstatusDp.toggle()" (contextmenu)="__elementSelectionService.select('1502858690',$event)" [ngStyle]="__elementSelectionService.getStyles('1502858690')"><fa-icon icon="calendar-alt" (contextmenu)="__elementSelectionService.select('1019307889',$event)" [ngStyle]="__elementSelectionService.getStyles('1019307889')"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" (contextmenu)="__elementSelectionService.select('666402291',$event)" [ngStyle]="__elementSelectionService.getStyles('666402291')">
+                    <label class="form-control-label" jhiTranslate="abastosApp.historicoPedido.pedido" for="field_pedido" (contextmenu)="__elementSelectionService.select('1546971997',$event)" [ngStyle]="__elementSelectionService.getStyles('1546971997')">Pedido</label>
+                    <select class="form-control" id="field_pedido" name="pedido" formControlName="pedidoId" (contextmenu)="__elementSelectionService.select('453955780',$event)" [ngStyle]="__elementSelectionService.getStyles('453955780')">
+                        <option [ngValue]="null" (contextmenu)="__elementSelectionService.select('742639163',$event)" [ngStyle]="__elementSelectionService.getStyles('742639163')"></option>
+                        <option [ngValue]="pedidoOption.id" *ngFor="let pedidoOption of pedidos; trackBy: trackById" (contextmenu)="__elementSelectionService.select('1223713189',$event)" [ngStyle]="__elementSelectionService.getStyles('1223713189')">{{ pedidoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div (contextmenu)="__elementSelectionService.select('870647269',$event)" [ngStyle]="__elementSelectionService.getStyles('870647269')">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()" (contextmenu)="__elementSelectionService.select('1577089965',$event)" [ngStyle]="__elementSelectionService.getStyles('1577089965')">
+                    <fa-icon icon="ban" (contextmenu)="__elementSelectionService.select('1824529480',$event)" [ngStyle]="__elementSelectionService.getStyles('1824529480')"></fa-icon>&#160;<span jhiTranslate="entity.action.cancel" (contextmenu)="__elementSelectionService.select('670479676',$event)" [ngStyle]="__elementSelectionService.getStyles('670479676')">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1009210890',$event)" [ngStyle]="__elementSelectionService.getStyles('1009210890')">
+                    <fa-icon icon="save" (contextmenu)="__elementSelectionService.select('1638375216',$event)" [ngStyle]="__elementSelectionService.getStyles('1638375216')"></fa-icon>&#160;<span jhiTranslate="entity.action.save" (contextmenu)="__elementSelectionService.select('225045776',$event)" [ngStyle]="__elementSelectionService.getStyles('225045776')">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

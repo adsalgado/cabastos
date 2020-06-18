@@ -1,23 +1,22 @@
 package mx.com.sharkit.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * A Inventario.
  */
 @Entity
 @Table(name = "inventario")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Inventario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,97 +25,73 @@ public class Inventario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "producto_proveedor_id", insertable = false, updatable = false)
+    private ProductoProveedor productoProveedor;
+
+    @Column(name = "producto_proveedor_id")
+    private Long productoProveedorId;
+
     @NotNull
     @Column(name = "total", precision = 21, scale = 2, nullable = false)
     private BigDecimal total;
 
-    @OneToMany(mappedBy = "inventario")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<InventarioHistorico> inventarioHistoricos = new HashSet<>();
+    @Column(name = "inventario_minimo", precision = 21, scale = 2)
+    private BigDecimal inventarioMinimo;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "inventarios", allowSetters = true)
-    private Proveedor proveedor;
+    @Column(name = "inventario_maximo", precision = 21, scale = 2)
+    private BigDecimal inventarioMaximo;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "inventarios", allowSetters = true)
-    private Producto producto;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public BigDecimal getTotal() {
-        return total;
-    }
+	public ProductoProveedor getProductoProveedor() {
+		return productoProveedor;
+	}
 
-    public Inventario total(BigDecimal total) {
-        this.total = total;
-        return this;
-    }
+	public void setProductoProveedor(ProductoProveedor productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
 
-    public Set<InventarioHistorico> getInventarioHistoricos() {
-        return inventarioHistoricos;
-    }
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
 
-    public Inventario inventarioHistoricos(Set<InventarioHistorico> inventarioHistoricos) {
-        this.inventarioHistoricos = inventarioHistoricos;
-        return this;
-    }
+	public BigDecimal getTotal() {
+		return total;
+	}
 
-    public Inventario addInventarioHistorico(InventarioHistorico inventarioHistorico) {
-        this.inventarioHistoricos.add(inventarioHistorico);
-        inventarioHistorico.setInventario(this);
-        return this;
-    }
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
 
-    public Inventario removeInventarioHistorico(InventarioHistorico inventarioHistorico) {
-        this.inventarioHistoricos.remove(inventarioHistorico);
-        inventarioHistorico.setInventario(null);
-        return this;
-    }
+	public BigDecimal getInventarioMinimo() {
+		return inventarioMinimo;
+	}
 
-    public void setInventarioHistoricos(Set<InventarioHistorico> inventarioHistoricos) {
-        this.inventarioHistoricos = inventarioHistoricos;
-    }
+	public void setInventarioMinimo(BigDecimal inventarioMinimo) {
+		this.inventarioMinimo = inventarioMinimo;
+	}
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
+	public BigDecimal getInventarioMaximo() {
+		return inventarioMaximo;
+	}
 
-    public Inventario proveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-        return this;
-    }
+	public void setInventarioMaximo(BigDecimal inventarioMaximo) {
+		this.inventarioMaximo = inventarioMaximo;
+	}
 
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public Inventario producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -132,12 +107,11 @@ public class Inventario implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Inventario{" +
-            "id=" + getId() +
-            ", total=" + getTotal() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "Inventario [id=" + id + ", productoProveedor=" + productoProveedor + ", productoProveedorId="
+				+ productoProveedorId + ", total=" + total + ", inventarioMinimo=" + inventarioMinimo
+				+ ", inventarioMaximo=" + inventarioMaximo + "]";
+	}
+
 }

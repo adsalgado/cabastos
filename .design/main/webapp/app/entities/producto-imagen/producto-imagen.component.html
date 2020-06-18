@@ -1,0 +1,72 @@
+<div (contextmenu)="__elementSelectionService.select('1781090374',$event)" [ngStyle]="__elementSelectionService.getStyles('1781090374')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1977534165',$event)" [ngStyle]="__elementSelectionService.getStyles('1977534165')">
+        <span jhiTranslate="abastosApp.productoImagen.home.title" (contextmenu)="__elementSelectionService.select('1427491664',$event)" [ngStyle]="__elementSelectionService.getStyles('1427491664')">Producto Imagens</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-producto-imagen" [routerLink]="['/producto-imagen/new']" (contextmenu)="__elementSelectionService.select('1082985428',$event)" [ngStyle]="__elementSelectionService.getStyles('1082985428')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1159443637',$event)" [ngStyle]="__elementSelectionService.getStyles('1159443637')"></fa-icon>
+            <span jhiTranslate="abastosApp.productoImagen.home.createLabel" (contextmenu)="__elementSelectionService.select('1190148781',$event)" [ngStyle]="__elementSelectionService.getStyles('1190148781')">
+            Create a new Producto Imagen
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1027880552',$event)" [ngStyle]="__elementSelectionService.getStyles('1027880552')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('364861887',$event)" [ngStyle]="__elementSelectionService.getStyles('364861887')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="productoImagens?.length === 0" (contextmenu)="__elementSelectionService.select('228190625',$event)" [ngStyle]="__elementSelectionService.getStyles('228190625')">
+        <span jhiTranslate="abastosApp.productoImagen.home.notFound" (contextmenu)="__elementSelectionService.select('1249615853',$event)" [ngStyle]="__elementSelectionService.getStyles('1249615853')">No productoImagens found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="productoImagens &#38;&#38; productoImagens.length &#62; 0" (contextmenu)="__elementSelectionService.select('1443891132',$event)" [ngStyle]="__elementSelectionService.getStyles('1443891132')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('957210208',$event)" [ngStyle]="__elementSelectionService.getStyles('957210208')">
+            <thead (contextmenu)="__elementSelectionService.select('2065427457',$event)" [ngStyle]="__elementSelectionService.getStyles('2065427457')">
+                <tr (contextmenu)="__elementSelectionService.select('1837727864',$event)" [ngStyle]="__elementSelectionService.getStyles('1837727864')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('997349266',$event)" [ngStyle]="__elementSelectionService.getStyles('997349266')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1826320450',$event)" [ngStyle]="__elementSelectionService.getStyles('1826320450')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1216668220',$event)" [ngStyle]="__elementSelectionService.getStyles('1216668220')"><span jhiTranslate="abastosApp.productoImagen.fechaAlta" (contextmenu)="__elementSelectionService.select('1773084948',$event)" [ngStyle]="__elementSelectionService.getStyles('1773084948')">Fecha Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1086862708',$event)" [ngStyle]="__elementSelectionService.getStyles('1086862708')"><span jhiTranslate="abastosApp.productoImagen.usuarioAlta" (contextmenu)="__elementSelectionService.select('1998980175',$event)" [ngStyle]="__elementSelectionService.getStyles('1998980175')">Usuario Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('417107349',$event)" [ngStyle]="__elementSelectionService.getStyles('417107349')"><span jhiTranslate="abastosApp.productoImagen.producto" (contextmenu)="__elementSelectionService.select('149665819',$event)" [ngStyle]="__elementSelectionService.getStyles('149665819')">Producto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('159993831',$event)" [ngStyle]="__elementSelectionService.getStyles('159993831')"><span jhiTranslate="abastosApp.productoImagen.adjunto" (contextmenu)="__elementSelectionService.select('1313486565',$event)" [ngStyle]="__elementSelectionService.getStyles('1313486565')">Adjunto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('847690396',$event)" [ngStyle]="__elementSelectionService.getStyles('847690396')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1744365495',$event)" [ngStyle]="__elementSelectionService.getStyles('1744365495')">
+                <tr *ngFor="let productoImagen of productoImagens ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('609057496',$event)" [ngStyle]="__elementSelectionService.getStyles('609057496')">
+                    <td (contextmenu)="__elementSelectionService.select('992972202',$event)" [ngStyle]="__elementSelectionService.getStyles('992972202')"><a [routerLink]="['/producto-imagen', productoImagen.id, 'view']" (contextmenu)="__elementSelectionService.select('1023050249',$event)" [ngStyle]="__elementSelectionService.getStyles('1023050249')">{{ productoImagen.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('471797630',$event)" [ngStyle]="__elementSelectionService.getStyles('471797630')">{{ productoImagen.fechaAlta | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1397439903',$event)" [ngStyle]="__elementSelectionService.getStyles('1397439903')">
+                        {{ productoImagen.usuarioAltaId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('340699265',$event)" [ngStyle]="__elementSelectionService.getStyles('340699265')">
+                        <div *ngIf="productoImagen.productoId" (contextmenu)="__elementSelectionService.select('2093779659',$event)" [ngStyle]="__elementSelectionService.getStyles('2093779659')">
+                            <a [routerLink]="['/producto', productoImagen.productoId , 'view']" (contextmenu)="__elementSelectionService.select('416030419',$event)" [ngStyle]="__elementSelectionService.getStyles('416030419')">{{ productoImagen.productoId }}</a>
+                        </div>
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('308379536',$event)" [ngStyle]="__elementSelectionService.getStyles('308379536')">
+                        <div *ngIf="productoImagen.adjuntoId" (contextmenu)="__elementSelectionService.select('1930090493',$event)" [ngStyle]="__elementSelectionService.getStyles('1930090493')">
+                            <a [routerLink]="['/adjunto', productoImagen.adjuntoId , 'view']" (contextmenu)="__elementSelectionService.select('1804112261',$event)" [ngStyle]="__elementSelectionService.getStyles('1804112261')">{{ productoImagen.adjuntoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('332013729',$event)" [ngStyle]="__elementSelectionService.getStyles('332013729')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('172900535',$event)" [ngStyle]="__elementSelectionService.getStyles('172900535')">
+                            <button type="submit" [routerLink]="['/producto-imagen', productoImagen.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('803130172',$event)" [ngStyle]="__elementSelectionService.getStyles('803130172')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('16086011',$event)" [ngStyle]="__elementSelectionService.getStyles('16086011')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1115198572',$event)" [ngStyle]="__elementSelectionService.getStyles('1115198572')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/producto-imagen', productoImagen.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('978005868',$event)" [ngStyle]="__elementSelectionService.getStyles('978005868')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1662354482',$event)" [ngStyle]="__elementSelectionService.getStyles('1662354482')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1221875968',$event)" [ngStyle]="__elementSelectionService.getStyles('1221875968')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(productoImagen)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1317633922',$event)" [ngStyle]="__elementSelectionService.getStyles('1317633922')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('769268080',$event)" [ngStyle]="__elementSelectionService.getStyles('769268080')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1654729965',$event)" [ngStyle]="__elementSelectionService.getStyles('1654729965')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

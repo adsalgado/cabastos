@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -80,6 +81,7 @@ public class OfertaProveedorResource {
     /**
      * {@code GET  /oferta-proveedors} : get all the ofertaProveedors.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of ofertaProveedors in body.
      */
     @GetMapping("/oferta-proveedors")

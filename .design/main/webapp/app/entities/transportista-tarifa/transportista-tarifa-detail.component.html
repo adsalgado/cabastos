@@ -1,0 +1,40 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1043637740',$event)" [ngStyle]="__elementSelectionService.getStyles('1043637740')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('518797750',$event)" [ngStyle]="__elementSelectionService.getStyles('518797750')">
+        <div *ngIf="transportistaTarifa" (contextmenu)="__elementSelectionService.select('99415106',$event)" [ngStyle]="__elementSelectionService.getStyles('99415106')">
+            <h2 (contextmenu)="__elementSelectionService.select('1238463125',$event)" [ngStyle]="__elementSelectionService.getStyles('1238463125')"><span jhiTranslate="abastosApp.transportistaTarifa.detail.title" (contextmenu)="__elementSelectionService.select('983315104',$event)" [ngStyle]="__elementSelectionService.getStyles('983315104')">Transportista Tarifa</span> {{ transportistaTarifa.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('1161993676',$event)" [ngStyle]="__elementSelectionService.getStyles('1161993676')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('669921218',$event)" [ngStyle]="__elementSelectionService.getStyles('669921218')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('1701426288',$event)" [ngStyle]="__elementSelectionService.getStyles('1701426288')">
+                <dt (contextmenu)="__elementSelectionService.select('1052480335',$event)" [ngStyle]="__elementSelectionService.getStyles('1052480335')"><span jhiTranslate="abastosApp.transportistaTarifa.rangoMinimo" (contextmenu)="__elementSelectionService.select('1875297705',$event)" [ngStyle]="__elementSelectionService.getStyles('1875297705')">Rango Minimo</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('956331948',$event)" [ngStyle]="__elementSelectionService.getStyles('956331948')">
+                    <span (contextmenu)="__elementSelectionService.select('291675848',$event)" [ngStyle]="__elementSelectionService.getStyles('291675848')">{{ transportistaTarifa.rangoMinimo }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1939953216',$event)" [ngStyle]="__elementSelectionService.getStyles('1939953216')"><span jhiTranslate="abastosApp.transportistaTarifa.rangoMaximo" (contextmenu)="__elementSelectionService.select('714288656',$event)" [ngStyle]="__elementSelectionService.getStyles('714288656')">Rango Maximo</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('278168057',$event)" [ngStyle]="__elementSelectionService.getStyles('278168057')">
+                    <span (contextmenu)="__elementSelectionService.select('352705021',$event)" [ngStyle]="__elementSelectionService.getStyles('352705021')">{{ transportistaTarifa.rangoMaximo }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1827638859',$event)" [ngStyle]="__elementSelectionService.getStyles('1827638859')"><span jhiTranslate="abastosApp.transportistaTarifa.precio" (contextmenu)="__elementSelectionService.select('1606405736',$event)" [ngStyle]="__elementSelectionService.getStyles('1606405736')">Precio</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1796212527',$event)" [ngStyle]="__elementSelectionService.getStyles('1796212527')">
+                    <span (contextmenu)="__elementSelectionService.select('1348592001',$event)" [ngStyle]="__elementSelectionService.getStyles('1348592001')">{{ transportistaTarifa.precio }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1089249296',$event)" [ngStyle]="__elementSelectionService.getStyles('1089249296')"><span jhiTranslate="abastosApp.transportistaTarifa.transportista" (contextmenu)="__elementSelectionService.select('1627515627',$event)" [ngStyle]="__elementSelectionService.getStyles('1627515627')">Transportista</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('172208283',$event)" [ngStyle]="__elementSelectionService.getStyles('172208283')">
+                    <div *ngIf="transportistaTarifa.transportistaId" (contextmenu)="__elementSelectionService.select('1433482683',$event)" [ngStyle]="__elementSelectionService.getStyles('1433482683')">
+                        <a [routerLink]="['/transportista', transportistaTarifa.transportistaId, 'view']" (contextmenu)="__elementSelectionService.select('1891169061',$event)" [ngStyle]="__elementSelectionService.getStyles('1891169061')">{{ transportistaTarifa.transportistaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('511711595',$event)" [ngStyle]="__elementSelectionService.getStyles('511711595')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('156284232',$event)" [ngStyle]="__elementSelectionService.getStyles('156284232')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('1431340340',$event)" [ngStyle]="__elementSelectionService.getStyles('1431340340')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/transportista-tarifa', transportistaTarifa.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1657169248',$event)" [ngStyle]="__elementSelectionService.getStyles('1657169248')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('2090033938',$event)" [ngStyle]="__elementSelectionService.getStyles('2090033938')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1894081341',$event)" [ngStyle]="__elementSelectionService.getStyles('1894081341')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

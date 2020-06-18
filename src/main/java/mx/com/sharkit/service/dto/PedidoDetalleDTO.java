@@ -1,14 +1,29 @@
 package mx.com.sharkit.service.dto;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.PedidoDetalle} entity.
  */
 public class PedidoDetalleDTO implements Serializable {
-    
+
     private Long id;
+    
+	private String folio;
+
+    private Long pedidoProveedorId;
+
+    private Long productoProveedorId;
+
+    private ProductoProveedorDTO productoProveedor;
+    
+    private EstatusDTO estatus;
+
+    private Long estatusId;
 
     private BigDecimal cantidad;
 
@@ -16,97 +31,134 @@ public class PedidoDetalleDTO implements Serializable {
 
     private BigDecimal total;
 
+    private BigDecimal precioSinIva;
 
-    private Long pedidoId;
+    private BigDecimal precio;
 
-    private Long productoId;
 
-    private Long estatusId;
-    
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public BigDecimal getCantidad() {
-        return cantidad;
-    }
+	public String getFolio() {
+		return folio;
+	}
 
-    public void setCantidad(BigDecimal cantidad) {
-        this.cantidad = cantidad;
-    }
+	public void setFolio(String folio) {
+		this.folio = folio;
+	}
 
-    public BigDecimal getTotalSinIva() {
-        return totalSinIva;
-    }
+	public Long getPedidoProveedorId() {
+		return pedidoProveedorId;
+	}
 
-    public void setTotalSinIva(BigDecimal totalSinIva) {
-        this.totalSinIva = totalSinIva;
-    }
+	public void setPedidoProveedorId(Long pedidoProveedorId) {
+		this.pedidoProveedorId = pedidoProveedorId;
+	}
 
-    public BigDecimal getTotal() {
-        return total;
-    }
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
 
-    public Long getPedidoId() {
-        return pedidoId;
-    }
+	public Long getEstatusId() {
+		return estatusId;
+	}
 
-    public void setPedidoId(Long pedidoId) {
-        this.pedidoId = pedidoId;
-    }
+	public void setEstatusId(Long estatusId) {
+		this.estatusId = estatusId;
+	}
 
-    public Long getProductoId() {
-        return productoId;
-    }
+	public BigDecimal getCantidad() {
+		return cantidad;
+	}
 
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
+	public void setCantidad(BigDecimal cantidad) {
+		this.cantidad = cantidad;
+	}
 
-    public Long getEstatusId() {
-        return estatusId;
-    }
+	public BigDecimal getTotalSinIva() {
+		return totalSinIva;
+	}
 
-    public void setEstatusId(Long estatusId) {
-        this.estatusId = estatusId;
-    }
+	public void setTotalSinIva(BigDecimal totalSinIva) {
+		this.totalSinIva = totalSinIva;
+	}
 
-    @Override
+	public BigDecimal getTotal() {
+		return total;
+	}
+
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
+
+	public ProductoProveedorDTO getProductoProveedor() {
+		return productoProveedor;
+	}
+
+	public void setProductoProveedor(ProductoProveedorDTO productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public EstatusDTO getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(EstatusDTO estatus) {
+		this.estatus = estatus;
+	}
+
+	public BigDecimal getPrecioSinIva() {
+		return precioSinIva;
+	}
+
+	public void setPrecioSinIva(BigDecimal precioSinIva) {
+		this.precioSinIva = precioSinIva;
+	}
+
+	public BigDecimal getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof PedidoDetalleDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((PedidoDetalleDTO) o).id);
+        PedidoDetalleDTO pedidoDetalleDTO = (PedidoDetalleDTO) o;
+        if (pedidoDetalleDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), pedidoDetalleDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "PedidoDetalleDTO{" +
-            "id=" + getId() +
-            ", cantidad=" + getCantidad() +
-            ", totalSinIva=" + getTotalSinIva() +
-            ", total=" + getTotal() +
-            ", pedidoId=" + getPedidoId() +
-            ", productoId=" + getProductoId() +
-            ", estatusId=" + getEstatusId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "PedidoDetalleDTO [id=" + id + ", pedidoProveedorId=" + pedidoProveedorId + ", productoProveedorId="
+				+ productoProveedorId + ", estatusId=" + estatusId + ", cantidad=" + cantidad + ", totalSinIva="
+				+ totalSinIva + ", folio=" + folio + ", total=" + total + ", precioSinIva=" + precioSinIva + ", precio=" + precio + "]";
+	}
+
+
 }

@@ -1,0 +1,26 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('978324677',$event)" [ngStyle]="__elementSelectionService.getStyles('978324677')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('1202700619',$event)" [ngStyle]="__elementSelectionService.getStyles('1202700619')">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" (contextmenu)="__elementSelectionService.select('2099497823',$event)" [ngStyle]="__elementSelectionService.getStyles('2099497823')">
+            <h2 id="jhi-notificacion-heading" jhiTranslate="abastosApp.notificacion.home.createOrEditLabel" (contextmenu)="__elementSelectionService.select('1488192620',$event)" [ngStyle]="__elementSelectionService.getStyles('1488192620')">Create or edit a Notificacion</h2>
+
+            <div (contextmenu)="__elementSelectionService.select('1911886998',$event)" [ngStyle]="__elementSelectionService.getStyles('1911886998')">
+                <jhi-alert-error (contextmenu)="__elementSelectionService.select('1223243386',$event)" [ngStyle]="__elementSelectionService.getStyles('1223243386')"></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value" (contextmenu)="__elementSelectionService.select('737375499',$event)" [ngStyle]="__elementSelectionService.getStyles('737375499')">
+                    <label for="id" jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1394377597',$event)" [ngStyle]="__elementSelectionService.getStyles('1394377597')">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly (contextmenu)="__elementSelectionService.select('169114668',$event)" [ngStyle]="__elementSelectionService.getStyles('169114668')">
+                </div>
+            </div>
+
+            <div (contextmenu)="__elementSelectionService.select('189776370',$event)" [ngStyle]="__elementSelectionService.getStyles('189776370')">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()" (contextmenu)="__elementSelectionService.select('1000650429',$event)" [ngStyle]="__elementSelectionService.getStyles('1000650429')">
+                    <fa-icon icon="ban" (contextmenu)="__elementSelectionService.select('202690015',$event)" [ngStyle]="__elementSelectionService.getStyles('202690015')"></fa-icon>&#160;<span jhiTranslate="entity.action.cancel" (contextmenu)="__elementSelectionService.select('625485165',$event)" [ngStyle]="__elementSelectionService.getStyles('625485165')">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('1350377575',$event)" [ngStyle]="__elementSelectionService.getStyles('1350377575')">
+                    <fa-icon icon="save" (contextmenu)="__elementSelectionService.select('1324512651',$event)" [ngStyle]="__elementSelectionService.getStyles('1324512651')"></fa-icon>&#160;<span jhiTranslate="entity.action.save" (contextmenu)="__elementSelectionService.select('1679963071',$event)" [ngStyle]="__elementSelectionService.getStyles('1679963071')">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

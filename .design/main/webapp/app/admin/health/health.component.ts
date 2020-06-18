@@ -1,0 +1,48 @@
+import {ElementSelectionService} from './../../../../../app/element-selection.service';
+import {ComponentInspectorService} from './../../../../../app/component-inspector.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { HealthService, HealthStatus, Health, HealthKey, HealthDetails } from './health.service';
+import { HealthModalComponent } from './health-modal.component';
+
+@Component({
+  selector: 'jhi-health',
+  templateUrl: './health.component.html',
+})
+export class HealthComponent implements OnInit {
+  health?: Health;
+
+  constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService,
+private modalService: NgbModal, private healthService: HealthService) {this.__componentInspectorService.getComp(this);
+}
+
+  ngOnInit(): void {
+    this.refresh();
+  }
+
+  getBadgeClass(statusState: HealthStatus): string {
+    if (statusState === 'UP') {
+      return 'badge-success';
+    } else {
+      return 'badge-danger';
+    }
+  }
+
+  refresh(): void {
+    this.healthService.checkHealth().subscribe(
+      health => (this.health = health),
+      (error: HttpErrorResponse) => {
+        if (error.status === 503) {
+          this.health = error.error;
+        }
+      }
+    );
+  }
+
+  showHealth(health: { key: HealthKey; value: HealthDetails }): void {
+    const modalRef = this.modalService.open(HealthModalComponent);
+    modalRef.componentInstance.health = health;
+  }
+}

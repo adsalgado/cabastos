@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -15,7 +12,6 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "transportista_tarifa")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class TransportistaTarifa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,10 +33,14 @@ public class TransportistaTarifa implements Serializable {
     private BigDecimal precio;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "transportistaTarifas", allowSetters = true)
+    @JsonIgnoreProperties("transportistaTarifas")
     private Transportista transportista;
+    
+    @Size(max = 45)
+    @Column(name = "tiempo_entrega", length = 45)
+    private String tiempoEntrega;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -100,9 +100,16 @@ public class TransportistaTarifa implements Serializable {
     public void setTransportista(Transportista transportista) {
         this.transportista = transportista;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    
+    public String getTiempoEntrega() {
+		return tiempoEntrega;
+	}
 
-    @Override
+	public void setTiempoEntrega(String tiempoEntrega) {
+		this.tiempoEntrega = tiempoEntrega;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -118,14 +125,10 @@ public class TransportistaTarifa implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "TransportistaTarifa{" +
-            "id=" + getId() +
-            ", rangoMinimo=" + getRangoMinimo() +
-            ", rangoMaximo=" + getRangoMaximo() +
-            ", precio=" + getPrecio() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "TransportistaTarifa [id=" + id + ", rangoMinimo=" + rangoMinimo + ", rangoMaximo=" + rangoMaximo
+				+ ", precio=" + precio + ", transportista=" + transportista + ", tiempoEntrega=" + tiempoEntrega + "]";
+	}
+
 }

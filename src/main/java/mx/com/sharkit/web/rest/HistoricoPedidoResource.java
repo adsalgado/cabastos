@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -80,6 +81,7 @@ public class HistoricoPedidoResource {
     /**
      * {@code GET  /historico-pedidos} : get all the historicoPedidos.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of historicoPedidos in body.
      */
     @GetMapping("/historico-pedidos")

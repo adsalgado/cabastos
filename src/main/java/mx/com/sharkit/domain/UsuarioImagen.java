@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
@@ -14,7 +11,6 @@ import java.time.Instant;
  */
 @Entity
 @Table(name = "usuario_imagen")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UsuarioImagen implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,10 +27,10 @@ public class UsuarioImagen implements Serializable {
     private User usuario;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "usuarioImagens", allowSetters = true)
+    @JsonIgnoreProperties("usuarioImagens")
     private Adjunto adjunto;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -81,7 +77,7 @@ public class UsuarioImagen implements Serializable {
     public void setAdjunto(Adjunto adjunto) {
         this.adjunto = adjunto;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -99,7 +95,6 @@ public class UsuarioImagen implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "UsuarioImagen{" +

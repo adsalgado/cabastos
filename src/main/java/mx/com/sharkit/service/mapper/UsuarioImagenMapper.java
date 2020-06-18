@@ -1,6 +1,5 @@
 package mx.com.sharkit.service.mapper;
 
-
 import mx.com.sharkit.domain.*;
 import mx.com.sharkit.service.dto.UsuarioImagenDTO;
 

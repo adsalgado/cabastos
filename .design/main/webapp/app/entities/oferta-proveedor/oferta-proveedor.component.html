@@ -1,0 +1,82 @@
+<div (contextmenu)="__elementSelectionService.select('13887975',$event)" [ngStyle]="__elementSelectionService.getStyles('13887975')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1644937792',$event)" [ngStyle]="__elementSelectionService.getStyles('1644937792')">
+        <span jhiTranslate="abastosApp.ofertaProveedor.home.title" (contextmenu)="__elementSelectionService.select('2106102583',$event)" [ngStyle]="__elementSelectionService.getStyles('2106102583')">Oferta Proveedors</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-oferta-proveedor" [routerLink]="['/oferta-proveedor/new']" (contextmenu)="__elementSelectionService.select('2141209317',$event)" [ngStyle]="__elementSelectionService.getStyles('2141209317')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1575367636',$event)" [ngStyle]="__elementSelectionService.getStyles('1575367636')"></fa-icon>
+            <span jhiTranslate="abastosApp.ofertaProveedor.home.createLabel" (contextmenu)="__elementSelectionService.select('1631839210',$event)" [ngStyle]="__elementSelectionService.getStyles('1631839210')">
+            Create a new Oferta Proveedor
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1491846622',$event)" [ngStyle]="__elementSelectionService.getStyles('1491846622')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('622924620',$event)" [ngStyle]="__elementSelectionService.getStyles('622924620')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ofertaProveedors?.length === 0" (contextmenu)="__elementSelectionService.select('1228274863',$event)" [ngStyle]="__elementSelectionService.getStyles('1228274863')">
+        <span jhiTranslate="abastosApp.ofertaProveedor.home.notFound" (contextmenu)="__elementSelectionService.select('932649680',$event)" [ngStyle]="__elementSelectionService.getStyles('932649680')">No ofertaProveedors found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ofertaProveedors &#38;&#38; ofertaProveedors.length &#62; 0" (contextmenu)="__elementSelectionService.select('827653321',$event)" [ngStyle]="__elementSelectionService.getStyles('827653321')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('482484956',$event)" [ngStyle]="__elementSelectionService.getStyles('482484956')">
+            <thead (contextmenu)="__elementSelectionService.select('2062837103',$event)" [ngStyle]="__elementSelectionService.getStyles('2062837103')">
+                <tr (contextmenu)="__elementSelectionService.select('1975169403',$event)" [ngStyle]="__elementSelectionService.getStyles('1975169403')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1662958001',$event)" [ngStyle]="__elementSelectionService.getStyles('1662958001')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1850188748',$event)" [ngStyle]="__elementSelectionService.getStyles('1850188748')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('927038582',$event)" [ngStyle]="__elementSelectionService.getStyles('927038582')"><span jhiTranslate="abastosApp.ofertaProveedor.fechaInicio" (contextmenu)="__elementSelectionService.select('399516300',$event)" [ngStyle]="__elementSelectionService.getStyles('399516300')">Fecha Inicio</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('26596086',$event)" [ngStyle]="__elementSelectionService.getStyles('26596086')"><span jhiTranslate="abastosApp.ofertaProveedor.fechaFin" (contextmenu)="__elementSelectionService.select('1377781963',$event)" [ngStyle]="__elementSelectionService.getStyles('1377781963')">Fecha Fin</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1853963314',$event)" [ngStyle]="__elementSelectionService.getStyles('1853963314')"><span jhiTranslate="abastosApp.ofertaProveedor.proveedor" (contextmenu)="__elementSelectionService.select('2018748204',$event)" [ngStyle]="__elementSelectionService.getStyles('2018748204')">Proveedor</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1476319410',$event)" [ngStyle]="__elementSelectionService.getStyles('1476319410')"><span jhiTranslate="abastosApp.ofertaProveedor.producto" (contextmenu)="__elementSelectionService.select('2140117910',$event)" [ngStyle]="__elementSelectionService.getStyles('2140117910')">Producto</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('403200249',$event)" [ngStyle]="__elementSelectionService.getStyles('403200249')"><span jhiTranslate="abastosApp.ofertaProveedor.estatus" (contextmenu)="__elementSelectionService.select('2097669651',$event)" [ngStyle]="__elementSelectionService.getStyles('2097669651')">Estatus</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1553828425',$event)" [ngStyle]="__elementSelectionService.getStyles('1553828425')"><span jhiTranslate="abastosApp.ofertaProveedor.tipoOferta" (contextmenu)="__elementSelectionService.select('1607334247',$event)" [ngStyle]="__elementSelectionService.getStyles('1607334247')">Tipo Oferta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('98086391',$event)" [ngStyle]="__elementSelectionService.getStyles('98086391')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1194193953',$event)" [ngStyle]="__elementSelectionService.getStyles('1194193953')">
+                <tr *ngFor="let ofertaProveedor of ofertaProveedors ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('2001924431',$event)" [ngStyle]="__elementSelectionService.getStyles('2001924431')">
+                    <td (contextmenu)="__elementSelectionService.select('1197746179',$event)" [ngStyle]="__elementSelectionService.getStyles('1197746179')"><a [routerLink]="['/oferta-proveedor', ofertaProveedor.id, 'view']" (contextmenu)="__elementSelectionService.select('127111693',$event)" [ngStyle]="__elementSelectionService.getStyles('127111693')">{{ ofertaProveedor.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('792195618',$event)" [ngStyle]="__elementSelectionService.getStyles('792195618')">{{ ofertaProveedor.fechaInicio | date:'mediumDate' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1334818306',$event)" [ngStyle]="__elementSelectionService.getStyles('1334818306')">{{ ofertaProveedor.fechaFin | date:'mediumDate' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('692960192',$event)" [ngStyle]="__elementSelectionService.getStyles('692960192')">
+                        <div *ngIf="ofertaProveedor.proveedorId" (contextmenu)="__elementSelectionService.select('844449566',$event)" [ngStyle]="__elementSelectionService.getStyles('844449566')">
+                            <a [routerLink]="['/proveedor', ofertaProveedor.proveedorId , 'view']" (contextmenu)="__elementSelectionService.select('585303444',$event)" [ngStyle]="__elementSelectionService.getStyles('585303444')">{{ ofertaProveedor.proveedorId }}</a>
+                        </div>
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('275683436',$event)" [ngStyle]="__elementSelectionService.getStyles('275683436')">
+                        <div *ngIf="ofertaProveedor.productoId" (contextmenu)="__elementSelectionService.select('1421451802',$event)" [ngStyle]="__elementSelectionService.getStyles('1421451802')">
+                            <a [routerLink]="['/producto', ofertaProveedor.productoId , 'view']" (contextmenu)="__elementSelectionService.select('1280074276',$event)" [ngStyle]="__elementSelectionService.getStyles('1280074276')">{{ ofertaProveedor.productoId }}</a>
+                        </div>
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('1991836060',$event)" [ngStyle]="__elementSelectionService.getStyles('1991836060')">
+                        <div *ngIf="ofertaProveedor.estatusId" (contextmenu)="__elementSelectionService.select('317741791',$event)" [ngStyle]="__elementSelectionService.getStyles('317741791')">
+                            <a [routerLink]="['/estatus', ofertaProveedor.estatusId , 'view']" (contextmenu)="__elementSelectionService.select('188781545',$event)" [ngStyle]="__elementSelectionService.getStyles('188781545')">{{ ofertaProveedor.estatusId }}</a>
+                        </div>
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('607296999',$event)" [ngStyle]="__elementSelectionService.getStyles('607296999')">
+                        <div *ngIf="ofertaProveedor.tipoOfertaId" (contextmenu)="__elementSelectionService.select('439999772',$event)" [ngStyle]="__elementSelectionService.getStyles('439999772')">
+                            <a [routerLink]="['/tipo-oferta', ofertaProveedor.tipoOfertaId , 'view']" (contextmenu)="__elementSelectionService.select('168778278',$event)" [ngStyle]="__elementSelectionService.getStyles('168778278')">{{ ofertaProveedor.tipoOfertaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('90136405',$event)" [ngStyle]="__elementSelectionService.getStyles('90136405')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('900872124',$event)" [ngStyle]="__elementSelectionService.getStyles('900872124')">
+                            <button type="submit" [routerLink]="['/oferta-proveedor', ofertaProveedor.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1639435563',$event)" [ngStyle]="__elementSelectionService.getStyles('1639435563')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('286881105',$event)" [ngStyle]="__elementSelectionService.getStyles('286881105')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1858282960',$event)" [ngStyle]="__elementSelectionService.getStyles('1858282960')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/oferta-proveedor', ofertaProveedor.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1256779875',$event)" [ngStyle]="__elementSelectionService.getStyles('1256779875')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('367637120',$event)" [ngStyle]="__elementSelectionService.getStyles('367637120')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1333849745',$event)" [ngStyle]="__elementSelectionService.getStyles('1333849745')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ofertaProveedor)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('941272852',$event)" [ngStyle]="__elementSelectionService.getStyles('941272852')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('897330076',$event)" [ngStyle]="__elementSelectionService.getStyles('897330076')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1842995713',$event)" [ngStyle]="__elementSelectionService.getStyles('1842995713')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

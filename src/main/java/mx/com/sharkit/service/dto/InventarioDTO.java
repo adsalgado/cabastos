@@ -1,81 +1,100 @@
 package mx.com.sharkit.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Inventario} entity.
  */
 public class InventarioDTO implements Serializable {
-    
-    private Long id;
 
-    @NotNull
-    private BigDecimal total;
+	private Long id;
 
+	private ProductoProveedorDTO productoProveedor;
 
-    private Long proveedorId;
+	private Long productoProveedorId;
 
-    private Long productoId;
-    
-    public Long getId() {
-        return id;
-    }
+	private BigDecimal total;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private BigDecimal inventarioMinimo;
 
-    public BigDecimal getTotal() {
-        return total;
-    }
+	private BigDecimal inventarioMaximo;
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Long getProveedorId() {
-        return proveedorId;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setProveedorId(Long proveedorId) {
-        this.proveedorId = proveedorId;
-    }
+	public BigDecimal getTotal() {
+		return total;
+	}
 
-    public Long getProductoId() {
-        return productoId;
-    }
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
 
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
+	public ProductoProveedorDTO getProductoProveedor() {
+		return productoProveedor;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof InventarioDTO)) {
-            return false;
-        }
+	public void setProductoProveedor(ProductoProveedorDTO productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
 
-        return id != null && id.equals(((InventarioDTO) o).id);
-    }
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
 
-    @Override
-    public int hashCode() {
-        return 31;
-    }
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "InventarioDTO{" +
-            "id=" + getId() +
-            ", total=" + getTotal() +
-            ", proveedorId=" + getProveedorId() +
-            ", productoId=" + getProductoId() +
-            "}";
-    }
+	public BigDecimal getInventarioMinimo() {
+		return inventarioMinimo;
+	}
+
+	public void setInventarioMinimo(BigDecimal inventarioMinimo) {
+		this.inventarioMinimo = inventarioMinimo;
+	}
+
+	public BigDecimal getInventarioMaximo() {
+		return inventarioMaximo;
+	}
+
+	public void setInventarioMaximo(BigDecimal inventarioMaximo) {
+		this.inventarioMaximo = inventarioMaximo;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		InventarioDTO inventarioDTO = (InventarioDTO) o;
+		if (inventarioDTO.getId() == null || getId() == null) {
+			return false;
+		}
+		return Objects.equals(getId(), inventarioDTO.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(getId());
+	}
+
+	@Override
+	public String toString() {
+		return "InventarioDTO [id=" + id + ", productoProveedor=" + productoProveedor + ", productoProveedorId="
+				+ productoProveedorId + ", total=" + total + ", inventarioMinimo=" + inventarioMinimo
+				+ ", inventarioMaximo=" + inventarioMaximo + "]";
+	}
+
 }

@@ -1,0 +1,58 @@
+<div (contextmenu)="__elementSelectionService.select('1671559701',$event)" [ngStyle]="__elementSelectionService.getStyles('1671559701')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('990598305',$event)" [ngStyle]="__elementSelectionService.getStyles('990598305')">
+        <span jhiTranslate="abastosApp.unidadMedida.home.title" (contextmenu)="__elementSelectionService.select('1469472903',$event)" [ngStyle]="__elementSelectionService.getStyles('1469472903')">Unidad Medidas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-unidad-medida" [routerLink]="['/unidad-medida/new']" (contextmenu)="__elementSelectionService.select('928929655',$event)" [ngStyle]="__elementSelectionService.getStyles('928929655')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1560219468',$event)" [ngStyle]="__elementSelectionService.getStyles('1560219468')"></fa-icon>
+            <span jhiTranslate="abastosApp.unidadMedida.home.createLabel" (contextmenu)="__elementSelectionService.select('1035003438',$event)" [ngStyle]="__elementSelectionService.getStyles('1035003438')">
+            Create a new Unidad Medida
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1506159431',$event)" [ngStyle]="__elementSelectionService.getStyles('1506159431')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('484850407',$event)" [ngStyle]="__elementSelectionService.getStyles('484850407')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="unidadMedidas?.length === 0" (contextmenu)="__elementSelectionService.select('944231256',$event)" [ngStyle]="__elementSelectionService.getStyles('944231256')">
+        <span jhiTranslate="abastosApp.unidadMedida.home.notFound" (contextmenu)="__elementSelectionService.select('41731048',$event)" [ngStyle]="__elementSelectionService.getStyles('41731048')">No unidadMedidas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="unidadMedidas &#38;&#38; unidadMedidas.length &#62; 0" (contextmenu)="__elementSelectionService.select('1778932979',$event)" [ngStyle]="__elementSelectionService.getStyles('1778932979')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1192518231',$event)" [ngStyle]="__elementSelectionService.getStyles('1192518231')">
+            <thead (contextmenu)="__elementSelectionService.select('1104127230',$event)" [ngStyle]="__elementSelectionService.getStyles('1104127230')">
+                <tr (contextmenu)="__elementSelectionService.select('633883820',$event)" [ngStyle]="__elementSelectionService.getStyles('633883820')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('219112226',$event)" [ngStyle]="__elementSelectionService.getStyles('219112226')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1777188366',$event)" [ngStyle]="__elementSelectionService.getStyles('1777188366')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1429807001',$event)" [ngStyle]="__elementSelectionService.getStyles('1429807001')"><span jhiTranslate="abastosApp.unidadMedida.nombre" (contextmenu)="__elementSelectionService.select('854820030',$event)" [ngStyle]="__elementSelectionService.getStyles('854820030')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1150547889',$event)" [ngStyle]="__elementSelectionService.getStyles('1150547889')"><span jhiTranslate="abastosApp.unidadMedida.descripcion" (contextmenu)="__elementSelectionService.select('1074412771',$event)" [ngStyle]="__elementSelectionService.getStyles('1074412771')">Descripcion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1574053548',$event)" [ngStyle]="__elementSelectionService.getStyles('1574053548')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1932169180',$event)" [ngStyle]="__elementSelectionService.getStyles('1932169180')">
+                <tr *ngFor="let unidadMedida of unidadMedidas ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('677367927',$event)" [ngStyle]="__elementSelectionService.getStyles('677367927')">
+                    <td (contextmenu)="__elementSelectionService.select('966991035',$event)" [ngStyle]="__elementSelectionService.getStyles('966991035')"><a [routerLink]="['/unidad-medida', unidadMedida.id, 'view']" (contextmenu)="__elementSelectionService.select('1971894885',$event)" [ngStyle]="__elementSelectionService.getStyles('1971894885')">{{ unidadMedida.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('1392222055',$event)" [ngStyle]="__elementSelectionService.getStyles('1392222055')">{{ unidadMedida.nombre }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('82915623',$event)" [ngStyle]="__elementSelectionService.getStyles('82915623')">{{ unidadMedida.descripcion }}</td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('630633414',$event)" [ngStyle]="__elementSelectionService.getStyles('630633414')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('360545923',$event)" [ngStyle]="__elementSelectionService.getStyles('360545923')">
+                            <button type="submit" [routerLink]="['/unidad-medida', unidadMedida.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('460573676',$event)" [ngStyle]="__elementSelectionService.getStyles('460573676')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('377924012',$event)" [ngStyle]="__elementSelectionService.getStyles('377924012')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('102637625',$event)" [ngStyle]="__elementSelectionService.getStyles('102637625')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/unidad-medida', unidadMedida.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('2028592927',$event)" [ngStyle]="__elementSelectionService.getStyles('2028592927')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('2109753157',$event)" [ngStyle]="__elementSelectionService.getStyles('2109753157')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1579702936',$event)" [ngStyle]="__elementSelectionService.getStyles('1579702936')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(unidadMedida)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('692106892',$event)" [ngStyle]="__elementSelectionService.getStyles('692106892')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('535270812',$event)" [ngStyle]="__elementSelectionService.getStyles('535270812')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1625424714',$event)" [ngStyle]="__elementSelectionService.getStyles('1625424714')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

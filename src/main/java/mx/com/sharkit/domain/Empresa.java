@@ -1,24 +1,29 @@
 package mx.com.sharkit.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * A Empresa.
  */
 @Entity
 @Table(name = "empresa")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Empresa implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static final Long CENTRAL_ABASTOS = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,34 +35,21 @@ public class Empresa implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Cliente> clientes = new HashSet<>();
 
     @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Proveedor> proveedors = new HashSet<>();
 
     @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Recolector> recolectors = new HashSet<>();
 
     @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Transportista> transportistas = new HashSet<>();
 
     @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Producto> productos = new HashSet<>();
-
-    @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Categoria> categorias = new HashSet<>();
-
-    @OneToMany(mappedBy = "empresa")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Seccion> seccions = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -179,56 +171,6 @@ public class Empresa implements Serializable {
         this.transportistas = transportistas;
     }
 
-    public Set<Producto> getProductos() {
-        return productos;
-    }
-
-    public Empresa productos(Set<Producto> productos) {
-        this.productos = productos;
-        return this;
-    }
-
-    public Empresa addProducto(Producto producto) {
-        this.productos.add(producto);
-        producto.setEmpresa(this);
-        return this;
-    }
-
-    public Empresa removeProducto(Producto producto) {
-        this.productos.remove(producto);
-        producto.setEmpresa(null);
-        return this;
-    }
-
-    public void setProductos(Set<Producto> productos) {
-        this.productos = productos;
-    }
-
-    public Set<Categoria> getCategorias() {
-        return categorias;
-    }
-
-    public Empresa categorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
-        return this;
-    }
-
-    public Empresa addCategoria(Categoria categoria) {
-        this.categorias.add(categoria);
-        categoria.setEmpresa(this);
-        return this;
-    }
-
-    public Empresa removeCategoria(Categoria categoria) {
-        this.categorias.remove(categoria);
-        categoria.setEmpresa(null);
-        return this;
-    }
-
-    public void setCategorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
-    }
-
     public Set<Seccion> getSeccions() {
         return seccions;
     }
@@ -253,7 +195,7 @@ public class Empresa implements Serializable {
     public void setSeccions(Set<Seccion> seccions) {
         this.seccions = seccions;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -271,7 +213,6 @@ public class Empresa implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Empresa{" +

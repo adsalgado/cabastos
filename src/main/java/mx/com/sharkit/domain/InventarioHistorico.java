@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -18,7 +15,6 @@ import mx.com.sharkit.domain.enumeration.TipoMovimiento;
  */
 @Entity
 @Table(name = "inventario_historico")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class InventarioHistorico implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,10 +49,10 @@ public class InventarioHistorico implements Serializable {
     private User usuarioMovimiento;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "inventarioHistoricos", allowSetters = true)
+    @JsonIgnoreProperties("inventarioHistoricos")
     private Inventario inventario;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -155,7 +151,7 @@ public class InventarioHistorico implements Serializable {
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -173,7 +169,6 @@ public class InventarioHistorico implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "InventarioHistorico{" +

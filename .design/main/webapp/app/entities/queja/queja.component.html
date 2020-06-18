@@ -1,0 +1,54 @@
+<div (contextmenu)="__elementSelectionService.select('514791406',$event)" [ngStyle]="__elementSelectionService.getStyles('514791406')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('254473257',$event)" [ngStyle]="__elementSelectionService.getStyles('254473257')">
+        <span jhiTranslate="abastosApp.queja.home.title" (contextmenu)="__elementSelectionService.select('1767674437',$event)" [ngStyle]="__elementSelectionService.getStyles('1767674437')">Quejas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-queja" [routerLink]="['/queja/new']" (contextmenu)="__elementSelectionService.select('506168792',$event)" [ngStyle]="__elementSelectionService.getStyles('506168792')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1282060397',$event)" [ngStyle]="__elementSelectionService.getStyles('1282060397')"></fa-icon>
+            <span jhiTranslate="abastosApp.queja.home.createLabel" (contextmenu)="__elementSelectionService.select('339320437',$event)" [ngStyle]="__elementSelectionService.getStyles('339320437')">
+            Create a new Queja
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('435873805',$event)" [ngStyle]="__elementSelectionService.getStyles('435873805')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1530768303',$event)" [ngStyle]="__elementSelectionService.getStyles('1530768303')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="quejas?.length === 0" (contextmenu)="__elementSelectionService.select('1112375677',$event)" [ngStyle]="__elementSelectionService.getStyles('1112375677')">
+        <span jhiTranslate="abastosApp.queja.home.notFound" (contextmenu)="__elementSelectionService.select('442463607',$event)" [ngStyle]="__elementSelectionService.getStyles('442463607')">No quejas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="quejas &#38;&#38; quejas.length &#62; 0" (contextmenu)="__elementSelectionService.select('1412127921',$event)" [ngStyle]="__elementSelectionService.getStyles('1412127921')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1652417864',$event)" [ngStyle]="__elementSelectionService.getStyles('1652417864')">
+            <thead (contextmenu)="__elementSelectionService.select('1276495379',$event)" [ngStyle]="__elementSelectionService.getStyles('1276495379')">
+                <tr (contextmenu)="__elementSelectionService.select('763426347',$event)" [ngStyle]="__elementSelectionService.getStyles('763426347')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('591456766',$event)" [ngStyle]="__elementSelectionService.getStyles('591456766')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('781852539',$event)" [ngStyle]="__elementSelectionService.getStyles('781852539')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1281192421',$event)" [ngStyle]="__elementSelectionService.getStyles('1281192421')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1715922923',$event)" [ngStyle]="__elementSelectionService.getStyles('1715922923')">
+                <tr *ngFor="let queja of quejas ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1114504644',$event)" [ngStyle]="__elementSelectionService.getStyles('1114504644')">
+                    <td (contextmenu)="__elementSelectionService.select('1014125365',$event)" [ngStyle]="__elementSelectionService.getStyles('1014125365')"><a [routerLink]="['/queja', queja.id, 'view']" (contextmenu)="__elementSelectionService.select('453500679',$event)" [ngStyle]="__elementSelectionService.getStyles('453500679')">{{ queja.id }}</a></td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1244596787',$event)" [ngStyle]="__elementSelectionService.getStyles('1244596787')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1736527215',$event)" [ngStyle]="__elementSelectionService.getStyles('1736527215')">
+                            <button type="submit" [routerLink]="['/queja', queja.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1237598545',$event)" [ngStyle]="__elementSelectionService.getStyles('1237598545')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1822314633',$event)" [ngStyle]="__elementSelectionService.getStyles('1822314633')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1582473659',$event)" [ngStyle]="__elementSelectionService.getStyles('1582473659')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/queja', queja.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('861238571',$event)" [ngStyle]="__elementSelectionService.getStyles('861238571')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1492149465',$event)" [ngStyle]="__elementSelectionService.getStyles('1492149465')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1190427990',$event)" [ngStyle]="__elementSelectionService.getStyles('1190427990')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(queja)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('224412490',$event)" [ngStyle]="__elementSelectionService.getStyles('224412490')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('361010144',$event)" [ngStyle]="__elementSelectionService.getStyles('361010144')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1309272869',$event)" [ngStyle]="__elementSelectionService.getStyles('1309272869')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

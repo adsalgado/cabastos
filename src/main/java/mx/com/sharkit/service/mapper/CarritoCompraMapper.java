@@ -1,23 +1,18 @@
 package mx.com.sharkit.service.mapper;
 
+import org.mapstruct.Mapper;
 
-import mx.com.sharkit.domain.*;
+import mx.com.sharkit.domain.CarritoCompra;
 import mx.com.sharkit.service.dto.CarritoCompraDTO;
-
-import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link CarritoCompra} and its DTO {@link CarritoCompraDTO}.
  */
-@Mapper(componentModel = "spring", uses = {ClienteMapper.class, ProductoMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, ProductoProveedorMapper.class})
 public interface CarritoCompraMapper extends EntityMapper<CarritoCompraDTO, CarritoCompra> {
 
-    @Mapping(source = "cliente.id", target = "clienteId")
-    @Mapping(source = "producto.id", target = "productoId")
     CarritoCompraDTO toDto(CarritoCompra carritoCompra);
 
-    @Mapping(source = "clienteId", target = "cliente")
-    @Mapping(source = "productoId", target = "producto")
     CarritoCompra toEntity(CarritoCompraDTO carritoCompraDTO);
 
     default CarritoCompra fromId(Long id) {

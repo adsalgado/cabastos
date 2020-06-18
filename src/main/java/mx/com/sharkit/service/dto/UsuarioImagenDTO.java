@@ -1,13 +1,13 @@
 package mx.com.sharkit.service.dto;
-
 import java.time.Instant;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.UsuarioImagen} entity.
  */
 public class UsuarioImagenDTO implements Serializable {
-    
+
     private Long id;
 
     private Instant fechaAlta;
@@ -16,7 +16,7 @@ public class UsuarioImagenDTO implements Serializable {
     private Long usuarioId;
 
     private Long adjuntoId;
-    
+
     public Long getId() {
         return id;
     }
@@ -54,26 +54,29 @@ public class UsuarioImagenDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof UsuarioImagenDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((UsuarioImagenDTO) o).id);
+        UsuarioImagenDTO usuarioImagenDTO = (UsuarioImagenDTO) o;
+        if (usuarioImagenDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), usuarioImagenDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "UsuarioImagenDTO{" +
             "id=" + getId() +
             ", fechaAlta='" + getFechaAlta() + "'" +
-            ", usuarioId=" + getUsuarioId() +
-            ", adjuntoId=" + getAdjuntoId() +
+            ", usuario=" + getUsuarioId() +
+            ", adjunto=" + getAdjuntoId() +
             "}";
     }
 }

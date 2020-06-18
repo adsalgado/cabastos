@@ -1,0 +1,50 @@
+<div *ngIf="allBeans" (contextmenu)="__elementSelectionService.select('931440341',$event)" [ngStyle]="__elementSelectionService.getStyles('931440341')"(click)='__elementSelectionService.clear()'>
+    <h2 id="configuration-page-heading" jhiTranslate="configuration.title" (contextmenu)="__elementSelectionService.select('1457904666',$event)" [ngStyle]="__elementSelectionService.getStyles('1457904666')">Configuration</h2>
+
+    <span jhiTranslate="configuration.filter" (contextmenu)="__elementSelectionService.select('1153788445',$event)" [ngStyle]="__elementSelectionService.getStyles('1153788445')">Filter (by prefix)</span> <input type="text" [(ngModel)]="beansFilter" (ngModelChange)="filterAndSortBeans()" class="form-control" (contextmenu)="__elementSelectionService.select('120872910',$event)" [ngStyle]="__elementSelectionService.getStyles('120872910')">
+
+    <h3 id="spring-configuration" (contextmenu)="__elementSelectionService.select('1471696913',$event)" [ngStyle]="__elementSelectionService.getStyles('1471696913')">Spring configuration</h3>
+
+    <table class="table table-striped table-bordered table-responsive d-table" aria-describedby="spring-configuration" (contextmenu)="__elementSelectionService.select('801457136',$event)" [ngStyle]="__elementSelectionService.getStyles('801457136')">
+        <thead (contextmenu)="__elementSelectionService.select('1086275991',$event)" [ngStyle]="__elementSelectionService.getStyles('1086275991')">
+            <tr jhiSort predicate="prefix" [(ascending)]="beansAscending" [callback]="filterAndSortBeans.bind(this)" (contextmenu)="__elementSelectionService.select('1708174433',$event)" [ngStyle]="__elementSelectionService.getStyles('1708174433')">
+                <th jhiSortBy="prefix" scope="col" class="w-40" (contextmenu)="__elementSelectionService.select('1895649298',$event)" [ngStyle]="__elementSelectionService.getStyles('1895649298')"><span jhiTranslate="configuration.table.prefix" (contextmenu)="__elementSelectionService.select('1973573438',$event)" [ngStyle]="__elementSelectionService.getStyles('1973573438')">Prefix</span> <fa-icon icon="sort" (contextmenu)="__elementSelectionService.select('1336611812',$event)" [ngStyle]="__elementSelectionService.getStyles('1336611812')"></fa-icon></th>
+                <th scope="col" class="w-60" (contextmenu)="__elementSelectionService.select('796401108',$event)" [ngStyle]="__elementSelectionService.getStyles('796401108')"><span jhiTranslate="configuration.table.properties" (contextmenu)="__elementSelectionService.select('891270633',$event)" [ngStyle]="__elementSelectionService.getStyles('891270633')">Properties</span></th>
+            </tr>
+        </thead>
+        <tbody (contextmenu)="__elementSelectionService.select('1382227923',$event)" [ngStyle]="__elementSelectionService.getStyles('1382227923')">
+            <tr *ngFor="let bean of beans" (contextmenu)="__elementSelectionService.select('1170211400',$event)" [ngStyle]="__elementSelectionService.getStyles('1170211400')">
+                <td (contextmenu)="__elementSelectionService.select('708387225',$event)" [ngStyle]="__elementSelectionService.getStyles('708387225')"><span (contextmenu)="__elementSelectionService.select('1656842698',$event)" [ngStyle]="__elementSelectionService.getStyles('1656842698')">{{ bean.prefix }}</span></td>
+                <td (contextmenu)="__elementSelectionService.select('680951750',$event)" [ngStyle]="__elementSelectionService.getStyles('680951750')">
+                    <div class="row" *ngFor="let property of bean.properties | keys" (contextmenu)="__elementSelectionService.select('1828846302',$event)" [ngStyle]="__elementSelectionService.getStyles('1828846302')">
+                        <div class="col-md-4" (contextmenu)="__elementSelectionService.select('248986382',$event)" [ngStyle]="__elementSelectionService.getStyles('248986382')">{{ property.key }}</div>
+                        <div class="col-md-8" (contextmenu)="__elementSelectionService.select('1731300391',$event)" [ngStyle]="__elementSelectionService.getStyles('1731300391')">
+                            <span class="float-right badge-secondary break" (contextmenu)="__elementSelectionService.select('2084742984',$event)" [ngStyle]="__elementSelectionService.getStyles('2084742984')">{{ property.value | json }}</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngFor="let propertySource of propertySources; let i = index" (contextmenu)="__elementSelectionService.select('511145236',$event)" [ngStyle]="__elementSelectionService.getStyles('511145236')">
+        <h4 [id]="'property-source-' + i" (contextmenu)="__elementSelectionService.select('701440671',$event)" [ngStyle]="__elementSelectionService.getStyles('701440671')"><span (contextmenu)="__elementSelectionService.select('1114948405',$event)" [ngStyle]="__elementSelectionService.getStyles('1114948405')">{{ propertySource.name }}</span></h4>
+
+        <table class="table table-sm table-striped table-bordered table-responsive d-table" [attr.aria-describedby]="'property-source-' + i" (contextmenu)="__elementSelectionService.select('728057044',$event)" [ngStyle]="__elementSelectionService.getStyles('728057044')">
+            <thead (contextmenu)="__elementSelectionService.select('245324665',$event)" [ngStyle]="__elementSelectionService.getStyles('245324665')">
+                <tr (contextmenu)="__elementSelectionService.select('1578388463',$event)" [ngStyle]="__elementSelectionService.getStyles('1578388463')">
+                    <th scope="col" class="w-40" (contextmenu)="__elementSelectionService.select('975001203',$event)" [ngStyle]="__elementSelectionService.getStyles('975001203')">Property</th>
+                    <th scope="col" class="w-60" (contextmenu)="__elementSelectionService.select('1004529152',$event)" [ngStyle]="__elementSelectionService.getStyles('1004529152')">Value</th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1341077137',$event)" [ngStyle]="__elementSelectionService.getStyles('1341077137')">
+                <tr *ngFor="let property of propertySource.properties | keys" (contextmenu)="__elementSelectionService.select('869812144',$event)" [ngStyle]="__elementSelectionService.getStyles('869812144')">
+                    <td class="break" (contextmenu)="__elementSelectionService.select('1663443318',$event)" [ngStyle]="__elementSelectionService.getStyles('1663443318')">{{ property.key }}</td>
+                    <td class="break" (contextmenu)="__elementSelectionService.select('655172852',$event)" [ngStyle]="__elementSelectionService.getStyles('655172852')">
+                        <span class="float-right badge-secondary break" (contextmenu)="__elementSelectionService.select('291558714',$event)" [ngStyle]="__elementSelectionService.getStyles('291558714')">{{ property.value.value }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

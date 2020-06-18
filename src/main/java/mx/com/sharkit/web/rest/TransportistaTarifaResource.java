@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -81,6 +82,7 @@ public class TransportistaTarifaResource {
     /**
      * {@code GET  /transportista-tarifas} : get all the transportistaTarifas.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of transportistaTarifas in body.
      */
     @GetMapping("/transportista-tarifas")
@@ -114,4 +116,17 @@ public class TransportistaTarifaResource {
         transportistaTarifaService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+    
+    /**
+     * {@code GET  /transportista-tarifas/transportista/{transportistaId}} : get all the transportistaTarifas by transportistaId.
+     *
+
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of transportistaTarifas in body.
+     */
+    @GetMapping("/transportista-tarifas/transportista/{transportistaId}")
+    public List<TransportistaTarifaDTO> getAllTransportistaTarifasByTransportistaId(@PathVariable Long transportistaId) {
+        log.debug("REST request to get all TransportistaTarifas by transportistaId: {}", transportistaId);
+        return transportistaTarifaService.findAllByTransportistaId(transportistaId);
+    }
+
 }

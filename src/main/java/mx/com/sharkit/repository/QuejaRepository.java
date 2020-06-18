@@ -1,14 +1,17 @@
 package mx.com.sharkit.repository;
 
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+
+import mx.com.sharkit.customdao.IBaseRepositorio;
 import mx.com.sharkit.domain.Queja;
 
-import org.springframework.data.jpa.repository.*;
-import org.springframework.stereotype.Repository;
 
 /**
  * Spring Data  repository for the Queja entity.
  */
 @SuppressWarnings("unused")
 @Repository
-public interface QuejaRepository extends JpaRepository<Queja, Long> {
+public interface QuejaRepository extends IBaseRepositorio<Queja, Long>, JpaSpecificationExecutor<Queja> {
+
 }

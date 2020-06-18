@@ -1,15 +1,15 @@
 package mx.com.sharkit.service.dto;
-
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Pagos} entity.
  */
 public class PagosDTO implements Serializable {
-    
+
     private Long id;
 
-    
+
     public Long getId() {
         return id;
     }
@@ -23,19 +23,22 @@ public class PagosDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof PagosDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((PagosDTO) o).id);
+        PagosDTO pagosDTO = (PagosDTO) o;
+        if (pagosDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), pagosDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "PagosDTO{" +

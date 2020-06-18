@@ -1,0 +1,16 @@
+<div (contextmenu)="__elementSelectionService.select('1134731467',$event)" [ngStyle]="__elementSelectionService.getStyles('1134731467')"(click)='__elementSelectionService.clear()'>
+    <div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('1171233465',$event)" [ngStyle]="__elementSelectionService.getStyles('1171233465')">
+        <div class="col-md-8" (contextmenu)="__elementSelectionService.select('631767625',$event)" [ngStyle]="__elementSelectionService.getStyles('631767625')">
+            <h1 jhiTranslate="activate.title" (contextmenu)="__elementSelectionService.select('1121130288',$event)" [ngStyle]="__elementSelectionService.getStyles('1121130288')">Activation</h1>
+
+            <div class="alert alert-success" *ngIf="success" (contextmenu)="__elementSelectionService.select('1635382404',$event)" [ngStyle]="__elementSelectionService.getStyles('1635382404')">
+                <span jhiTranslate="activate.messages.success" (contextmenu)="__elementSelectionService.select('1482338368',$event)" [ngStyle]="__elementSelectionService.getStyles('1482338368')"><strong (contextmenu)="__elementSelectionService.select('1023757128',$event)" [ngStyle]="__elementSelectionService.getStyles('1023757128')">Your user account has been activated.</strong> Please </span>
+                <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link" (contextmenu)="__elementSelectionService.select('1739956559',$event)" [ngStyle]="__elementSelectionService.getStyles('1739956559')">sign in</a>.
+            </div>
+
+            <div class="alert alert-danger" *ngIf="error" jhiTranslate="activate.messages.error" (contextmenu)="__elementSelectionService.select('1237755113',$event)" [ngStyle]="__elementSelectionService.getStyles('1237755113')">
+                <strong (contextmenu)="__elementSelectionService.select('1150539041',$event)" [ngStyle]="__elementSelectionService.getStyles('1150539041')">Your user could not be activated.</strong> Please use the registration form to sign up.
+            </div>
+        </div>
+    </div>
+</div>

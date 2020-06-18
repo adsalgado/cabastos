@@ -1,20 +1,20 @@
 package mx.com.sharkit.service.dto;
-
 import java.time.LocalDate;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.HistoricoPedido} entity.
  */
 public class HistoricoPedidoDTO implements Serializable {
-    
+
     private Long id;
 
     private LocalDate fechaEstatus;
 
 
     private Long pedidoId;
-    
+
     public Long getId() {
         return id;
     }
@@ -44,25 +44,28 @@ public class HistoricoPedidoDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof HistoricoPedidoDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((HistoricoPedidoDTO) o).id);
+        HistoricoPedidoDTO historicoPedidoDTO = (HistoricoPedidoDTO) o;
+        if (historicoPedidoDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), historicoPedidoDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "HistoricoPedidoDTO{" +
             "id=" + getId() +
             ", fechaEstatus='" + getFechaEstatus() + "'" +
-            ", pedidoId=" + getPedidoId() +
+            ", pedido=" + getPedidoId() +
             "}";
     }
 }

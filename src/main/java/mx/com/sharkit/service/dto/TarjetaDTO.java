@@ -1,15 +1,22 @@
 package mx.com.sharkit.service.dto;
-
-import java.time.LocalDate;
-import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Tarjeta} entity.
  */
 public class TarjetaDTO implements Serializable {
-    
+
     private Long id;
+    
+    @Size(max = 45)
+    private String alias;
 
     @NotNull
     @Size(max = 20)
@@ -22,88 +29,95 @@ public class TarjetaDTO implements Serializable {
     @NotNull
     @Size(max = 3)
     private String numeroSeguridad;
-
-    @NotNull
-    private LocalDate fechaAlta;
-
-
-    private Long clienteId;
     
+    private Long usuarioId;
+
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "es_MX")
+    private LocalDateTime fechaAlta;
+
+
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
+	public String getNumeroTarjeta() {
+		return numeroTarjeta;
+	}
 
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
+	public void setNumeroTarjeta(String numeroTarjeta) {
+		this.numeroTarjeta = numeroTarjeta;
+	}
 
-    public String getFechaCaducidad() {
-        return fechaCaducidad;
-    }
+	public String getFechaCaducidad() {
+		return fechaCaducidad;
+	}
 
-    public void setFechaCaducidad(String fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-    }
+	public void setFechaCaducidad(String fechaCaducidad) {
+		this.fechaCaducidad = fechaCaducidad;
+	}
 
-    public String getNumeroSeguridad() {
-        return numeroSeguridad;
-    }
+	public String getNumeroSeguridad() {
+		return numeroSeguridad;
+	}
 
-    public void setNumeroSeguridad(String numeroSeguridad) {
-        this.numeroSeguridad = numeroSeguridad;
-    }
+	public void setNumeroSeguridad(String numeroSeguridad) {
+		this.numeroSeguridad = numeroSeguridad;
+	}
 
-    public LocalDate getFechaAlta() {
-        return fechaAlta;
-    }
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
 
-    public void setFechaAlta(LocalDate fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 
-    public Long getClienteId() {
-        return clienteId;
-    }
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    @Override
+	public String getAlias() {
+		return alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof TarjetaDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((TarjetaDTO) o).id);
+        TarjetaDTO tarjetaDTO = (TarjetaDTO) o;
+        if (tarjetaDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), tarjetaDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "TarjetaDTO{" +
-            "id=" + getId() +
-            ", numeroTarjeta='" + getNumeroTarjeta() + "'" +
-            ", fechaCaducidad='" + getFechaCaducidad() + "'" +
-            ", numeroSeguridad='" + getNumeroSeguridad() + "'" +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            ", clienteId=" + getClienteId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "TarjetaDTO [id=" + id + ", alias=" + alias + ", numeroTarjeta=" + numeroTarjeta + ", fechaCaducidad="
+				+ fechaCaducidad + ", numeroSeguridad=" + numeroSeguridad + ", usuarioId=" + usuarioId + ", fechaAlta="
+				+ fechaAlta + "]";
+	}
+
 }

@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -15,7 +12,6 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "recolector_tarifa")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class RecolectorTarifa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,10 +33,10 @@ public class RecolectorTarifa implements Serializable {
     private BigDecimal precio;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "recolectorTarifas", allowSetters = true)
+    @JsonIgnoreProperties("recolectorTarifas")
     private Recolector recolector;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -100,7 +96,7 @@ public class RecolectorTarifa implements Serializable {
     public void setRecolector(Recolector recolector) {
         this.recolector = recolector;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -118,7 +114,6 @@ public class RecolectorTarifa implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "RecolectorTarifa{" +

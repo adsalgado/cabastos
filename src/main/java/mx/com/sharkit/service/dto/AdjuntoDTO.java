@@ -1,14 +1,14 @@
 package mx.com.sharkit.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Lob;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Adjunto} entity.
  */
 public class AdjuntoDTO implements Serializable {
-    
+
     private Long id;
 
     @Size(max = 128)
@@ -23,7 +23,7 @@ public class AdjuntoDTO implements Serializable {
     private byte[] file;
 
     private String fileContentType;
-    
+
     public Long getId() {
         return id;
     }
@@ -77,19 +77,22 @@ public class AdjuntoDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof AdjuntoDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((AdjuntoDTO) o).id);
+        AdjuntoDTO adjuntoDTO = (AdjuntoDTO) o;
+        if (adjuntoDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), adjuntoDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "AdjuntoDTO{" +

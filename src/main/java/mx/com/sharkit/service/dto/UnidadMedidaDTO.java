@@ -1,13 +1,13 @@
 package mx.com.sharkit.service.dto;
-
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.UnidadMedida} entity.
  */
 public class UnidadMedidaDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -17,7 +17,7 @@ public class UnidadMedidaDTO implements Serializable {
     @Size(max = 256)
     private String descripcion;
 
-    
+
     public Long getId() {
         return id;
     }
@@ -47,19 +47,22 @@ public class UnidadMedidaDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof UnidadMedidaDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((UnidadMedidaDTO) o).id);
+        UnidadMedidaDTO unidadMedidaDTO = (UnidadMedidaDTO) o;
+        if (unidadMedidaDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), unidadMedidaDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "UnidadMedidaDTO{" +

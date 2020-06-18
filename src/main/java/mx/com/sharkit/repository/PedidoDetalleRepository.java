@@ -1,9 +1,12 @@
 package mx.com.sharkit.repository;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import mx.com.sharkit.domain.PedidoDetalle;
 
-import org.springframework.data.jpa.repository.*;
-import org.springframework.stereotype.Repository;
 
 /**
  * Spring Data  repository for the PedidoDetalle entity.
@@ -11,4 +14,7 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface PedidoDetalleRepository extends JpaRepository<PedidoDetalle, Long> {
+
+	List<PedidoDetalle> findByPedidoProveedorId(Long pedidoProveedorId);
+	
 }

@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -15,7 +12,6 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "carrito_historico_detalle")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class CarritoHistoricoDetalle implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,14 +28,22 @@ public class CarritoHistoricoDetalle implements Serializable {
     private BigDecimal precio;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "carritoCompraDetalles", allowSetters = true)
-    private Producto producto;
+    @JoinColumn(name = "producto_proveedor_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("carritoCompraDetalles")
+    private ProductoProveedor productoProveedor;
+    
+    @Column(name = "producto_proveedor_id")
+    private Long productoProveedorId;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "carritoHistoricoDetalles", allowSetters = true)
+    @JoinColumn(name = "carrito_historico_id", insertable = false, updatable = false)
+    @JsonIgnoreProperties("carritoHistoricoDetalles")
     private CarritoHistorico carritoHistorico;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @Column(name = "carrito_historico_id")
+    private Long carritoHistoricoId;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -74,19 +78,6 @@ public class CarritoHistoricoDetalle implements Serializable {
         this.precio = precio;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public CarritoHistoricoDetalle producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     public CarritoHistorico getCarritoHistorico() {
         return carritoHistorico;
     }
@@ -99,9 +90,33 @@ public class CarritoHistoricoDetalle implements Serializable {
     public void setCarritoHistorico(CarritoHistorico carritoHistorico) {
         this.carritoHistorico = carritoHistorico;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    
+	public Long getCarritoHistoricoId() {
+		return carritoHistoricoId;
+	}
 
-    @Override
+	public void setCarritoHistoricoId(Long carritoHistoricoId) {
+		this.carritoHistoricoId = carritoHistoricoId;
+	}
+	
+
+	public ProductoProveedor getProductoProveedor() {
+		return productoProveedor;
+	}
+
+	public void setProductoProveedor(ProductoProveedor productoProveedor) {
+		this.productoProveedor = productoProveedor;
+	}
+
+	public Long getProductoProveedorId() {
+		return productoProveedorId;
+	}
+
+	public void setProductoProveedorId(Long productoProveedorId) {
+		this.productoProveedorId = productoProveedorId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -117,13 +132,11 @@ public class CarritoHistoricoDetalle implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "CarritoHistoricoDetalle{" +
-            "id=" + getId() +
-            ", cantidad=" + getCantidad() +
-            ", precio=" + getPrecio() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CarritoHistoricoDetalle [id=" + id + ", cantidad=" + cantidad + ", precio=" + precio
+				+ ", productoProveedorId=" + productoProveedorId + ", carritoHistoricoId=" + carritoHistoricoId + "]";
+	}
+
+
 }

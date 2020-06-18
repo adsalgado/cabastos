@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -81,6 +82,7 @@ public class TipoArticuloResource {
     /**
      * {@code GET  /tipo-articulos} : get all the tipoArticulos.
      *
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tipoArticulos in body.
      */
     @GetMapping("/tipo-articulos")
@@ -114,4 +116,17 @@ public class TipoArticuloResource {
         tipoArticuloService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+    
+    /**
+     * {@code GET  /tipo-articulos} : get all the tipoArticulos.
+     *
+
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tipoArticulos in body.
+     */
+    @GetMapping("/tipo-articulos/categoria/{categoriaId}")
+    public List<TipoArticuloDTO> getAllTipoArticulosByCategoria(@PathVariable Long categoriaId) {
+        log.debug("REST request to get all TipoArticulos by categoriaId {}", categoriaId);
+        return tipoArticuloService.findByCategoriaId(categoriaId);
+    }
+
 }

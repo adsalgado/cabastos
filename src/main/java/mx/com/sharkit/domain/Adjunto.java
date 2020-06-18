@@ -1,21 +1,24 @@
 package mx.com.sharkit.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  * A Adjunto.
  */
 @Entity
 @Table(name = "adjunto")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Adjunto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,22 +46,15 @@ public class Adjunto implements Serializable {
     private String fileContentType;
 
     @OneToMany(mappedBy = "adjunto")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Chat> chats = new HashSet<>();
-
-    @OneToMany(mappedBy = "adjunto")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<ProductoImagen> productoImagens = new HashSet<>();
 
     @OneToMany(mappedBy = "adjunto")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<UsuarioImagen> usuarioImagens = new HashSet<>();
 
     @OneToMany(mappedBy = "adjunto")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<ParametrosAplicacion> parametrosAplicacions = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -130,31 +126,6 @@ public class Adjunto implements Serializable {
 
     public void setFileContentType(String fileContentType) {
         this.fileContentType = fileContentType;
-    }
-
-    public Set<Chat> getChats() {
-        return chats;
-    }
-
-    public Adjunto chats(Set<Chat> chats) {
-        this.chats = chats;
-        return this;
-    }
-
-    public Adjunto addChat(Chat chat) {
-        this.chats.add(chat);
-        chat.setAdjunto(this);
-        return this;
-    }
-
-    public Adjunto removeChat(Chat chat) {
-        this.chats.remove(chat);
-        chat.setAdjunto(null);
-        return this;
-    }
-
-    public void setChats(Set<Chat> chats) {
-        this.chats = chats;
     }
 
     public Set<ProductoImagen> getProductoImagens() {
@@ -231,7 +202,7 @@ public class Adjunto implements Serializable {
     public void setParametrosAplicacions(Set<ParametrosAplicacion> parametrosAplicacions) {
         this.parametrosAplicacions = parametrosAplicacions;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -249,7 +220,6 @@ public class Adjunto implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Adjunto{" +

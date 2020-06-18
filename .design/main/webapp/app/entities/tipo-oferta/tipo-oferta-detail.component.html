@@ -1,0 +1,30 @@
+<div class="row justify-content-center" (contextmenu)="__elementSelectionService.select('783478137',$event)" [ngStyle]="__elementSelectionService.getStyles('783478137')"(click)='__elementSelectionService.clear()'>
+    <div class="col-8" (contextmenu)="__elementSelectionService.select('188354068',$event)" [ngStyle]="__elementSelectionService.getStyles('188354068')">
+        <div *ngIf="tipoOferta" (contextmenu)="__elementSelectionService.select('853209903',$event)" [ngStyle]="__elementSelectionService.getStyles('853209903')">
+            <h2 (contextmenu)="__elementSelectionService.select('2118915018',$event)" [ngStyle]="__elementSelectionService.getStyles('2118915018')"><span jhiTranslate="abastosApp.tipoOferta.detail.title" (contextmenu)="__elementSelectionService.select('248563194',$event)" [ngStyle]="__elementSelectionService.getStyles('248563194')">Tipo Oferta</span> {{ tipoOferta.id }}</h2>
+
+            <hr (contextmenu)="__elementSelectionService.select('1430335642',$event)" [ngStyle]="__elementSelectionService.getStyles('1430335642')">
+
+            <jhi-alert-error (contextmenu)="__elementSelectionService.select('820507286',$event)" [ngStyle]="__elementSelectionService.getStyles('820507286')"></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details" (contextmenu)="__elementSelectionService.select('782988547',$event)" [ngStyle]="__elementSelectionService.getStyles('782988547')">
+                <dt (contextmenu)="__elementSelectionService.select('643603001',$event)" [ngStyle]="__elementSelectionService.getStyles('643603001')"><span jhiTranslate="abastosApp.tipoOferta.nombre" (contextmenu)="__elementSelectionService.select('2059778952',$event)" [ngStyle]="__elementSelectionService.getStyles('2059778952')">Nombre</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('1966703876',$event)" [ngStyle]="__elementSelectionService.getStyles('1966703876')">
+                    <span (contextmenu)="__elementSelectionService.select('5240269',$event)" [ngStyle]="__elementSelectionService.getStyles('5240269')">{{ tipoOferta.nombre }}</span>
+                </dd>
+                <dt (contextmenu)="__elementSelectionService.select('1107311279',$event)" [ngStyle]="__elementSelectionService.getStyles('1107311279')"><span jhiTranslate="abastosApp.tipoOferta.descripcion" (contextmenu)="__elementSelectionService.select('357486748',$event)" [ngStyle]="__elementSelectionService.getStyles('357486748')">Descripcion</span></dt>
+                <dd (contextmenu)="__elementSelectionService.select('744908436',$event)" [ngStyle]="__elementSelectionService.getStyles('744908436')">
+                    <span (contextmenu)="__elementSelectionService.select('1400381256',$event)" [ngStyle]="__elementSelectionService.getStyles('1400381256')">{{ tipoOferta.descripcion }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info" (contextmenu)="__elementSelectionService.select('284070602',$event)" [ngStyle]="__elementSelectionService.getStyles('284070602')">
+                <fa-icon icon="arrow-left" (contextmenu)="__elementSelectionService.select('1934064251',$event)" [ngStyle]="__elementSelectionService.getStyles('1934064251')"></fa-icon>&#160;<span jhiTranslate="entity.action.back" (contextmenu)="__elementSelectionService.select('1812656193',$event)" [ngStyle]="__elementSelectionService.getStyles('1812656193')">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/tipo-oferta', tipoOferta.id, 'edit']" class="btn btn-primary" (contextmenu)="__elementSelectionService.select('2140877015',$event)" [ngStyle]="__elementSelectionService.getStyles('2140877015')">
+                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('453481772',$event)" [ngStyle]="__elementSelectionService.getStyles('453481772')"></fa-icon>&#160;<span jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1398513813',$event)" [ngStyle]="__elementSelectionService.getStyles('1398513813')">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

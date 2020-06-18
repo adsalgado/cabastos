@@ -1,0 +1,62 @@
+<div (contextmenu)="__elementSelectionService.select('1588737475',$event)" [ngStyle]="__elementSelectionService.getStyles('1588737475')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('2121861808',$event)" [ngStyle]="__elementSelectionService.getStyles('2121861808')">
+        <span jhiTranslate="abastosApp.categoria.home.title" (contextmenu)="__elementSelectionService.select('833234065',$event)" [ngStyle]="__elementSelectionService.getStyles('833234065')">Categorias</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categoria" [routerLink]="['/categoria/new']" (contextmenu)="__elementSelectionService.select('1286591934',$event)" [ngStyle]="__elementSelectionService.getStyles('1286591934')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1438917857',$event)" [ngStyle]="__elementSelectionService.getStyles('1438917857')"></fa-icon>
+            <span jhiTranslate="abastosApp.categoria.home.createLabel" (contextmenu)="__elementSelectionService.select('1675528291',$event)" [ngStyle]="__elementSelectionService.getStyles('1675528291')">
+            Create a new Categoria
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('53519909',$event)" [ngStyle]="__elementSelectionService.getStyles('53519909')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('822116824',$event)" [ngStyle]="__elementSelectionService.getStyles('822116824')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="categorias?.length === 0" (contextmenu)="__elementSelectionService.select('1167542325',$event)" [ngStyle]="__elementSelectionService.getStyles('1167542325')">
+        <span jhiTranslate="abastosApp.categoria.home.notFound" (contextmenu)="__elementSelectionService.select('1386040692',$event)" [ngStyle]="__elementSelectionService.getStyles('1386040692')">No categorias found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="categorias &#38;&#38; categorias.length &#62; 0" (contextmenu)="__elementSelectionService.select('1411045516',$event)" [ngStyle]="__elementSelectionService.getStyles('1411045516')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1629592982',$event)" [ngStyle]="__elementSelectionService.getStyles('1629592982')">
+            <thead (contextmenu)="__elementSelectionService.select('503883623',$event)" [ngStyle]="__elementSelectionService.getStyles('503883623')">
+                <tr (contextmenu)="__elementSelectionService.select('650555199',$event)" [ngStyle]="__elementSelectionService.getStyles('650555199')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('614129107',$event)" [ngStyle]="__elementSelectionService.getStyles('614129107')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1228552699',$event)" [ngStyle]="__elementSelectionService.getStyles('1228552699')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('315792420',$event)" [ngStyle]="__elementSelectionService.getStyles('315792420')"><span jhiTranslate="abastosApp.categoria.nombre" (contextmenu)="__elementSelectionService.select('33449494',$event)" [ngStyle]="__elementSelectionService.getStyles('33449494')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1937266623',$event)" [ngStyle]="__elementSelectionService.getStyles('1937266623')"><span jhiTranslate="abastosApp.categoria.empresa" (contextmenu)="__elementSelectionService.select('1796562378',$event)" [ngStyle]="__elementSelectionService.getStyles('1796562378')">Empresa</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1830870832',$event)" [ngStyle]="__elementSelectionService.getStyles('1830870832')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('521980500',$event)" [ngStyle]="__elementSelectionService.getStyles('521980500')">
+                <tr *ngFor="let categoria of categorias ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('787002279',$event)" [ngStyle]="__elementSelectionService.getStyles('787002279')">
+                    <td (contextmenu)="__elementSelectionService.select('1876054205',$event)" [ngStyle]="__elementSelectionService.getStyles('1876054205')"><a [routerLink]="['/categoria', categoria.id, 'view']" (contextmenu)="__elementSelectionService.select('73456424',$event)" [ngStyle]="__elementSelectionService.getStyles('73456424')">{{ categoria.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('2102919066',$event)" [ngStyle]="__elementSelectionService.getStyles('2102919066')">{{ categoria.nombre }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('382275100',$event)" [ngStyle]="__elementSelectionService.getStyles('382275100')">
+                        <div *ngIf="categoria.empresaId" (contextmenu)="__elementSelectionService.select('1801712576',$event)" [ngStyle]="__elementSelectionService.getStyles('1801712576')">
+                            <a [routerLink]="['/empresa', categoria.empresaId , 'view']" (contextmenu)="__elementSelectionService.select('1775819807',$event)" [ngStyle]="__elementSelectionService.getStyles('1775819807')">{{ categoria.empresaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('733042065',$event)" [ngStyle]="__elementSelectionService.getStyles('733042065')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1976964885',$event)" [ngStyle]="__elementSelectionService.getStyles('1976964885')">
+                            <button type="submit" [routerLink]="['/categoria', categoria.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('23009180',$event)" [ngStyle]="__elementSelectionService.getStyles('23009180')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('784862092',$event)" [ngStyle]="__elementSelectionService.getStyles('784862092')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('267705881',$event)" [ngStyle]="__elementSelectionService.getStyles('267705881')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/categoria', categoria.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1247747661',$event)" [ngStyle]="__elementSelectionService.getStyles('1247747661')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('860160877',$event)" [ngStyle]="__elementSelectionService.getStyles('860160877')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1564469986',$event)" [ngStyle]="__elementSelectionService.getStyles('1564469986')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(categoria)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1947398986',$event)" [ngStyle]="__elementSelectionService.getStyles('1947398986')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1175267059',$event)" [ngStyle]="__elementSelectionService.getStyles('1175267059')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1573391156',$event)" [ngStyle]="__elementSelectionService.getStyles('1573391156')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

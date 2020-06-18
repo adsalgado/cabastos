@@ -1,243 +1,260 @@
 package mx.com.sharkit.service.dto;
 
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Producto} entity.
  */
 public class ProductoDTO implements Serializable {
-    
-    private Long id;
 
-    @NotNull
-    @Size(max = 256)
-    private String nombre;
+	private Long id;
 
-    @NotNull
-    @Size(max = 512)
-    private String descripcion;
+	@Size(max = 45)
+	private String sku;
 
-    @NotNull
-    @Size(max = 512)
-    private String caracteristicas;
+	@NotNull
+	@Size(max = 256)
+	private String nombre;
 
-    @NotNull
-    private BigDecimal precioSinIva;
+	@Size(max = 512)
+	private String descripcion;
 
-    @NotNull
-    private BigDecimal precio;
+	@Size(max = 512)
+	private String caracteristicas;
 
-    private Instant fechaAlta;
+	@NotNull
+	private BigDecimal precioSinIva;
 
-    private Instant fechaModificacion;
+	@NotNull
+	private BigDecimal precio;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "es_MX")
+	private LocalDateTime fechaAlta;
 
-    private Long adjuntoId;
+	private LocalDateTime fechaModificacion;
 
-    private Long usuarioAltaId;
+	private Long adjuntoId;
 
-    private Long usuarioModificacionId;
+	private Long usuarioAltaId;
 
-    private Long proveedorId;
+	private Long usuarioModificacionId;
 
-    private Long tipoArticuloId;
+	private Long tipoArticuloId;
 
-    private Long categoriaId;
+	private Long estatusId;
 
-    private Long seccionId;
+	private Long unidadMedidaId;
 
-    private Long estatusId;
+	private TipoArticuloDTO tipoArticulo;
 
-    private Long unidadMedidaId;
+	private EstatusDTO estatus;
 
-    private Long empresaId;
-    
-    public Long getId() {
-        return id;
-    }
+	private UnidadMedidaDTO unidadMedida;
+	
+	private AdjuntoDTO adjunto;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private List<AdjuntoDTO> imagenes;
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+	public String getSku() {
+		return sku;
+	}
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
 
-    public String getCaracteristicas() {
-        return caracteristicas;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setCaracteristicas(String caracteristicas) {
-        this.caracteristicas = caracteristicas;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public BigDecimal getPrecioSinIva() {
-        return precioSinIva;
-    }
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-    public void setPrecioSinIva(BigDecimal precioSinIva) {
-        this.precioSinIva = precioSinIva;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-    public BigDecimal getPrecio() {
-        return precio;
-    }
+	public String getCaracteristicas() {
+		return caracteristicas;
+	}
 
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
-    }
+	public void setCaracteristicas(String caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
 
-    public Instant getFechaAlta() {
-        return fechaAlta;
-    }
+	public BigDecimal getPrecioSinIva() {
+		return precioSinIva;
+	}
 
-    public void setFechaAlta(Instant fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
+	public void setPrecioSinIva(BigDecimal precioSinIva) {
+		this.precioSinIva = precioSinIva;
+	}
 
-    public Instant getFechaModificacion() {
-        return fechaModificacion;
-    }
+	public BigDecimal getPrecio() {
+		return precio;
+	}
 
-    public void setFechaModificacion(Instant fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
+	}
 
-    public Long getAdjuntoId() {
-        return adjuntoId;
-    }
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public void setAdjuntoId(Long adjuntoId) {
-        this.adjuntoId = adjuntoId;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    public Long getUsuarioAltaId() {
-        return usuarioAltaId;
-    }
+	public LocalDateTime getFechaModificacion() {
+		return fechaModificacion;
+	}
 
-    public void setUsuarioAltaId(Long userId) {
-        this.usuarioAltaId = userId;
-    }
+	public void setFechaModificacion(LocalDateTime fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
 
-    public Long getUsuarioModificacionId() {
-        return usuarioModificacionId;
-    }
+	public Long getAdjuntoId() {
+		return adjuntoId;
+	}
 
-    public void setUsuarioModificacionId(Long userId) {
-        this.usuarioModificacionId = userId;
-    }
+	public void setAdjuntoId(Long adjuntoId) {
+		this.adjuntoId = adjuntoId;
+	}
 
-    public Long getProveedorId() {
-        return proveedorId;
-    }
+	public Long getUsuarioAltaId() {
+		return usuarioAltaId;
+	}
 
-    public void setProveedorId(Long proveedorId) {
-        this.proveedorId = proveedorId;
-    }
+	public void setUsuarioAltaId(Long userId) {
+		this.usuarioAltaId = userId;
+	}
 
-    public Long getTipoArticuloId() {
-        return tipoArticuloId;
-    }
+	public Long getUsuarioModificacionId() {
+		return usuarioModificacionId;
+	}
 
-    public void setTipoArticuloId(Long tipoArticuloId) {
-        this.tipoArticuloId = tipoArticuloId;
-    }
+	public void setUsuarioModificacionId(Long userId) {
+		this.usuarioModificacionId = userId;
+	}
 
-    public Long getCategoriaId() {
-        return categoriaId;
-    }
+	public Long getTipoArticuloId() {
+		return tipoArticuloId;
+	}
 
-    public void setCategoriaId(Long categoriaId) {
-        this.categoriaId = categoriaId;
-    }
+	public void setTipoArticuloId(Long tipoArticuloId) {
+		this.tipoArticuloId = tipoArticuloId;
+	}
 
-    public Long getSeccionId() {
-        return seccionId;
-    }
+	public Long getEstatusId() {
+		return estatusId;
+	}
 
-    public void setSeccionId(Long seccionId) {
-        this.seccionId = seccionId;
-    }
+	public void setEstatusId(Long estatusId) {
+		this.estatusId = estatusId;
+	}
 
-    public Long getEstatusId() {
-        return estatusId;
-    }
+	public Long getUnidadMedidaId() {
+		return unidadMedidaId;
+	}
 
-    public void setEstatusId(Long estatusId) {
-        this.estatusId = estatusId;
-    }
+	public void setUnidadMedidaId(Long unidadMedidaId) {
+		this.unidadMedidaId = unidadMedidaId;
+	}
 
-    public Long getUnidadMedidaId() {
-        return unidadMedidaId;
-    }
+	public TipoArticuloDTO getTipoArticulo() {
+		return tipoArticulo;
+	}
 
-    public void setUnidadMedidaId(Long unidadMedidaId) {
-        this.unidadMedidaId = unidadMedidaId;
-    }
+	public void setTipoArticulo(TipoArticuloDTO tipoArticulo) {
+		this.tipoArticulo = tipoArticulo;
+	}
 
-    public Long getEmpresaId() {
-        return empresaId;
-    }
+	public EstatusDTO getEstatus() {
+		return estatus;
+	}
 
-    public void setEmpresaId(Long empresaId) {
-        this.empresaId = empresaId;
-    }
+	public void setEstatus(EstatusDTO estatus) {
+		this.estatus = estatus;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof ProductoDTO)) {
-            return false;
-        }
+	public UnidadMedidaDTO getUnidadMedida() {
+		return unidadMedida;
+	}
 
-        return id != null && id.equals(((ProductoDTO) o).id);
-    }
+	public void setUnidadMedida(UnidadMedidaDTO unidadMedida) {
+		this.unidadMedida = unidadMedida;
+	}
 
-    @Override
-    public int hashCode() {
-        return 31;
-    }
+	public AdjuntoDTO getAdjunto() {
+		return adjunto;
+	}
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "ProductoDTO{" +
-            "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
-            ", descripcion='" + getDescripcion() + "'" +
-            ", caracteristicas='" + getCaracteristicas() + "'" +
-            ", precioSinIva=" + getPrecioSinIva() +
-            ", precio=" + getPrecio() +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            ", fechaModificacion='" + getFechaModificacion() + "'" +
-            ", adjuntoId=" + getAdjuntoId() +
-            ", usuarioAltaId=" + getUsuarioAltaId() +
-            ", usuarioModificacionId=" + getUsuarioModificacionId() +
-            ", proveedorId=" + getProveedorId() +
-            ", tipoArticuloId=" + getTipoArticuloId() +
-            ", categoriaId=" + getCategoriaId() +
-            ", seccionId=" + getSeccionId() +
-            ", estatusId=" + getEstatusId() +
-            ", unidadMedidaId=" + getUnidadMedidaId() +
-            ", empresaId=" + getEmpresaId() +
-            "}";
-    }
+	public void setAdjunto(AdjuntoDTO adjunto) {
+		this.adjunto = adjunto;
+	}
+
+	public List<AdjuntoDTO> getImagenes() {
+		return imagenes;
+	}
+
+	public void setImagenes(List<AdjuntoDTO> imagenes) {
+		this.imagenes = imagenes;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		ProductoDTO productoDTO = (ProductoDTO) o;
+		if (productoDTO.getId() == null || getId() == null) {
+			return false;
+		}
+		return Objects.equals(getId(), productoDTO.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(getId());
+	}
+
+	@Override
+	public String toString() {
+		return "ProductoDTO [id=" + id + ", sku=" + sku + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", caracteristicas=" + caracteristicas + ", precioSinIva=" + precioSinIva + ", precio=" + precio
+				+ ", fechaAlta=" + fechaAlta + ", fechaModificacion=" + fechaModificacion + ", adjuntoId=" + adjuntoId
+				+ ", usuarioAltaId=" + usuarioAltaId + ", usuarioModificacionId=" + usuarioModificacionId
+				+ ", tipoArticuloId=" + tipoArticuloId + ", estatusId=" + estatusId + ", unidadMedidaId="
+				+ unidadMedidaId + ", tipoArticulo=" + tipoArticulo + ", estatus=" + estatus + ", unidadMedida="
+				+ unidadMedida + ", imagenes=" + imagenes + "]";
+	}
+
 }

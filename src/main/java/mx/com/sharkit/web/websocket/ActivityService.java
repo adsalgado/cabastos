@@ -45,4 +45,5 @@ public class ActivityService implements ApplicationListener<SessionDisconnectEve
         activityDTO.setPage("logout");
         messagingTemplate.convertAndSend("/topic/tracker", activityDTO);
     }
+    
 }

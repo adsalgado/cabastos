@@ -1,0 +1,56 @@
+<div (contextmenu)="__elementSelectionService.select('172993732',$event)" [ngStyle]="__elementSelectionService.getStyles('172993732')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('77404085',$event)" [ngStyle]="__elementSelectionService.getStyles('77404085')">
+        <span jhiTranslate="abastosApp.tipoArticulo.home.title" (contextmenu)="__elementSelectionService.select('1933816430',$event)" [ngStyle]="__elementSelectionService.getStyles('1933816430')">Tipo Articulos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tipo-articulo" [routerLink]="['/tipo-articulo/new']" (contextmenu)="__elementSelectionService.select('1545083655',$event)" [ngStyle]="__elementSelectionService.getStyles('1545083655')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1271558300',$event)" [ngStyle]="__elementSelectionService.getStyles('1271558300')"></fa-icon>
+            <span jhiTranslate="abastosApp.tipoArticulo.home.createLabel" (contextmenu)="__elementSelectionService.select('654767855',$event)" [ngStyle]="__elementSelectionService.getStyles('654767855')">
+            Create a new Tipo Articulo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1228464291',$event)" [ngStyle]="__elementSelectionService.getStyles('1228464291')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1432623776',$event)" [ngStyle]="__elementSelectionService.getStyles('1432623776')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tipoArticulos?.length === 0" (contextmenu)="__elementSelectionService.select('1303563776',$event)" [ngStyle]="__elementSelectionService.getStyles('1303563776')">
+        <span jhiTranslate="abastosApp.tipoArticulo.home.notFound" (contextmenu)="__elementSelectionService.select('1561585879',$event)" [ngStyle]="__elementSelectionService.getStyles('1561585879')">No tipoArticulos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tipoArticulos &#38;&#38; tipoArticulos.length &#62; 0" (contextmenu)="__elementSelectionService.select('1394619950',$event)" [ngStyle]="__elementSelectionService.getStyles('1394619950')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('652511216',$event)" [ngStyle]="__elementSelectionService.getStyles('652511216')">
+            <thead (contextmenu)="__elementSelectionService.select('2105384930',$event)" [ngStyle]="__elementSelectionService.getStyles('2105384930')">
+                <tr (contextmenu)="__elementSelectionService.select('1063945674',$event)" [ngStyle]="__elementSelectionService.getStyles('1063945674')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1831421263',$event)" [ngStyle]="__elementSelectionService.getStyles('1831421263')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('1869648925',$event)" [ngStyle]="__elementSelectionService.getStyles('1869648925')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('2128839838',$event)" [ngStyle]="__elementSelectionService.getStyles('2128839838')"><span jhiTranslate="abastosApp.tipoArticulo.nombre" (contextmenu)="__elementSelectionService.select('357304925',$event)" [ngStyle]="__elementSelectionService.getStyles('357304925')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('845690502',$event)" [ngStyle]="__elementSelectionService.getStyles('845690502')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1507040426',$event)" [ngStyle]="__elementSelectionService.getStyles('1507040426')">
+                <tr *ngFor="let tipoArticulo of tipoArticulos ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1005986938',$event)" [ngStyle]="__elementSelectionService.getStyles('1005986938')">
+                    <td (contextmenu)="__elementSelectionService.select('1318965179',$event)" [ngStyle]="__elementSelectionService.getStyles('1318965179')"><a [routerLink]="['/tipo-articulo', tipoArticulo.id, 'view']" (contextmenu)="__elementSelectionService.select('1026690280',$event)" [ngStyle]="__elementSelectionService.getStyles('1026690280')">{{ tipoArticulo.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('2025972008',$event)" [ngStyle]="__elementSelectionService.getStyles('2025972008')">{{ tipoArticulo.nombre }}</td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1914621886',$event)" [ngStyle]="__elementSelectionService.getStyles('1914621886')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1390294609',$event)" [ngStyle]="__elementSelectionService.getStyles('1390294609')">
+                            <button type="submit" [routerLink]="['/tipo-articulo', tipoArticulo.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('2141595054',$event)" [ngStyle]="__elementSelectionService.getStyles('2141595054')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('135873491',$event)" [ngStyle]="__elementSelectionService.getStyles('135873491')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('217980497',$event)" [ngStyle]="__elementSelectionService.getStyles('217980497')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/tipo-articulo', tipoArticulo.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('791797025',$event)" [ngStyle]="__elementSelectionService.getStyles('791797025')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('1643382332',$event)" [ngStyle]="__elementSelectionService.getStyles('1643382332')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('590468618',$event)" [ngStyle]="__elementSelectionService.getStyles('590468618')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tipoArticulo)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1598118059',$event)" [ngStyle]="__elementSelectionService.getStyles('1598118059')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('2117619383',$event)" [ngStyle]="__elementSelectionService.getStyles('2117619383')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('1060922026',$event)" [ngStyle]="__elementSelectionService.getStyles('1060922026')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

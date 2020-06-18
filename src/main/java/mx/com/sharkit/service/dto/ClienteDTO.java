@@ -1,14 +1,14 @@
 package mx.com.sharkit.service.dto;
-
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link mx.com.sharkit.domain.Cliente} entity.
  */
 public class ClienteDTO implements Serializable {
-    
+
     private Long id;
 
     @NotNull
@@ -39,7 +39,7 @@ public class ClienteDTO implements Serializable {
     private Long estatusId;
 
     private Long empresaId;
-    
+
     public Long getId() {
         return id;
     }
@@ -133,19 +133,22 @@ public class ClienteDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ClienteDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((ClienteDTO) o).id);
+        ClienteDTO clienteDTO = (ClienteDTO) o;
+        if (clienteDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), clienteDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "ClienteDTO{" +
@@ -156,10 +159,10 @@ public class ClienteDTO implements Serializable {
             ", telefono='" + getTelefono() + "'" +
             ", fechaAlta='" + getFechaAlta() + "'" +
             ", fechaModificacion='" + getFechaModificacion() + "'" +
-            ", usuarioAltaId=" + getUsuarioAltaId() +
-            ", usuarioModificacionId=" + getUsuarioModificacionId() +
-            ", estatusId=" + getEstatusId() +
-            ", empresaId=" + getEmpresaId() +
+            ", usuarioAlta=" + getUsuarioAltaId() +
+            ", usuarioModificacion=" + getUsuarioModificacionId() +
+            ", estatus=" + getEstatusId() +
+            ", empresa=" + getEmpresaId() +
             "}";
     }
 }

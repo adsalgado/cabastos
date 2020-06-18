@@ -1,21 +1,19 @@
 package mx.com.sharkit.domain;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * A Tarjeta.
  */
 @Entity
-@Table(name = "tarjeta")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Table(name = "usuario_tarjeta")
 public class Tarjeta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,6 +21,10 @@ public class Tarjeta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Size(max = 45)
+    @Column(name = "alias", length = 45, nullable = false)
+    private String alias;
 
     @NotNull
     @Size(max = 20)
@@ -39,90 +41,83 @@ public class Tarjeta implements Serializable {
     @Column(name = "numero_seguridad", length = 3, nullable = false)
     private String numeroSeguridad;
 
-    @NotNull
-    @Column(name = "fecha_alta", nullable = false)
-    private LocalDate fechaAlta;
+    @OneToOne
+    @JoinColumn(name = "usuario_id", unique = true, insertable = false, updatable = false)
+    private User usuario;
+    
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "tarjetas", allowSetters = true)
-    private Cliente cliente;
+    @Column(name = "fecha_alta")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "es_MX")
+    private LocalDateTime fechaAlta;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
+	public String getNumeroTarjeta() {
+		return numeroTarjeta;
+	}
 
-    public Tarjeta numeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-        return this;
-    }
+	public void setNumeroTarjeta(String numeroTarjeta) {
+		this.numeroTarjeta = numeroTarjeta;
+	}
 
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
+	public String getFechaCaducidad() {
+		return fechaCaducidad;
+	}
 
-    public String getFechaCaducidad() {
-        return fechaCaducidad;
-    }
+	public void setFechaCaducidad(String fechaCaducidad) {
+		this.fechaCaducidad = fechaCaducidad;
+	}
 
-    public Tarjeta fechaCaducidad(String fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-        return this;
-    }
+	public String getNumeroSeguridad() {
+		return numeroSeguridad;
+	}
 
-    public void setFechaCaducidad(String fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-    }
+	public void setNumeroSeguridad(String numeroSeguridad) {
+		this.numeroSeguridad = numeroSeguridad;
+	}
 
-    public String getNumeroSeguridad() {
-        return numeroSeguridad;
-    }
+	public User getUsuario() {
+		return usuario;
+	}
 
-    public Tarjeta numeroSeguridad(String numeroSeguridad) {
-        this.numeroSeguridad = numeroSeguridad;
-        return this;
-    }
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
 
-    public void setNumeroSeguridad(String numeroSeguridad) {
-        this.numeroSeguridad = numeroSeguridad;
-    }
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
 
-    public LocalDate getFechaAlta() {
-        return fechaAlta;
-    }
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 
-    public Tarjeta fechaAlta(LocalDate fechaAlta) {
-        this.fechaAlta = fechaAlta;
-        return this;
-    }
+	public LocalDateTime getFechaAlta() {
+		return fechaAlta;
+	}
 
-    public void setFechaAlta(LocalDate fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
+	public void setFechaAlta(LocalDateTime fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 
-    public Cliente getCliente() {
-        return cliente;
-    }
+	public String getAlias() {
+		return alias;
+	}
 
-    public Tarjeta cliente(Cliente cliente) {
-        this.cliente = cliente;
-        return this;
-    }
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -138,15 +133,11 @@ public class Tarjeta implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Tarjeta{" +
-            "id=" + getId() +
-            ", numeroTarjeta='" + getNumeroTarjeta() + "'" +
-            ", fechaCaducidad='" + getFechaCaducidad() + "'" +
-            ", numeroSeguridad='" + getNumeroSeguridad() + "'" +
-            ", fechaAlta='" + getFechaAlta() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "Tarjeta [id=" + id + ", alias=" + alias + ", numeroTarjeta=" + numeroTarjeta + ", fechaCaducidad="
+				+ fechaCaducidad + ", numeroSeguridad=" + numeroSeguridad + ", usuarioId=" + usuarioId + ", fechaAlta="
+				+ fechaAlta + "]";
+	}
+
 }

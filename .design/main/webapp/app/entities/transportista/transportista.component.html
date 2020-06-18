@@ -1,0 +1,74 @@
+<div (contextmenu)="__elementSelectionService.select('2030997638',$event)" [ngStyle]="__elementSelectionService.getStyles('2030997638')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('1514675557',$event)" [ngStyle]="__elementSelectionService.getStyles('1514675557')">
+        <span jhiTranslate="abastosApp.transportista.home.title" (contextmenu)="__elementSelectionService.select('1464806410',$event)" [ngStyle]="__elementSelectionService.getStyles('1464806410')">Transportistas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-transportista" [routerLink]="['/transportista/new']" (contextmenu)="__elementSelectionService.select('329965702',$event)" [ngStyle]="__elementSelectionService.getStyles('329965702')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1818311169',$event)" [ngStyle]="__elementSelectionService.getStyles('1818311169')"></fa-icon>
+            <span jhiTranslate="abastosApp.transportista.home.createLabel" (contextmenu)="__elementSelectionService.select('1985524189',$event)" [ngStyle]="__elementSelectionService.getStyles('1985524189')">
+            Create a new Transportista
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1482288224',$event)" [ngStyle]="__elementSelectionService.getStyles('1482288224')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('473143613',$event)" [ngStyle]="__elementSelectionService.getStyles('473143613')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="transportistas?.length === 0" (contextmenu)="__elementSelectionService.select('2036795784',$event)" [ngStyle]="__elementSelectionService.getStyles('2036795784')">
+        <span jhiTranslate="abastosApp.transportista.home.notFound" (contextmenu)="__elementSelectionService.select('1241680160',$event)" [ngStyle]="__elementSelectionService.getStyles('1241680160')">No transportistas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="transportistas &#38;&#38; transportistas.length &#62; 0" (contextmenu)="__elementSelectionService.select('1571768044',$event)" [ngStyle]="__elementSelectionService.getStyles('1571768044')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('1565902357',$event)" [ngStyle]="__elementSelectionService.getStyles('1565902357')">
+            <thead (contextmenu)="__elementSelectionService.select('473935742',$event)" [ngStyle]="__elementSelectionService.getStyles('473935742')">
+                <tr (contextmenu)="__elementSelectionService.select('1118465616',$event)" [ngStyle]="__elementSelectionService.getStyles('1118465616')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1695926479',$event)" [ngStyle]="__elementSelectionService.getStyles('1695926479')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('377741078',$event)" [ngStyle]="__elementSelectionService.getStyles('377741078')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1999029991',$event)" [ngStyle]="__elementSelectionService.getStyles('1999029991')"><span jhiTranslate="abastosApp.transportista.nombre" (contextmenu)="__elementSelectionService.select('1718611645',$event)" [ngStyle]="__elementSelectionService.getStyles('1718611645')">Nombre</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('762773775',$event)" [ngStyle]="__elementSelectionService.getStyles('762773775')"><span jhiTranslate="abastosApp.transportista.fechaAlta" (contextmenu)="__elementSelectionService.select('621023448',$event)" [ngStyle]="__elementSelectionService.getStyles('621023448')">Fecha Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1691679585',$event)" [ngStyle]="__elementSelectionService.getStyles('1691679585')"><span jhiTranslate="abastosApp.transportista.fechaModificacion" (contextmenu)="__elementSelectionService.select('2111306560',$event)" [ngStyle]="__elementSelectionService.getStyles('2111306560')">Fecha Modificacion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1748886156',$event)" [ngStyle]="__elementSelectionService.getStyles('1748886156')"><span jhiTranslate="abastosApp.transportista.usuarioAlta" (contextmenu)="__elementSelectionService.select('1840954755',$event)" [ngStyle]="__elementSelectionService.getStyles('1840954755')">Usuario Alta</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('787893414',$event)" [ngStyle]="__elementSelectionService.getStyles('787893414')"><span jhiTranslate="abastosApp.transportista.usuarioModificacion" (contextmenu)="__elementSelectionService.select('1824112579',$event)" [ngStyle]="__elementSelectionService.getStyles('1824112579')">Usuario Modificacion</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1796675930',$event)" [ngStyle]="__elementSelectionService.getStyles('1796675930')"><span jhiTranslate="abastosApp.transportista.empresa" (contextmenu)="__elementSelectionService.select('1408890654',$event)" [ngStyle]="__elementSelectionService.getStyles('1408890654')">Empresa</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1341526715',$event)" [ngStyle]="__elementSelectionService.getStyles('1341526715')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1846602529',$event)" [ngStyle]="__elementSelectionService.getStyles('1846602529')">
+                <tr *ngFor="let transportista of transportistas ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1033826928',$event)" [ngStyle]="__elementSelectionService.getStyles('1033826928')">
+                    <td (contextmenu)="__elementSelectionService.select('558085082',$event)" [ngStyle]="__elementSelectionService.getStyles('558085082')"><a [routerLink]="['/transportista', transportista.id, 'view']" (contextmenu)="__elementSelectionService.select('1583287939',$event)" [ngStyle]="__elementSelectionService.getStyles('1583287939')">{{ transportista.id }}</a></td>
+                    <td (contextmenu)="__elementSelectionService.select('939507594',$event)" [ngStyle]="__elementSelectionService.getStyles('939507594')">{{ transportista.nombre }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('2100872823',$event)" [ngStyle]="__elementSelectionService.getStyles('2100872823')">{{ transportista.fechaAlta | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1096378217',$event)" [ngStyle]="__elementSelectionService.getStyles('1096378217')">{{ transportista.fechaModificacion | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1733579479',$event)" [ngStyle]="__elementSelectionService.getStyles('1733579479')">
+                        {{ transportista.usuarioAltaId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('765309528',$event)" [ngStyle]="__elementSelectionService.getStyles('765309528')">
+                        {{ transportista.usuarioModificacionId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('380490466',$event)" [ngStyle]="__elementSelectionService.getStyles('380490466')">
+                        <div *ngIf="transportista.empresaId" (contextmenu)="__elementSelectionService.select('474320241',$event)" [ngStyle]="__elementSelectionService.getStyles('474320241')">
+                            <a [routerLink]="['/empresa', transportista.empresaId , 'view']" (contextmenu)="__elementSelectionService.select('1497540292',$event)" [ngStyle]="__elementSelectionService.getStyles('1497540292')">{{ transportista.empresaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('420331718',$event)" [ngStyle]="__elementSelectionService.getStyles('420331718')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('1640967111',$event)" [ngStyle]="__elementSelectionService.getStyles('1640967111')">
+                            <button type="submit" [routerLink]="['/transportista', transportista.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('1372654730',$event)" [ngStyle]="__elementSelectionService.getStyles('1372654730')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('493483250',$event)" [ngStyle]="__elementSelectionService.getStyles('493483250')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('1788157033',$event)" [ngStyle]="__elementSelectionService.getStyles('1788157033')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/transportista', transportista.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1914475503',$event)" [ngStyle]="__elementSelectionService.getStyles('1914475503')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('728790138',$event)" [ngStyle]="__elementSelectionService.getStyles('728790138')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('2037173122',$event)" [ngStyle]="__elementSelectionService.getStyles('2037173122')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(transportista)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1004070546',$event)" [ngStyle]="__elementSelectionService.getStyles('1004070546')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('768449005',$event)" [ngStyle]="__elementSelectionService.getStyles('768449005')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('87485322',$event)" [ngStyle]="__elementSelectionService.getStyles('87485322')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

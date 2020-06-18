@@ -1,0 +1,74 @@
+<div (contextmenu)="__elementSelectionService.select('1258033673',$event)" [ngStyle]="__elementSelectionService.getStyles('1258033673')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('2083427582',$event)" [ngStyle]="__elementSelectionService.getStyles('2083427582')">
+        <span jhiTranslate="abastosApp.inventarioHistorico.home.title" (contextmenu)="__elementSelectionService.select('1458093352',$event)" [ngStyle]="__elementSelectionService.getStyles('1458093352')">Inventario Historicos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario-historico" [routerLink]="['/inventario-historico/new']" (contextmenu)="__elementSelectionService.select('1861747802',$event)" [ngStyle]="__elementSelectionService.getStyles('1861747802')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1114460743',$event)" [ngStyle]="__elementSelectionService.getStyles('1114460743')"></fa-icon>
+            <span jhiTranslate="abastosApp.inventarioHistorico.home.createLabel" (contextmenu)="__elementSelectionService.select('1248634768',$event)" [ngStyle]="__elementSelectionService.getStyles('1248634768')">
+            Create a new Inventario Historico
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1501450760',$event)" [ngStyle]="__elementSelectionService.getStyles('1501450760')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1997166505',$event)" [ngStyle]="__elementSelectionService.getStyles('1997166505')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inventarioHistoricos?.length === 0" (contextmenu)="__elementSelectionService.select('1599986789',$event)" [ngStyle]="__elementSelectionService.getStyles('1599986789')">
+        <span jhiTranslate="abastosApp.inventarioHistorico.home.notFound" (contextmenu)="__elementSelectionService.select('1881317433',$event)" [ngStyle]="__elementSelectionService.getStyles('1881317433')">No inventarioHistoricos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inventarioHistoricos &#38;&#38; inventarioHistoricos.length &#62; 0" (contextmenu)="__elementSelectionService.select('1533497895',$event)" [ngStyle]="__elementSelectionService.getStyles('1533497895')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('2121654781',$event)" [ngStyle]="__elementSelectionService.getStyles('2121654781')">
+            <thead (contextmenu)="__elementSelectionService.select('1333437602',$event)" [ngStyle]="__elementSelectionService.getStyles('1333437602')">
+                <tr (contextmenu)="__elementSelectionService.select('708638236',$event)" [ngStyle]="__elementSelectionService.getStyles('708638236')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1261141782',$event)" [ngStyle]="__elementSelectionService.getStyles('1261141782')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('444597639',$event)" [ngStyle]="__elementSelectionService.getStyles('444597639')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('12975553',$event)" [ngStyle]="__elementSelectionService.getStyles('12975553')"><span jhiTranslate="abastosApp.inventarioHistorico.tipoMovimiento" (contextmenu)="__elementSelectionService.select('1292138451',$event)" [ngStyle]="__elementSelectionService.getStyles('1292138451')">Tipo Movimiento</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1573352106',$event)" [ngStyle]="__elementSelectionService.getStyles('1573352106')"><span jhiTranslate="abastosApp.inventarioHistorico.cantidad" (contextmenu)="__elementSelectionService.select('1207040168',$event)" [ngStyle]="__elementSelectionService.getStyles('1207040168')">Cantidad</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1752510050',$event)" [ngStyle]="__elementSelectionService.getStyles('1752510050')"><span jhiTranslate="abastosApp.inventarioHistorico.totalAnterior" (contextmenu)="__elementSelectionService.select('102852176',$event)" [ngStyle]="__elementSelectionService.getStyles('102852176')">Total Anterior</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1620383260',$event)" [ngStyle]="__elementSelectionService.getStyles('1620383260')"><span jhiTranslate="abastosApp.inventarioHistorico.totalFinal" (contextmenu)="__elementSelectionService.select('678004254',$event)" [ngStyle]="__elementSelectionService.getStyles('678004254')">Total Final</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1764670287',$event)" [ngStyle]="__elementSelectionService.getStyles('1764670287')"><span jhiTranslate="abastosApp.inventarioHistorico.fechaMovimiento" (contextmenu)="__elementSelectionService.select('1680884700',$event)" [ngStyle]="__elementSelectionService.getStyles('1680884700')">Fecha Movimiento</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('744332464',$event)" [ngStyle]="__elementSelectionService.getStyles('744332464')"><span jhiTranslate="abastosApp.inventarioHistorico.usuarioMovimiento" (contextmenu)="__elementSelectionService.select('1214297683',$event)" [ngStyle]="__elementSelectionService.getStyles('1214297683')">Usuario Movimiento</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1418234067',$event)" [ngStyle]="__elementSelectionService.getStyles('1418234067')"><span jhiTranslate="abastosApp.inventarioHistorico.inventario" (contextmenu)="__elementSelectionService.select('843059005',$event)" [ngStyle]="__elementSelectionService.getStyles('843059005')">Inventario</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('1916321241',$event)" [ngStyle]="__elementSelectionService.getStyles('1916321241')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1067929571',$event)" [ngStyle]="__elementSelectionService.getStyles('1067929571')">
+                <tr *ngFor="let inventarioHistorico of inventarioHistoricos ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('796497620',$event)" [ngStyle]="__elementSelectionService.getStyles('796497620')">
+                    <td (contextmenu)="__elementSelectionService.select('502418913',$event)" [ngStyle]="__elementSelectionService.getStyles('502418913')"><a [routerLink]="['/inventario-historico', inventarioHistorico.id, 'view']" (contextmenu)="__elementSelectionService.select('714341875',$event)" [ngStyle]="__elementSelectionService.getStyles('714341875')">{{ inventarioHistorico.id }}</a></td>
+                    <td jhiTranslate="{{ 'abastosApp.TipoMovimiento.' + inventarioHistorico.tipoMovimiento }}" (contextmenu)="__elementSelectionService.select('793671445',$event)" [ngStyle]="__elementSelectionService.getStyles('793671445')">{{ inventarioHistorico.tipoMovimiento }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1281526558',$event)" [ngStyle]="__elementSelectionService.getStyles('1281526558')">{{ inventarioHistorico.cantidad }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1139821110',$event)" [ngStyle]="__elementSelectionService.getStyles('1139821110')">{{ inventarioHistorico.totalAnterior }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1983466462',$event)" [ngStyle]="__elementSelectionService.getStyles('1983466462')">{{ inventarioHistorico.totalFinal }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('714304723',$event)" [ngStyle]="__elementSelectionService.getStyles('714304723')">{{ inventarioHistorico.fechaMovimiento | date:'medium' }}</td>
+                    <td (contextmenu)="__elementSelectionService.select('1920018660',$event)" [ngStyle]="__elementSelectionService.getStyles('1920018660')">
+                        {{ inventarioHistorico.usuarioMovimientoId }}
+                    </td>
+                    <td (contextmenu)="__elementSelectionService.select('865168742',$event)" [ngStyle]="__elementSelectionService.getStyles('865168742')">
+                        <div *ngIf="inventarioHistorico.inventarioId" (contextmenu)="__elementSelectionService.select('256550769',$event)" [ngStyle]="__elementSelectionService.getStyles('256550769')">
+                            <a [routerLink]="['/inventario', inventarioHistorico.inventarioId , 'view']" (contextmenu)="__elementSelectionService.select('1041147839',$event)" [ngStyle]="__elementSelectionService.getStyles('1041147839')">{{ inventarioHistorico.inventarioId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1162055314',$event)" [ngStyle]="__elementSelectionService.getStyles('1162055314')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('2105618689',$event)" [ngStyle]="__elementSelectionService.getStyles('2105618689')">
+                            <button type="submit" [routerLink]="['/inventario-historico', inventarioHistorico.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('665481455',$event)" [ngStyle]="__elementSelectionService.getStyles('665481455')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1817315578',$event)" [ngStyle]="__elementSelectionService.getStyles('1817315578')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('901524732',$event)" [ngStyle]="__elementSelectionService.getStyles('901524732')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/inventario-historico', inventarioHistorico.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('1094781555',$event)" [ngStyle]="__elementSelectionService.getStyles('1094781555')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('899164092',$event)" [ngStyle]="__elementSelectionService.getStyles('899164092')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1232206893',$event)" [ngStyle]="__elementSelectionService.getStyles('1232206893')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inventarioHistorico)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('503243315',$event)" [ngStyle]="__elementSelectionService.getStyles('503243315')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1420124525',$event)" [ngStyle]="__elementSelectionService.getStyles('1420124525')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('544475522',$event)" [ngStyle]="__elementSelectionService.getStyles('544475522')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,20 +1,20 @@
 package mx.com.sharkit.service.impl;
 
-import mx.com.sharkit.service.CarritoCompraService;
-import mx.com.sharkit.domain.CarritoCompra;
-import mx.com.sharkit.repository.CarritoCompraRepository;
-import mx.com.sharkit.service.dto.CarritoCompraDTO;
-import mx.com.sharkit.service.mapper.CarritoCompraMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import mx.com.sharkit.domain.CarritoCompra;
+import mx.com.sharkit.repository.CarritoCompraRepository;
+import mx.com.sharkit.service.CarritoCompraService;
+import mx.com.sharkit.service.dto.CarritoCompraDTO;
+import mx.com.sharkit.service.mapper.CarritoCompraMapper;
 
 /**
  * Service Implementation for managing {@link CarritoCompra}.
@@ -87,4 +87,37 @@ public class CarritoCompraServiceImpl implements CarritoCompraService {
         log.debug("Request to delete CarritoCompra : {}", id);
         carritoCompraRepository.deleteById(id);
     }
+
+    /**
+     * Get all the carritoCompras of clienteId.
+     *
+     * @return the list of entities.
+     */
+    @Override
+	public List<CarritoCompraDTO> findAllByClienteId(Long clienteId) {
+		log.debug("Request to get all CarritoCompras");
+        return carritoCompraRepository.findByClienteIdOrderByNombre(clienteId).stream()
+            .map(carritoCompraMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+	}
+
+	@Override
+	public void deleteByClienteIdAnProductoProveedorId(Long clienteId, Long productoId) {
+		log.debug("Request to delete CarritoCompra : {}, {}", clienteId, productoId);
+        carritoCompraRepository.deleteByClienteIdAndProductoProveedorId(clienteId, productoId);
+	}
+
+	@Override
+	public void deleteByClienteId(Long clienteId) {
+		log.debug("Request to delete CarritoCompra : {}, {}", clienteId);
+        carritoCompraRepository.deleteByClienteId(clienteId);
+	}
+
+	@Override
+	public Optional<CarritoCompraDTO> findOneClienteIdAndProductoProveedorId(Long clienteId, Long productoId) {
+		log.debug("Request to get CarritoCompra : cte {}, prod {}", clienteId, productoId);
+        return carritoCompraRepository.findOneByClienteIdAndProductoProveedorId(clienteId, productoId)
+            .map(carritoCompraMapper::toDto);
+	}
+	
 }

@@ -1,0 +1,54 @@
+<div (contextmenu)="__elementSelectionService.select('173525115',$event)" [ngStyle]="__elementSelectionService.getStyles('173525115')"(click)='__elementSelectionService.clear()'>
+    <h2 id="page-heading" (contextmenu)="__elementSelectionService.select('498924250',$event)" [ngStyle]="__elementSelectionService.getStyles('498924250')">
+        <span jhiTranslate="abastosApp.notificacion.home.title" (contextmenu)="__elementSelectionService.select('698154246',$event)" [ngStyle]="__elementSelectionService.getStyles('698154246')">Notificacions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-notificacion" [routerLink]="['/notificacion/new']" (contextmenu)="__elementSelectionService.select('194247800',$event)" [ngStyle]="__elementSelectionService.getStyles('194247800')">
+            <fa-icon icon="plus" (contextmenu)="__elementSelectionService.select('1754544797',$event)" [ngStyle]="__elementSelectionService.getStyles('1754544797')"></fa-icon>
+            <span jhiTranslate="abastosApp.notificacion.home.createLabel" (contextmenu)="__elementSelectionService.select('302278527',$event)" [ngStyle]="__elementSelectionService.getStyles('302278527')">
+            Create a new Notificacion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error (contextmenu)="__elementSelectionService.select('1556012276',$event)" [ngStyle]="__elementSelectionService.getStyles('1556012276')"></jhi-alert-error>
+
+    <jhi-alert (contextmenu)="__elementSelectionService.select('1213893415',$event)" [ngStyle]="__elementSelectionService.getStyles('1213893415')"></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="notificacions?.length === 0" (contextmenu)="__elementSelectionService.select('22220899',$event)" [ngStyle]="__elementSelectionService.getStyles('22220899')">
+        <span jhiTranslate="abastosApp.notificacion.home.notFound" (contextmenu)="__elementSelectionService.select('811446441',$event)" [ngStyle]="__elementSelectionService.getStyles('811446441')">No notificacions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="notificacions &#38;&#38; notificacions.length &#62; 0" (contextmenu)="__elementSelectionService.select('439259946',$event)" [ngStyle]="__elementSelectionService.getStyles('439259946')">
+        <table class="table table-striped" aria-describedby="page-heading" (contextmenu)="__elementSelectionService.select('112271611',$event)" [ngStyle]="__elementSelectionService.getStyles('112271611')">
+            <thead (contextmenu)="__elementSelectionService.select('536406086',$event)" [ngStyle]="__elementSelectionService.getStyles('536406086')">
+                <tr (contextmenu)="__elementSelectionService.select('1123929064',$event)" [ngStyle]="__elementSelectionService.getStyles('1123929064')">
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('740599646',$event)" [ngStyle]="__elementSelectionService.getStyles('740599646')"><span jhiTranslate="global.field.id" (contextmenu)="__elementSelectionService.select('597556441',$event)" [ngStyle]="__elementSelectionService.getStyles('597556441')">ID</span></th>
+                    <th scope="col" (contextmenu)="__elementSelectionService.select('2080344628',$event)" [ngStyle]="__elementSelectionService.getStyles('2080344628')"></th>
+                </tr>
+            </thead>
+            <tbody (contextmenu)="__elementSelectionService.select('1467067432',$event)" [ngStyle]="__elementSelectionService.getStyles('1467067432')">
+                <tr *ngFor="let notificacion of notificacions ;trackBy: trackId" (contextmenu)="__elementSelectionService.select('1592192975',$event)" [ngStyle]="__elementSelectionService.getStyles('1592192975')">
+                    <td (contextmenu)="__elementSelectionService.select('315735038',$event)" [ngStyle]="__elementSelectionService.getStyles('315735038')"><a [routerLink]="['/notificacion', notificacion.id, 'view']" (contextmenu)="__elementSelectionService.select('368586170',$event)" [ngStyle]="__elementSelectionService.getStyles('368586170')">{{ notificacion.id }}</a></td>
+                    <td class="text-right" (contextmenu)="__elementSelectionService.select('1328731073',$event)" [ngStyle]="__elementSelectionService.getStyles('1328731073')">
+                        <div class="btn-group" (contextmenu)="__elementSelectionService.select('641975679',$event)" [ngStyle]="__elementSelectionService.getStyles('641975679')">
+                            <button type="submit" [routerLink]="['/notificacion', notificacion.id, 'view']" class="btn btn-info btn-sm" (contextmenu)="__elementSelectionService.select('961709058',$event)" [ngStyle]="__elementSelectionService.getStyles('961709058')">
+                                <fa-icon icon="eye" (contextmenu)="__elementSelectionService.select('1830021999',$event)" [ngStyle]="__elementSelectionService.getStyles('1830021999')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view" (contextmenu)="__elementSelectionService.select('887521751',$event)" [ngStyle]="__elementSelectionService.getStyles('887521751')">View</span>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/notificacion', notificacion.id, 'edit']" class="btn btn-primary btn-sm" (contextmenu)="__elementSelectionService.select('213303817',$event)" [ngStyle]="__elementSelectionService.getStyles('213303817')">
+                                <fa-icon icon="pencil-alt" (contextmenu)="__elementSelectionService.select('560542985',$event)" [ngStyle]="__elementSelectionService.getStyles('560542985')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit" (contextmenu)="__elementSelectionService.select('1398008536',$event)" [ngStyle]="__elementSelectionService.getStyles('1398008536')">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(notificacion)" class="btn btn-danger btn-sm" (contextmenu)="__elementSelectionService.select('1396388188',$event)" [ngStyle]="__elementSelectionService.getStyles('1396388188')">
+                                <fa-icon icon="times" (contextmenu)="__elementSelectionService.select('1772554168',$event)" [ngStyle]="__elementSelectionService.getStyles('1772554168')"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete" (contextmenu)="__elementSelectionService.select('17737464',$event)" [ngStyle]="__elementSelectionService.getStyles('17737464')">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

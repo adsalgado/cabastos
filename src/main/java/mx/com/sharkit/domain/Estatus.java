@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -17,10 +14,27 @@ import mx.com.sharkit.domain.enumeration.TipoEstatus;
  */
 @Entity
 @Table(name = "estatus")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Estatus implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static final Long ACTIVO = 1L;
+    public static final Long INACTIVO = 2L;
+
+    public static final Long PEDIDO_SOLICITADO = 7L;
+    public static final Long PEDIDO_EN_CONFIRMACION = 8L;
+    public static final Long PEDIDO_CONFIRMADO = 9L;
+    public static final Long PEDIDO_CANCELADO = 10L;
+    public static final Long PEDIDO_PAGADO = 11L;
+    public static final Long PEDIDO_EN_PREPARACION = 12L;
+    public static final Long PEDIDO_PREPARADO = 13L;
+    public static final Long PEDIDO_ENVIADO = 14L;
+    public static final Long PEDIDO_ENTREGADO = 15L;
+    public static final Long PEDIDO_RECHAZADO = 16L;
+    public static final Long PEDIDO_ERROR_PAGO = 17L;
+    public static final Long ENVIADO_A_TRANSPORTISTA = 18L;
+
+    public static final Long QUEJA_ABIERTA = 19L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,26 +50,21 @@ public class Estatus implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "estatus")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Producto> productos = new HashSet<>();
 
     @OneToMany(mappedBy = "estatus")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<OfertaProveedor> ofertaProveedors = new HashSet<>();
 
     @OneToMany(mappedBy = "estatus")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Cliente> clientes = new HashSet<>();
 
     @OneToMany(mappedBy = "estatus")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Pedido> pedidos = new HashSet<>();
 
     @OneToMany(mappedBy = "estatus")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<PedidoDetalle> pedidoDetalles = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -214,7 +223,7 @@ public class Estatus implements Serializable {
     public void setPedidoDetalles(Set<PedidoDetalle> pedidoDetalles) {
         this.pedidoDetalles = pedidoDetalles;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -232,7 +241,6 @@ public class Estatus implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Estatus{" +

@@ -45,12 +45,17 @@ public class UserMapper {
             user.setLogin(userDTO.getLogin());
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
+            user.setMotherLastName(userDTO.getMotherLastName());
+            user.setTelefono(userDTO.getTelefono());
+            user.setFechaNacimiento(userDTO.getFechaNacimiento());
             user.setEmail(userDTO.getEmail());
             user.setImageUrl(userDTO.getImageUrl());
             user.setActivated(userDTO.isActivated());
             user.setLangKey(userDTO.getLangKey());
-            Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
-            user.setAuthorities(authorities);
+            if (userDTO.getAuthorities()!= null && !userDTO.getAuthorities().isEmpty()) {
+                Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
+                user.setAuthorities(authorities);            	
+            }
             return user;
         }
     }
@@ -59,7 +64,7 @@ public class UserMapper {
     private Set<Authority> authoritiesFromStrings(Set<String> authoritiesAsString) {
         Set<Authority> authorities = new HashSet<>();
 
-        if (authoritiesAsString != null) {
+        if(authoritiesAsString != null){
             authorities = authoritiesAsString.stream().map(string -> {
                 Authority auth = new Authority();
                 auth.setName(string);

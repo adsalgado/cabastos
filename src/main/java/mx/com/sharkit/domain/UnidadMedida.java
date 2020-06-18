@@ -1,8 +1,5 @@
 package mx.com.sharkit.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -15,7 +12,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "unidad_medida")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UnidadMedida implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,10 +30,9 @@ public class UnidadMedida implements Serializable {
     private String descripcion;
 
     @OneToMany(mappedBy = "unidadMedida")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Producto> productos = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -96,7 +91,7 @@ public class UnidadMedida implements Serializable {
     public void setProductos(Set<Producto> productos) {
         this.productos = productos;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -114,7 +109,6 @@ public class UnidadMedida implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "UnidadMedida{" +
