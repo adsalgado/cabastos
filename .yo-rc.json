@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "mx.com.sharkit",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "monolith",
+    "baseName": "abastos",
+    "packageName": "mx.com.sharkit",
+    "packageFolder": "mx/com/sharkit",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWZhZjhmNzQ1MjNhODJkN2FmYzk0ZjcyZjcxNDkzOGJiNWI1ZWVkNTNlMWY3YjYzNmMxOWFjNDY0YTRhN2Y0NTA4MjdhMTJlNGM2ZDZlN2I1YjFiOWY5MjRiMWYwOGExYTY0NDUyZWJhNDg1OTFjOTZlZThiYjE1NjM4ZTE4NGU=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1592437773112,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es", "en"],
+    "blueprints": []
+  }
+}
